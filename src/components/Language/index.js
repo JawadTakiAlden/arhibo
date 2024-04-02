@@ -1,0 +1,31 @@
+import { MenuItem, Select, styled } from "@mui/material";
+import React from "react";
+import { useTranslation } from "react-i18next";
+
+  const LanguageSwitcherSelect = styled(Select)(({theme , fontcolor}) => ({
+    color : fontcolor,
+    borderRadius : '20px',
+    "& .MuiSvgIcon-root" : {
+        color : fontcolor
+    },
+  }));
+
+const LanguageSwitcher = ({fontcolor = "#fff"}) => {
+    const {t, i18n} = useTranslation()
+  return (
+    <LanguageSwitcherSelect 
+        color="success" 
+        fontcolor={fontcolor}
+        value={i18n.language}
+        onChange={(e) => {
+            document.dir = i18n.language === 'ar' ? 'ltr' : 'rtl'
+            i18n.changeLanguage(e.target.value)
+        }}
+    >
+      <MenuItem value="en">{t('LanguageSwitcher.english')}</MenuItem>
+      <MenuItem value="ar">{t('LanguageSwitcher.arabic')}</MenuItem>
+    </LanguageSwitcherSelect>
+  );
+};
+
+export default LanguageSwitcher;

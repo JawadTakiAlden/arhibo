@@ -1,0 +1,150 @@
+{
+    "LanguageSwitcher" : {
+        "english" : "English",
+        "arabic" : "Arabic" 
+    },
+    "Login" : {
+        "login" : "Login",
+        "owner" : "Admin Dashboard"
+    },
+    "LoginForm" : {
+        "email" : "Email",
+        "password" : "Password",
+        "login" : "Login"
+    },
+    "SidebarSection" : {
+        "header" : "Admin Tool"
+    },
+    "add_new" : "Add New",
+    "search" : "Search...",
+    "add" : "Add",
+    "edit" : "Edit",
+    "delete" : "Delete",
+    "dialog_delete" : "Yes , Delete it",
+    "dialog_cancel" : "No , Keep it",
+    "title" : "Title",
+    "description" : "Description",
+    "question" : "Question",
+    "answer" : "Answer",
+    "category" : "Category",
+    "name" : "Name",
+    "FileInput" : {
+        "drop" : "Drop files to attach, or",
+        "browse" : "Browse",
+        "suported_types" : "Supported File Types: jpg, jpeg, png | Max File Size: 20 MB"
+    },
+    "CategoryForms" : {
+        "name_ar_val" : "arabic name is required", 
+        "name_en_val" : "english name is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required", 
+        "image_val" : "image is required",
+        "name_ar" : "Arabic Name",
+        "name_en" : "English Name",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description"
+    },
+    "ShowCategory" : {
+        "delete_catgeory" : "Delete Catgeory",
+        "warning" : "You are going to delete “Save the date Category , Are you sure?"
+    },
+    "TemplateForms" : {
+        "title_ar_val" : "arabic title is required", 
+        "title_en_val" : "english title is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required",
+        "category_val" : "cateogry is required",
+        "image_val" : "image is required",
+        "title_ar" : "Arabic Title",
+        "title_en" : "English Title",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description",
+        "category" : "Catgeory"
+    },
+    "ShowTemplate" : {
+        "delete_template" : "Delete Template",
+        "delete_warning" : " You are going to delete “e3t6b22” Template , Are you sure?"
+    },
+    "ServiceForms" : {
+        "title_ar_val" : "arabic title is required", 
+        "title_en_val" : "english title is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required", 
+        "image_val" : "image is required",
+        "title_ar" : "Arabic Title",
+        "title_en" : "English Title",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description"
+    },
+    "ShowService" : {
+        "delete_service" : "Delete Service",
+        "delete_warning" : " You are going to delete “e3t6b22” Template , Are you sure?"
+    },
+    "TermForms" : {
+        "title_ar_val" : "arabic title is required", 
+        "title_en_val" : "english title is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required",
+        "title_ar" : "Arabic Title",
+        "title_en" : "English Title",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description"
+    },
+    "ShowTerm" : {
+        "delete_term" : "Delete Term",
+        "delete_warning" : " You are going to delete “e3t6b22” Term , Are you sure?"
+    },
+    "PolicyForms" : {
+        "title_ar_val" : "arabic title is required", 
+        "title_en_val" : "english title is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required",
+        "title_ar" : "Arabic Title",
+        "title_en" : "English Title",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description"
+    },
+    "ShowPolicy" : {
+        "delete_policy" : "Delete Term",
+        "delete_warning" : " You are going to delete “e3t6b22” Term , Are you sure?"
+    },
+    "FaqForms" : {
+        "question_ar_val" : "arabic question is required",
+        "question_en_val" : "english question is required",
+        "answer_ar_val" : "arabic answer is required",
+        "answer_en_val" : "english answer is required",
+        "question_ar" : "Arabic Question",
+        "question_en" : "English Question",
+        "answer_ar" : "Arabic Answer",
+        "answer_en" : "English Answer"
+    },
+    "ShowFaq" : {
+        "delete_faq" : "Delete FAQ",
+        "delete_warning" : " You are going to delete “e3t6b22” Faq , Are you sure?"
+    },
+    "AboutForms" : {
+        "title_ar_val" : "arabic title is required", 
+        "title_en_val" : "english title is required", 
+        "description_ar_val" : "arabic description is required", 
+        "description_en_val" : "english description is required",
+        "title_ar" : "Arabic Title",
+        "title_en" : "English Title",
+        "description_ar" : "Arabic Description",
+        "description_en" : "English Description"
+    },
+    "AllCoupons" : {
+        "coupon" : "Coupon",
+        "time_of_used" : "Time Of Used",
+        "offer" : "Offer",
+        "category" : "Category",
+        "package" : "Package",
+        "action" : "Action",
+        "DeleteButton" : {
+            "delete_coupon" : "Delete Coupon",
+            "delete_warning" : " You are going to delete “e3t6b22” Coupon , Are you sure?"
+        }
+    },
+    "CouponForms" : {
+        
+    }
+}
