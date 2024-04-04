@@ -1,22 +1,23 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSnackbar } from 'notistack';
+import React from 'react'
 import { request } from '../request';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const useDeleteCoupon = () => {
-    const queryClient = useQueryClient()
+const useDeleteSecondaryPackage = () => {
     const { enqueueSnackbar } = useSnackbar();
-    const deleteCouponRequest = (id) => {
+    const queryClient= useQueryClient()
+    const deleteSecondaryPackageRequest = (secondaryPackageID) => {
         return request({
-            url : `/coupons/${id}`,
+            url : `/additionalPackage/${secondaryPackageID}`,
             method : 'delete',
         })
     }
 
     const mutation = useMutation({
-        mutationFn : deleteCouponRequest,
-        mutationKey : [`delete-coupon`],
+        mutationFn : deleteSecondaryPackageRequest,
+        mutationKey : [`delete-secondary-package`],
         onSuccess : (data) => {
-            queryClient.refetchQueries([`get-coupons`])
+            queryClient.refetchQueries([`get-secondary-packages`])
             enqueueSnackbar(data?.data?.message , {variant : 'success'})
         },
         onError : (error) => {
@@ -29,4 +30,4 @@ const useDeleteCoupon = () => {
     return mutation
 }
 
-export default useDeleteCoupon
+export default useDeleteSecondaryPackage

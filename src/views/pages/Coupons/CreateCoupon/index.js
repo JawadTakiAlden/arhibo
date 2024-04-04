@@ -204,6 +204,7 @@ const CreateCoupon = () => {
                 color="darkBlue"
                 fullWidth
                 variant="contained"
+                loading={createCoupon.isPending}
                 type="submit"
                 startIcon={<DownloadOutlined fontSize="medium" />}
               >

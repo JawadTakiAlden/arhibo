@@ -1,23 +1,15 @@
 import { DeleteOutlined } from "@mui/icons-material";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  IconButton,
-} from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Fab, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import DialogTransition from "../../../../../components/DialogTransation";
-import useDeleteCoupon from "../../../../../api/Coupon/useDeleteCoupon";
+import DialogTransition from "../../../../components/DialogTransation";
 import { LoadingButton } from "@mui/lab";
+import useDeleteSecondaryPackage from "../../../../api/SecondaryPackages/useDeleteSecondaryPackage";
 
-const DeleteButton = ({ row }) => {
-  console.log(row)
+const DeleteButton = ({packageSecondaryId}) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const deleteCoupon = useDeleteCoupon();
+  const deletePackage = useDeleteSecondaryPackage()
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -27,14 +19,9 @@ const DeleteButton = ({ row }) => {
   };
   return (
     <>
-      <IconButton
-        sx={{ borderRadius: "8px" }}
-        variant="contained"
-        color="lighRed"
-        onClick={handleClickOpen}
-      >
+      <Fab onClick={handleClickOpen} color="error">
         <DeleteOutlined />
-      </IconButton>
+      </Fab>
       <Dialog
         open={open}
         TransitionComponent={DialogTransition}
@@ -71,11 +58,11 @@ const DeleteButton = ({ row }) => {
             {t("dialog_cancel")}
           </Button>
           <LoadingButton
-            loading={deleteCoupon.isPending}
+            loading={deletePackage.isPending}
             color="lighRed"
             variant="contained"
             onClick={async () => {
-              await deleteCoupon.mutateAsync(row.id);
+              await deletePackage.mutateAsync(packageSecondaryId);
               handleClose();
             }}
           >

@@ -16,19 +16,21 @@ import { DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
+import useUpdateCoupon from "../../../../api/Coupon/useUpdateCoupon";
 const ShowCoupon = () => {
   const { t } = useTranslation();
   const [packageOpen, setPackageOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const packages = useGetPackages();
   const catgeories = useGetAllCategories();
+  const updateCoupon = useUpdateCoupon()
   const handelCreate = (values) => {
     values = {
       ...values,
       categories: values.categories.map((cat) => cat.id),
       packages: values.packages.map((cat) => cat.id),
     };
-    // createCoupon.mutate(values);
+    updateCoupon.mutate(values);
   };
   return (
     <Box
@@ -121,9 +123,10 @@ const ShowCoupon = () => {
                     setPackageOpen(false);
                   }}
                   isOptionEqualToValue={(option, value) =>
-                    option.title === value.title
+                    option.id === value.id
                   }
                   multiple
+                  disableCloseOnSelect
                   getOptionLabel={(option) => option.name}
                   options={packages?.data?.data || []}
                   loading={packages.isLoading}
@@ -166,6 +169,7 @@ const ShowCoupon = () => {
                     option.title === value.title
                   }
                   multiple
+                  disableCloseOnSelect
                   getOptionLabel={(option) => option.name}
                   options={catgeories?.data?.data || []}
                   loading={catgeories.isLoading}
@@ -199,6 +203,7 @@ const ShowCoupon = () => {
                 color="darkBlue"
                 fullWidth
                 variant="contained"
+                loading={updateCoupon.isPending}
                 type="submit"
                 startIcon={<DownloadOutlined fontSize="medium" />}
               >

@@ -4,6 +4,7 @@ import {
   IconButton,
   InputAdornment,
   SvgIcon,
+  Typography,
   useTheme,
 } from "@mui/material";
 import React, { useMemo } from "react";
@@ -62,19 +63,19 @@ const data = [
 ];
 
 const AllCoupons = () => {
-  const { t } = useTranslation();
+  const { t , i18n} = useTranslation();
   const theme = useTheme();
   const coupons = useGetCoupon();
 
   const columns = useMemo(
     () => [
       {
-        accessorKey: "coupon",
+        accessorKey: "coupon_code",
         header: t("AllCoupons.coupon"),
         size: 150,
       },
       {
-        accessorKey: "time_of_used",
+        accessorKey: "number_of_used",
         header: t("AllCoupons.time_of_used"),
         size: 150,
       },
@@ -84,14 +85,53 @@ const AllCoupons = () => {
         size: 200,
       },
       {
-        accessorKey: "category",
+
         header: t("AllCoupons.category"),
         size: 150,
+        Cell: ({ row }) => {
+          return <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              flexWrap : 'wrap'
+            }}
+          >
+            {row.original?.categories?.map((cat) => {
+              return <Typography
+                sx={{
+                  borderRadius : '20px',
+                  backgroundColor : '#ccc',
+                  p : 0.5
+                }}
+              key={cat.id}>{i18n.language === 'ar' ? cat.name_ar : cat.name}</Typography>;
+            })}
+          </Box>;
+        },
       },
       {
-        accessorKey: "package",
         header: t("AllCoupons.package"),
         size: 150,
+        Cell: ({ row }) => {
+          return <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              flexWrap : 'wrap'
+            }}
+          >
+            {row.original?.packages?.map((pac) => {
+              return <Typography
+                sx={{
+                  borderRadius : '20px',
+                  backgroundColor : '#ccc',
+                  p : 0.5
+                }}
+              key={pac.id}>{pac.name}</Typography>;
+            })}
+          </Box>;
+        },
       },
       {
         accessorKey: "action",
@@ -147,7 +187,7 @@ const AllCoupons = () => {
 
   const table = useMaterialReactTable({
     columns,
-    data : coupons?.data?.data || [],
+    data: coupons?.data?.data || [],
     enableBottomToolbar: false,
     enableTopToolbar: false,
     enableSorting: false,
@@ -155,7 +195,7 @@ const AllCoupons = () => {
     enableFilters: false,
     state: {
       density: "compact",
-      isLoading : coupons.isLoading
+      isLoading: coupons.isLoading,
     },
     muiTableHeadRowProps: {
       sx: {

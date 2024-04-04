@@ -34,6 +34,7 @@ const PackagesList = Loadable(lazy(() => import("../views/pages/Packages")))
 const CreatePackage = Loadable(lazy(() => import("../views/pages/Packages/CreatePackage")))
 const ShowPackage = Loadable(lazy(() => import("../views/pages/Packages/ShowPackage")))
 const PackageDetail = Loadable(lazy(() => import("../views/pages/Packages/PackageDetail")))
+const SecondaryPackages = Loadable(lazy(() => import("../views/pages/SecondaryPackages")))
 
 export const dashboardRoutes = {
     path : 'dashboard',
@@ -74,6 +75,15 @@ export const dashboardRoutes = {
                             element : <PackageDetail />
                         },
                     ],
+                }
+            ]
+        },
+        {
+            path : 'secondaryPackages',
+            children : [
+                {
+                    path : '',
+                    element : <SecondaryPackages />
                 }
             ]
         },
