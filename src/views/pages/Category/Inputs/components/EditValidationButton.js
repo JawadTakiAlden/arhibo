@@ -125,10 +125,11 @@ const EditValidationButton = ({row}) => {
                 name: yup
                 .string()
                 .max(255)
-                .required("regex_code is required"),
+                .required("name is required"),
             })}
             onSubmit={async (values) => {
                 await updateValidation.mutateAsync({data : values , validationID : row.id})
+                handleClose()
             }}
           >
             {({

@@ -17,12 +17,14 @@ import { useTranslation } from "react-i18next";
 import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useUpdateCoupon from "../../../../api/Coupon/useUpdateCoupon";
+import useShowCoupon from "../../../../api/Coupon/useShowCoupon";
 const ShowCoupon = () => {
   const { t } = useTranslation();
   const [packageOpen, setPackageOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const packages = useGetPackages();
   const catgeories = useGetAllCategories();
+  const couponInfo = useShowCoupon()
   const updateCoupon = useUpdateCoupon()
   const handelCreate = (values) => {
     values = {
@@ -32,6 +34,12 @@ const ShowCoupon = () => {
     };
     updateCoupon.mutate(values);
   };
+
+  if(couponInfo.isLoading){
+    return "loading ..."
+  }
+
+  console.log(couponInfo?.data?.data)
   return (
     <Box
       sx={{
@@ -68,10 +76,10 @@ const ShowCoupon = () => {
               .required(t("CouponForms.description_en_val")),
           })}
           initialValues={{
-            coupon_code: "",
-            offer: "",
-            categories: [],
-            packages: [],
+            coupon_code: couponInfo?.data?.data?.coupon_code,
+            offer: couponInfo?.data?.data?.offer,
+            categories: couponInfo?.data?.data?.categories,
+            packages: couponInfo?.data?.data?.packages,
           }}
         >
           {({
@@ -128,6 +136,7 @@ const ShowCoupon = () => {
                   multiple
                   disableCloseOnSelect
                   getOptionLabel={(option) => option.name}
+                  defaultValue={values.packages}
                   options={packages?.data?.data || []}
                   loading={packages.isLoading}
                   onChange={(e, v) => {
@@ -166,8 +175,9 @@ const ShowCoupon = () => {
                     setCategoryOpen(false);
                   }}
                   isOptionEqualToValue={(option, value) =>
-                    option.title === value.title
+                    option.id === value.id
                   }
+                  defaultValue={values.categories}
                   multiple
                   disableCloseOnSelect
                   getOptionLabel={(option) => option.name}

@@ -8,7 +8,7 @@ const useUpdateTemplate = () => {
   const { templateID } = useParams();
   const updateTemplateRequest = (data) => {
     return request({
-      url: `/template/${templateID}`,
+      url: `/templates/${templateID}`,
       method: "post",
       headers: {
         "Content-Type": "multipart/form-data",

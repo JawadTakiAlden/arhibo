@@ -9,10 +9,10 @@ const useUpdateInput = () => {
     const queryClient = useQueryClient()
     const { enqueueSnackbar } = useSnackbar();
 
-    const updateInputRequest = (inputID , data) => {
+    const updateInputRequest = ({id , data}) => {
         return request({
-            url : `/inputs/${inputID}`,
-            method : 'post',
+            url : `/inputs/${id}`,
+            method : 'patch',
             data
         })
     }

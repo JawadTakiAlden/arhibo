@@ -109,6 +109,7 @@ const ShowPackage = () => {
                 <OutlinedInput
                   label={t("CategoryForms.description_ar")}
                   name="description_ar"
+                  inputComponent={'textarea'}
                   value={values.description_ar}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -123,6 +124,7 @@ const ShowPackage = () => {
                 <OutlinedInput
                   label={t("CategoryForms.description_en")}
                   name="description"
+                  inputComponent={'textarea'}
                   value={values.description}
                   onChange={handleChange}
                   onBlur={handleBlur}

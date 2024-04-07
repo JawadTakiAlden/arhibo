@@ -10,7 +10,7 @@ const useUpdateTerm = () => {
     const updateTermRequest = (data) => {
         return request({
             url : `/terms/${termID}`,
-            method : 'post',
+            method : 'patch',
             data
         })
     }

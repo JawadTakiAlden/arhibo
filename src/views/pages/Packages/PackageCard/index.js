@@ -25,8 +25,7 @@ const PackageCard = ({ packageInfo }) => {
   useEffect(() => {
     const description = packageInfo.description;
     const descriptionSliced = description
-      .split(".")
-      .map((ele) => ele.replace("\n", ""));
+      .split("\n").filter(ele => ele)
     setDescription(descriptionSliced);
   }, [packageInfo]);
   console.log(packageInfo);

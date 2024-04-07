@@ -13,12 +13,18 @@ import { EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import DeleteButton from "./components/DeleteButton";
 import useUpdatePloicy from "../../../../api/Policy/useUpdatePolicy";
+import useShowPolicy from "../../../../api/Policy/useShowPolicy";
 const ShowPolicy = () => {
   const { t } = useTranslation();
   const udatePolicy = useUpdatePloicy();
+  const policyInfo = useShowPolicy()
   const handelCreate = (values) => {
     udatePolicy.mutate(values);
   };
+
+  if(policyInfo.isLoading){
+    return "loading ..."
+  }
   return (
     <Box
       sx={{
@@ -54,10 +60,10 @@ const ShowPolicy = () => {
               .required(t("PolicyForms.description_en_val")),
           })}
           initialValues={{
-            title_ar: "",
-            title: "",
-            body_ar: "",
-            body: "",
+            title_ar: policyInfo?.data?.data?.title_ar,
+            title: policyInfo?.data?.data?.title,
+            body_ar: policyInfo?.data?.data?.body_ar,
+            body: policyInfo?.data?.data?.body,
           }}
         >
           {({

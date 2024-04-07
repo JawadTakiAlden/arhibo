@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const client = new QueryClient();
 root.render(
   <BrowserRouter>
-    <SnackbarProvider>
+    <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
       <QueryClientProvider client={client}>
         <Provider store={store}>
           <App />

@@ -14,13 +14,20 @@ import { EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import DeleteButton from "./components/DeleteButton";
 import useUpdateService from "../../../../api/Services/useUpdateService";
+import useShowService from "../../../../api/Services/useShowService";
+
 
 const ShowService = () => {
   const { t } = useTranslation();
   const updateService = useUpdateService()
+  const serviceInfo = useShowService()
   const handelCreate = (values) => {
     updateService.mutate(values)
   };
+
+  if(serviceInfo.isLoading){
+    return "loading ..."
+  }
   return (
     <Box
       sx={{
@@ -57,11 +64,10 @@ const ShowService = () => {
             image: yup.mixed().required(t("ServiceForms.image_val")),
           })}
           initialValues={{
-            title_ar: "",
-            title: "",
-            body_ar: "",
-            body: "",
-            image: "",
+            title_ar: serviceInfo?.data?.data?.title_ar,
+            title: serviceInfo?.data?.data?.title,
+            body_ar: serviceInfo?.data?.data?.body_ar,
+            body: serviceInfo?.data?.data?.body,
           }}
         >
           {({

@@ -9,7 +9,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import Search from "../../../components/Search";
 import CategoryCradImage from "../../../assets/images/category-card.png";
@@ -17,13 +17,24 @@ import ColoredWord from "../../../components/ColoredWord";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useGetTemplates from "../../../api/Template/useGetTemplates";
+import useDebounce from "../../../utils/useDebounce";
+import TemproryLoader from "../../../components/TemproryLoader";
 
 
 const AllTemplate = () => {
-  const theme = useTheme()
-  const templates = useGetTemplates()
+  const theme = useTheme()  
+  const [search , setSearch] = useState('')
+  const templates = useGetTemplates(search)
   const {t , i18n} = useTranslation()
 
+
+  const handelRefetchOnSearch = useDebounce(() => {
+    templates.refetch();
+  }, 500);
+
+  useEffect(() => {
+    handelRefetchOnSearch()
+  } , [search])
 
   if(templates.isLoading){
     return "loading ..."
@@ -32,6 +43,7 @@ const AllTemplate = () => {
   console.log(templates?.data?.data)
   return (
     <Box>
+      <TemproryLoader loading={templates.isRefetching} />
       <Box
         sx={{
           display: "flex",
@@ -48,6 +60,10 @@ const AllTemplate = () => {
         <Search
           placeholder={t('search')}
           color="success"
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+          value={search}
           endAdornment={
             <InputAdornment position="end">
               <SearchOutlined />

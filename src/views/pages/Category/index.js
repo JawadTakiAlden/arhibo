@@ -7,19 +7,36 @@ import {
   InputAdornment,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import Search from "../../../components/Search";
 import ColoredWord from "../../../components/ColoredWord";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useGetAllCategories from "../../../api/Category/useGetAllCategories";
+import useDebounce from "../../../utils/useDebounce";
+import TemproryLoader from "../../../components/TemproryLoader";
 
 const AllCatgeory = () => {
   const { t, i18n } = useTranslation();
-  const catgeoire = useGetAllCategories();
+  const [search , setSearch] = useState('')
+  const catgeoire = useGetAllCategories(search);
+
+  const handelRefetchOnSearch = useDebounce(() => {
+    catgeoire.refetch();
+  }, 500);
+
+  useEffect(() => {
+    handelRefetchOnSearch()
+  } , [search])
+
+  if(catgeoire.isLoading){
+    return "loading ..."
+  }
+
   return (
     <Box>
+      <TemproryLoader loading={catgeoire.isRefetching} />
       <Box
         sx={{
           display: "flex",
@@ -41,6 +58,10 @@ const AllCatgeory = () => {
         <Search
           placeholder={t("add_new")}
           color="success"
+          onChange={(e) => {
+            setSearch(e.target.value)
+          }}
+          value={search}
           endAdornment={
             <InputAdornment position="end">
               <SearchOutlined />

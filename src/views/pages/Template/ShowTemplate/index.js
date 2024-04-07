@@ -5,10 +5,12 @@ import {
   FormControl,
   FormHelperText,
   InputLabel,
+  MenuItem,
   OutlinedInput,
+  Select,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -22,27 +24,33 @@ import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useGetFiltersOfCategory from "../../../../api/Category/useGetFiltersOfCategory";
 import useUpdateTemplate from "../../../../api/Template/useUpdateTemplate";
 import DeleteButton from "./components/DeleteButton";
+import useGetCatgeoryWithFilters from "../../../../api/Category/useGetCatgeoryWithFilters";
+import useGetAllFilters from "../../../../api/Filters/useGetAllFilters";
 
 const ShowTemplate = () => {
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [categoryId , setCategoryID] = useState(null)
+ 
   const { t } = useTranslation();
 
   const template = useShowTemplate();
   const updateTemplate = useUpdateTemplate();
   const handelUpdate = (values) => {
+    values = {
+      ...values,
+      category_id : values.category_id.id,
+      filter_id : values.filter_id.id
+    }
     updateTemplate.mutate(values);
   };
 
   const categories = useGetAllCategories();
-  const filters = useGetFiltersOfCategory(categoryId);
+  const filters = useGetAllFilters();
 
   if (template.isLoading) {
     return "loading ...";
   }
 
-  console.log(template?.data?.data);
 
   return (
     <Box
@@ -64,10 +72,9 @@ const ShowTemplate = () => {
             title: template?.data?.data?.title,
             description_ar: template?.data?.data?.description_ar,
             description: template?.data?.data?.description,
-            category_id: template?.data?.data?.category_id,
-            filter_id: "",
+            category_id: template?.data?.data?.category,
+            filter_id: template?.data?.data?.filters[0],
             emoji: template?.data?.data?.emoji,
-            image: "",
           }}
           validationSchema={yup.object({
             title_ar: yup
@@ -87,7 +94,6 @@ const ShowTemplate = () => {
               .max(255)
               .required(t("TemplateForms.description_en_val")),
             category_id: yup.mixed().required(t("TemplateForms.category_val")),
-            image: yup.mixed().required(t("TemplateForms.image_val")),
             filter_id: yup.mixed().required(t("TemplateForms.category_val")),
             emoji: yup.string().required("emoje is required"),
           })}
@@ -122,11 +128,8 @@ const ShowTemplate = () => {
                   }
                   onChange={(e, nv) => {
                     setFieldValue("category_id", nv);
-                    setCategoryID(nv.id)
                   }}
-                  defaultValue={categories?.data?.data?.filter(
-                    (obj) => obj.id === values.id
-                  )}
+                  defaultValue={values.category_id}
                   getOptionLabel={(option) => option.name}
                   options={categories?.data?.data || []}
                   loading={categories.isLoading}
@@ -168,6 +171,7 @@ const ShowTemplate = () => {
                   getOptionLabel={(option) => option.name}
                   options={filters?.data?.data || []}
                   loading={filters.isLoading}
+                  defaultValue={values.filter_id}
                   fullWidth
                   renderInput={(params) => (
                     <TextField

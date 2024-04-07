@@ -4,10 +4,13 @@ import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next';
 import DeleteButton from './components/DeleteButton';
 import AddButton from './components/AddButton';
+import useGetPackageDetaisl from '../../../../api/Packages/useGetPackageDetaisl';
+import EditButton from './components/EditButton';
 
 const PackageDetail = () => {
     const { t , i18n } = useTranslation();
     const theme = useTheme();
+    const packageDetails = useGetPackageDetaisl()
     const columns = useMemo(
       () => [
         {
@@ -36,7 +39,7 @@ const PackageDetail = () => {
                   gap: "10px",
                 }}
               >
-                {/* <EditButton row={row.original} /> */}
+                <EditButton row={row.original} />
                 <DeleteButton row={row.original} />
               </Box>
             );
@@ -48,8 +51,7 @@ const PackageDetail = () => {
     );
     const table = useMaterialReactTable({
       columns,
-    //   data : inputsInfo?.data?.data || [],
-    data : [],
+      data : packageDetails?.data?.data || [],
       enableBottomToolbar: false,
       enableTopToolbar: false,
       enableSorting: false,
@@ -57,7 +59,7 @@ const PackageDetail = () => {
       enableFilters: false,
       state: {
         density: "compact",
-        // isLoading : inputsInfo.isLoading
+        isLoading : packageDetails.isLoading
       },
       muiTableHeadRowProps: {
         sx: {

@@ -133,8 +133,9 @@ const EditButton = ({row}) => {
                 .max(255)
                 .required("arabic placeholder is required"),
             })}
-            onSubmit={(values) => {
-                //code here
+            onSubmit={async(values) => {
+                await updateInput.mutateAsync({id : row.id , data : values})
+                handleClose()
             }}
           >
             {({
@@ -207,14 +208,6 @@ const EditButton = ({row}) => {
             )}
           </Formik>
         </DialogContent>
-        {/* <DialogActions>
-          <Button color="grey" variant="contained" onClick={handleClose}>
-            {t("dialog_cancel")}
-          </Button>
-          <Button color="lighRed" variant="contained" onClick={handleClose}>
-            {t("dialog_delete")}
-          </Button>
-        </DialogActions> */}
       </Dialog>
     </>
   );

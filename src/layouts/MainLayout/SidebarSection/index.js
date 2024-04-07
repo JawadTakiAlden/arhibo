@@ -6,7 +6,6 @@ import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
 import { drawerWidth } from "../../../constants";
-import DrawerHeader from "../Drawer/DrawerHeader";
 import { Box, Typography, useTheme } from "@mui/material";
 import { menuitems } from "../../../menu-items";
 import { Link, useLocation } from "react-router-dom";
@@ -33,34 +32,29 @@ const SidebarSection = ({ open }) => {
       anchor="left"
       open={open}
     >
-      {/* <DrawerHeader
+      <Box
         sx={{
-          mb: 2,
+          minWidth: "88px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "5px",
+          flexDirection: "column",
+          py: 2,
         }}
-        padding={theme.spacing(1, 1)}
-      > */}
-        <Box sx={{
-          minWidth : '88px',
-          display : 'flex',
-          alignItems : 'center',
-          justifyContent : 'center',
-          gap : '5px',
-          flexDirection : 'column',
-          py : 2
-        }}>
-          <Logo />
-        </Box>
-        <Typography
-          sx={{
-            color: "#fff",
-            mt: 2,
-            textAlign : 'center'
-          }}
-          variant="h3"
-        >
-          {t("SidebarSection.header")}
-        </Typography>
-      {/* </DrawerHeader> */}
+      >
+        <Logo />
+      </Box>
+      <Typography
+        sx={{
+          color: "#fff",
+          mt: 2,
+          textAlign: "center",
+        }}
+        variant="h3"
+      >
+        {t("SidebarSection.header")}
+      </Typography>
       <List>
         {menuitems.map(({ id, name, path, icon }) => (
           <ListItem

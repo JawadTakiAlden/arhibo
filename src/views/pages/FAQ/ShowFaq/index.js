@@ -13,12 +13,18 @@ import { EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import DeleteButton from "./components/DeleteButton";
 import useUpdateFaq from "../../../../api/FAQ/useUpdateFaq";
+import useShowFaq from "../../../../api/FAQ/useShowFaq";
 const ShowFaq = () => {
   const { t } = useTranslation();
   const updateFaq = useUpdateFaq();
+  const faqInfo = useShowFaq()
   const handelCreate = (values) => {
     updateFaq.mutate(values);
   };
+
+  if(faqInfo.isLoading){
+    return "loading ..."
+  }
   return (
     <Box
       sx={{
@@ -51,10 +57,10 @@ const ShowFaq = () => {
             answer: yup.string().max(255).required(t("FaqForms.answer_en_val")),
           })}
           initialValues={{
-            question_ar: "",
-            question: "",
-            answer_ar: "",
-            answer: "",
+            question_ar: faqInfo?.data?.data?.question_ar,
+            question: faqInfo?.data?.data?.question,
+            answer_ar: faqInfo?.data?.data?.answer_ar,
+            answer: faqInfo?.data?.data?.answer,
           }}
         >
           {({

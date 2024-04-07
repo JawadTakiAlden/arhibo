@@ -13,12 +13,18 @@ import { EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import DeleteButton from "./components/DeleteButton";
 import useUpdateTerm from "../../../../api/Terms/useUpdateTerm";
+import useShowTerm from "../../../../api/Terms/useShowTerm";
 const ShowTerm = () => {
   const { t } = useTranslation();
   const updateTerm = useUpdateTerm();
+  const termInfo = useShowTerm()
   const handelCreate = (values) => {
     updateTerm.mutate(values);
   };
+
+  if(termInfo.isLoading){
+    return "loading ..."
+  }
   return (
     <Box
       sx={{
@@ -51,10 +57,10 @@ const ShowTerm = () => {
               .required(t("TermForms.description_en_val")),
           })}
           initialValues={{
-            title_ar: "",
-            title: "",
-            body: "",
-            body_ar: "",
+            title_ar: termInfo?.data?.data?.title_ar,
+            title: termInfo?.data?.data?.title,
+            body: termInfo?.data?.data?.body,
+            body_ar: termInfo?.data?.data?.body_ar,
           }}
         >
           {({

@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 const useGetAllCategories = (search = null) => {
     const getAllCategories = useCallback(() => {
         return request({
-            url : `/searchCategories${search ? `?search=${search}` : ''}`
+            url : `/searchCategories${search ? `?search=${search}&` : ''}`
         })
     })
 

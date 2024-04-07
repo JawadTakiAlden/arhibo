@@ -11,7 +11,7 @@ const useUpdateValidation = () => {
   const updateValidationRequest = ({validationID , data}) => {
     return request({
       url: `/validates/${validationID}`,
-      method: "post",
+      method: "patch",
       data,
     });
   };

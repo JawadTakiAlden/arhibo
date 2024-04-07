@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 const useGetTemplates = (search = null) => {
     const getAllTemplatesRequest = () => {
         return request({
-          url: `/searchTemplate${search ? `search=${search}` : ''}`,
+          url: `/searchTemplate${search ? `?search=${search}&` : ''}`,
         });
       };
     

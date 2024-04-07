@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   FormControl,
   FormHelperText,
   InputLabel,
@@ -13,19 +14,19 @@ import { DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useShowAbout from "../../../../api/About/useShowAbout";
 import useUpdateAbout from "../../../../api/About/useUpdateAbout";
+import DeleteButton from "./components/DeleteButton";
 
 const ShowAbout = () => {
   const { t } = useTranslation();
-  const about = useShowAbout()
-  const upadteAbout = useUpdateAbout()
+  const about = useShowAbout();
+  const upadteAbout = useUpdateAbout();
   const handelCreate = (values) => {
     upadteAbout.mutate(values);
   };
 
-  if(about.isLoading){
-      return "loading ..."
+  if (about.isLoading) {
+    return "loading ...";
   }
-
 
   return (
     <Box
@@ -130,16 +131,29 @@ const ShowAbout = () => {
                   <FormHelperText error>{errors.body}</FormHelperText>
                 )}
               </FormControl>
-              <LoadingButton
-                color="darkBlue"
-                fullWidth
-                variant="contained"
-                type="submit"
-                loading={upadteAbout.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "20px",
+                  mb: 1,
+                }}
               >
-                {t("edit")}
-              </LoadingButton>
+                <LoadingButton
+                  color="darkBlue"
+                  fullWidth
+                  variant="contained"
+                  type="submit"
+                  loading={upadteAbout.isPending}
+                  sx={{
+                    flexBasis: "50%",
+                  }}
+                  startIcon={<DownloadOutlined fontSize="medium" />}
+                >
+                  {t("edit")}
+                </LoadingButton>
+                <DeleteButton />
+              </Box>
             </form>
           )}
         </Formik>

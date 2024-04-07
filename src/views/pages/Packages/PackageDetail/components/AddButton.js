@@ -18,12 +18,13 @@ import { Add } from "@mui/icons-material";
 import { useParams } from "react-router";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import useCreateFilter from "../../../../../api/Category/useCreateFilter";
+import useCreatePackageDetail from "../../../../../api/Packages/useCreatePackageDetail";
+
 const AddButton = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const createFilter = useCreateFilter();
-  const { catgeoryID } = useParams();
+  const { packageID } = useParams();
+  const createDetail = useCreatePackageDetail()
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -72,17 +73,22 @@ const AddButton = () => {
             initialValues={{
               price: "",
               price_qr: "",
-              package_id: +catgeoryID,
+              number_of_invitees: "",
+              package_id: +packageID,
             }}
             validationSchema={yup.object({
-              name: yup.string().max(255).required("filter name is required"),
-              name_ar: yup
-                .string()
-                .max(255)
-                .required("arabic filter name is required"),
+              price: yup.number().min(0).required("price is required"),
+              price_qr: yup
+                .number()
+                .min(0)
+                .required("price with qr code is required"),
+              number_of_invitees: yup
+                .number()
+                .min(1)
+                .required("number of people  is required"),
             })}
             onSubmit={async (values) => {
-              await createFilter.mutateAsync(values);
+              await createDetail.mutateAsync(values);
               handleClose();
             }}
           >
@@ -96,35 +102,56 @@ const AddButton = () => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Filter Name</InputLabel>
+                  <InputLabel>Price</InputLabel>
                   <OutlinedInput
-                    label="English Filter Name"
-                    name="name"
-                    value={values.name}
+                    label="Price"
+                    type="number"
+                    name="price"
+                    value={values.price}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={errors.name && touched.name}
+                    error={errors.price && touched.price}
                   />
-                  {errors.name && touched.name && (
-                    <FormHelperText error>{errors.name}</FormHelperText>
+                  {errors.price && touched.price && (
+                    <FormHelperText error>{errors.price}</FormHelperText>
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Filter Name</InputLabel>
+                  <InputLabel>Price With QR</InputLabel>
                   <OutlinedInput
-                    label="Arabic Filter Name"
-                    name="name_ar"
-                    value={values.name_ar}
+                    label="Price With QR"
+                    type="number"
+                    name="price_qr"
+                    value={values.price_qr}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={errors.name_ar && touched.name_ar}
+                    error={errors.price_qr && touched.price_qr}
                   />
-                  {errors.name_ar && touched.name_ar && (
-                    <FormHelperText error>{errors.name_ar}</FormHelperText>
+                  {errors.price_qr && touched.price_qr && (
+                    <FormHelperText error>{errors.price_qr}</FormHelperText>
+                  )}
+                </FormControl>
+                <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                  <InputLabel>Number Of people</InputLabel>
+                  <OutlinedInput
+                    type="number"
+                    label="Number Of people"
+                    name="number_of_invitees"
+                    value={values.number_of_invitees}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      errors.number_of_invitees && touched.number_of_invitees
+                    }
+                  />
+                  {errors.number_of_invitees && touched.number_of_invitees && (
+                    <FormHelperText error>
+                      {errors.number_of_invitees}
+                    </FormHelperText>
                   )}
                 </FormControl>
                 <LoadingButton
-                  loading={createFilter.isPending}
+                  loading={createDetail.isPending}
                   type="submit"
                   fullWidth
                   variant="contained"

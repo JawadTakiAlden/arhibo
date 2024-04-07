@@ -93,6 +93,7 @@ const CreatePackage = () => {
                     value={values.description_ar}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    inputComponent={'textarea'}
                     error={errors.description_ar && touched.description_ar}
                 />
                 {
@@ -107,6 +108,7 @@ const CreatePackage = () => {
                     label={t('CategoryForms.description_en')}
                     name="description"
                     value={values.description}
+                    inputComponent={'textarea'}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.description && touched.description}
