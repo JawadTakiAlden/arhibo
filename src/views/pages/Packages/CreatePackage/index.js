@@ -32,8 +32,8 @@ const CreatePackage = () => {
         validationSchema={yup.object({
             name_ar : yup.string().max(255).required(t('CategoryForms.name_ar_val')),
             name : yup.string().max(255).required(t('CategoryForms.name_en_val')),
-            description_ar: yup.string().max(255).required(t('CategoryForms.description_ar_val')),
-            description: yup.string().max(255).required(t('CategoryForms.description_en_val')),
+            description_ar: yup.string().required(t('CategoryForms.description_ar_val')),
+            description: yup.string().required(t('CategoryForms.description_en_val')),
         })}
           initialValues={{
             name_ar : "",

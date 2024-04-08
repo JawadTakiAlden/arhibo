@@ -106,6 +106,7 @@ const ShowTerm = () => {
                   label={t("TermForms.description_ar")}
                   name="body_ar"
                   value={values.body_ar}
+                  inputComponent={'textarea'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   error={errors.body_ar && touched.body_ar}
@@ -120,6 +121,7 @@ const ShowTerm = () => {
                   label={t("TermForms.description_en")}
                   name="body"
                   value={values.body}
+                  inputComponent={'textarea'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   error={errors.body && touched.body}

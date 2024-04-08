@@ -109,6 +109,7 @@ const ShowPolicy = () => {
                   label={t("PolicyForms.description_ar")}
                   name="body_ar"
                   value={values.body_ar}
+                  inputComponent={'textarea'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   error={errors.body_ar && touched.body_ar}
@@ -124,6 +125,7 @@ const ShowPolicy = () => {
                   name="body"
                   value={values.body}
                   onChange={handleChange}
+                  inputComponent={'textarea'}
                   onBlur={handleBlur}
                   error={errors.body && touched.body}
                 />

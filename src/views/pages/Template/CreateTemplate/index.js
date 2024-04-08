@@ -1,28 +1,22 @@
 import {
   Autocomplete,
   Box,
-  Button,
   CircularProgress,
   FormControl,
   FormHelperText,
   InputLabel,
-  MenuItem,
   OutlinedInput,
-  Select,
   TextField,
-  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import FileInput from "../../../../components/FileInput";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
 import { DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import SelectIcon from "../../../../components/SelectIcon";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useGetFiltersOfCategory from "../../../../api/Category/useGetFiltersOfCategory";
-// import EmojiPicker from "emoji-picker-react";
 import useCreateTemplate from "../../../../api/Template/useCreateTemplate";
 
 const CreateTemplate = () => {
@@ -61,7 +55,7 @@ const CreateTemplate = () => {
       category_id: yup.mixed().required(t("TemplateForms.category_val")),
       image: yup.mixed().required(t("TemplateForms.image_val")),
       filter_id: yup.mixed().required(t("TemplateForms.category_val")),
-      emoji: yup.string().required('emoje is required'),
+      emoji: yup.string().nullable(),
     }),
 
     initialValues: {

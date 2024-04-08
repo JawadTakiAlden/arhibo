@@ -1,6 +1,6 @@
 import { Dashboard } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
-import { AboutAppIcon, CatgeoryIcon, ContactUsIcon, CouponIcon, FaqIcon, PackageIcon, PolicyIcon, ProhibitedIcon, ServiceIcon, TemplateIcon, TermIcon } from "../assets/iconsExporter";
+import { AboutAppIcon, CatgeoryIcon, ContactUsIcon, CouponIcon, FaqIcon, OfferIcon, PackageIcon, PolicyIcon, ProhibitedIcon, ServiceIcon, TemplateIcon, TermIcon } from "../assets/iconsExporter";
 
 export const menuitems = [
   {
@@ -14,6 +14,12 @@ export const menuitems = [
     path: "/dashboard/categories",
     name: "Categories",
     icon: CatgeoryIcon
+  },
+  {
+    id: "offers",
+    path: "/dashboard/offers",
+    name: "Offer",
+    icon: OfferIcon
   },
   {
     id: "templates",

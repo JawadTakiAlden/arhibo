@@ -120,6 +120,7 @@ const ShowService = () => {
                   name="body_ar"
                   value={values.body_ar}
                   onChange={handleChange}
+                  inputComponent={'textarea'}
                   onBlur={handleBlur}
                   error={errors.body_ar && touched.body_ar}
                 />
@@ -135,6 +136,7 @@ const ShowService = () => {
                   value={values.body}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  inputComponent={'textarea'}
                   error={errors.body && touched.body}
                 />
                 {errors.body && touched.body && (
