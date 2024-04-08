@@ -1,8 +1,6 @@
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import Loadable from "../components/Loadable";
-import ClientSideAuthUser from "../middlewares/ClientSideAuthUser";
-import ServerSideAuthUser from "../middlewares/ServerSideAuthUser";
 const AllCatgeory = Loadable(lazy(() => import("../views/pages/Category")));
 const ShowCatgeory = Loadable(
   lazy(() => import("../views/pages/Category/ShowCatgeory"))
@@ -83,13 +81,7 @@ const Dashboard = Loadable(lazy(() => import("../views/Dashboard")));
 
 export const dashboardRoutes = {
   path: "dashboard",
-  element: (
-    <ClientSideAuthUser>
-      <ServerSideAuthUser>
-        <MainLayout />
-      </ServerSideAuthUser>
-    </ClientSideAuthUser>
-  ),
+  element: <MainLayout />,
   children: [
     {
       path: "",

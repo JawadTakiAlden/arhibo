@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import { request } from "../api/request";
 
@@ -13,13 +13,13 @@ const ServerSideAuthUser = async ({children}) => {
     },
   });
 
-  await testMutation.mutateAsync()
+  const response = await testMutation.mutateAsync()
 
-  if(testMutation.status === 401){
+  if(response.status === 401){
     navigate('/auth/login')
   }
 
-  return children
+  return <Outlet />
 };
 
 export default ServerSideAuthUser;
