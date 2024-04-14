@@ -1,22 +1,15 @@
 import { DeleteOutlined } from "@mui/icons-material";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  IconButton,
-} from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, IconButton } from "@mui/material";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import DialogTransition from "../../../../../components/DialogTransation";
-import useDeleteCoupon from "../../../../../api/Coupon/useDeleteCoupon";
+import DialogTransition from "../../../../components/DialogTransation";
 import { LoadingButton } from "@mui/lab";
+import useDeleteOffer from "../../../../api/Offer/useDeleteOffer";
 
-const DeleteButton = ({ row }) => {
+const DeleteButton = ({row}) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const deleteCoupon = useDeleteCoupon();
+  const deleteOffer = useDeleteOffer()
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -27,12 +20,21 @@ const DeleteButton = ({ row }) => {
   return (
     <>
       <IconButton
-        sx={{ borderRadius: "8px" }}
-        variant="contained"
-        color="lighRed"
+        color="error"
         onClick={handleClickOpen}
+        variant="contained"
+        sx={{
+          transition: "0.3s",
+          opacity: 0,
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50% , -50%)",
+          zIndex: 100,
+          fontSize: "35px",
+        }}
       >
-        <DeleteOutlined />
+        <DeleteOutlined fontSize="inherit" />
       </IconButton>
       <Dialog
         open={open}
@@ -70,11 +72,11 @@ const DeleteButton = ({ row }) => {
             {t("dialog_cancel")}
           </Button>
           <LoadingButton
-            loading={deleteCoupon.isPending}
+            loading={deleteOffer.isPending}
             color="lighRed"
             variant="contained"
             onClick={async () => {
-              await deleteCoupon.mutateAsync(row.id);
+              await deleteOffer.mutateAsync(row.id);
               handleClose();
             }}
           >

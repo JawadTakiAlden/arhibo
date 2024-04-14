@@ -80,19 +80,19 @@ const AddButton = () => {
             validationSchema={yup.object({
               input_name: yup
                 .string()
-                .max(255)
+                
                 .required("input name is required"),
               input_name_ar: yup
                 .string()
-                .max(255)
+                
                 .required("input name is required"),
               placeholder: yup
                 .string()
-                .max(255)
+                
                 .required("placeholder is required"),
               placeholder_ar: yup
                 .string()
-                .max(255)
+                
                 .required("arabic placeholder is required"),
             })}
             onSubmit={ async (values) => {

@@ -23,7 +23,6 @@ const AllPolicy = () => {
     return "loading";
   }
 
-  console.log(policies?.data?.data);
   return (
     <Box>
       <Box

@@ -25,12 +25,12 @@ const ContactUsForm = ({initialValues , handelClose}) => {
       <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-          phone : yup.string().max(255).required('phone is rqeuired'),
-          email : yup.string().max(255).required('email is required'),
-          facebook: yup.string().max(255).required('facebook is required'),
-          instagram: yup.string().max(255).required('instagram is required'),
-          whatsapp: yup.string().max(255).required('whatsapp is rqeuired'),
-          x: yup.string().max(255).required('x is required'),
+          phone : yup.string().required('phone is rqeuired'),
+          email : yup.string().required('email is required'),
+          facebook: yup.string().required('facebook is required'),
+          instagram: yup.string().required('instagram is required'),
+          whatsapp: yup.string().required('whatsapp is rqeuired'),
+          x: yup.string().required('x is required'),
         })}
           initialValues={{
             phone : initialValues?.phone,

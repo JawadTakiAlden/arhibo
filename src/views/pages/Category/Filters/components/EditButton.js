@@ -113,10 +113,10 @@ const EditButton = ({ row }) => {
               category_id: +catgeoryID,
             }}
             validationSchema={yup.object({
-              name: yup.string().max(255).required("filter name is required"),
+              name: yup.string().required("filter name is required"),
               name_ar: yup
                 .string()
-                .max(255)
+                
                 .required("arabic filter name is required"),
             })}
             onSubmit={async (values) => {

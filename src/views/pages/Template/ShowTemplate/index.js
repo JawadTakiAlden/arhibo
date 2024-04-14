@@ -79,19 +79,19 @@ const ShowTemplate = () => {
           validationSchema={yup.object({
             title_ar: yup
               .string()
-              .max(255)
+              
               .required(t("TemplateForms.title_ar_val")),
             title: yup
               .string()
-              .max(255)
+              
               .required(t("TemplateForms.title_en_val")),
             description_ar: yup
               .string()
-              .max(255)
+              
               .required(t("TemplateForms.description_ar_val")),
             description: yup
               .string()
-              .max(255)
+              
               .required(t("TemplateForms.description_en_val")),
             category_id: yup.mixed().required(t("TemplateForms.category_val")),
             filter_id: yup.mixed().required(t("TemplateForms.category_val")),

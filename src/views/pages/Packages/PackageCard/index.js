@@ -28,7 +28,6 @@ const PackageCard = ({ packageInfo }) => {
       .split("\n").filter(ele => ele)
     setDescription(descriptionSliced);
   }, [packageInfo]);
-  console.log(packageInfo);
   return (
     <Box
       sx={{

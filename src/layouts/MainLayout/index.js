@@ -12,6 +12,8 @@ import DrawerHeader from "./Drawer/DrawerHeader";
 import AppBar from "./Drawer/AppBar";
 import { Outlet } from "react-router";
 import LanguageSwitcher from "../../components/Language";
+import useGetOffers from "../../api/Offer/useGetOffers";
+import { CircularProgress } from "@mui/material";
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -35,55 +37,74 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const MainLayout = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const offers = useGetOffers();
+
+  if (offers.isLoading) {
+    return (
+      <Box
+        sx={{
+          width: "100wh",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent : 'center'
+        }}
+      >
+        <CircularProgress color="success" variant="indeterminate" />
+      </Box>
+    );
+  }
 
   const handleDrawerToggel = () => {
     setOpen((prev) => !prev);
   };
-  return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        sx={{
-          boxShadow: `1px 0px 10px -6px ${alpha(theme.palette.common.black, 0.4)}`,
-        }}
-        position="fixed"
-        open={open}
-      >
-        <Toolbar
+  if (offers.isSuccess) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar
           sx={{
-            backgroundColor: "#fff",
-            boxShadow: "none",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+            boxShadow: `1px 0px 10px -6px ${alpha(theme.palette.common.black, 0.4)}`,
           }}
+          position="fixed"
+          open={open}
         >
-          <Box
+          <Toolbar
             sx={{
+              backgroundColor: "#fff",
+              boxShadow: "none",
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            <IconButton
-              onClick={handleDrawerToggel}
-              edge="start"
-              color="success"
-              sx={{ mr: 2 }}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
-            <BreadcrumbNameMap />
-          </Box>
-          <LanguageSwitcher fontcolor={theme.palette.darkBlue.main} />
-        </Toolbar>
-      </AppBar>
-      <SidebarSection open={open} />
-      <Main open={open}>
-        <DrawerHeader />
-        <Outlet />
-      </Main>
-    </Box>
-  );
+              <IconButton
+                onClick={handleDrawerToggel}
+                edge="start"
+                color="success"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <BreadcrumbNameMap />
+            </Box>
+            <LanguageSwitcher fontcolor={theme.palette.darkBlue.main} />
+          </Toolbar>
+        </AppBar>
+        <SidebarSection open={open} />
+        <Main open={open}>
+          <DrawerHeader />
+          <Outlet />
+        </Main>
+      </Box>
+    );
+  }
 };
 
 export default MainLayout;

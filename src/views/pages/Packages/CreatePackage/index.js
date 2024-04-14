@@ -30,8 +30,8 @@ const CreatePackage = () => {
           <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-            name_ar : yup.string().max(255).required(t('CategoryForms.name_ar_val')),
-            name : yup.string().max(255).required(t('CategoryForms.name_en_val')),
+            name_ar : yup.string().required(t('CategoryForms.name_ar_val')),
+            name : yup.string().required(t('CategoryForms.name_en_val')),
             description_ar: yup.string().required(t('CategoryForms.description_ar_val')),
             description: yup.string().required(t('CategoryForms.description_en_val')),
         })}

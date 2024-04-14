@@ -86,7 +86,9 @@ export const dashboardRoutes = {
   children: [
     {
       path: "",
-      element: <Dashboard />,
+      element: (
+          <Dashboard />
+      ),
     },
     {
       path: "home",

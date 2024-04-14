@@ -42,15 +42,15 @@ const CreateTemplate = () => {
     handleSubmit,
   } = useFormik({
     validationSchema: yup.object({
-      title_ar: yup.string().max(255).required(t("TemplateForms.title_ar_val")),
-      title: yup.string().max(255).required(t("TemplateForms.title_en_val")),
+      title_ar: yup.string().required(t("TemplateForms.title_ar_val")),
+      title: yup.string().required(t("TemplateForms.title_en_val")),
       description_ar: yup
         .string()
-        .max(255)
+        
         .required(t("TemplateForms.description_ar_val")),
       description: yup
         .string()
-        .max(255)
+        
         .required(t("TemplateForms.description_en_val")),
       category_id: yup.mixed().required(t("TemplateForms.category_val")),
       image: yup.mixed().required(t("TemplateForms.image_val")),

@@ -5,7 +5,7 @@ import { request } from "../request";
 const useDeleteOffer = () => {
   const queryClient = useQueryClient();
   const { enqueueSnackbar } = useSnackbar();
-  const deleteOfferRequest = ({id}) => {
+  const deleteOfferRequest = (id) => {
     return request({
       url: `/offers/${id}`,
       method: "delete",

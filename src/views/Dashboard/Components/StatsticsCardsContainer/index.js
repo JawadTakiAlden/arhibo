@@ -119,19 +119,21 @@ const StatsticsCardsContainer = () => {
     return "loading ...";
   }
 
-  return (
-    <Grid container rowSpacing={3} columnSpacing={2}>
-      {statsiticsCards?.map((card) => (
-        <Grid key={card.id} item xs={12} sm={6} md={4} lg={3}>
-          <SttaistcCard
-            title={card.title}
-            icon={card.icon}
-            cardInfo={statistics?.data?.data?.[card.id]}
-          />
-        </Grid>
-      ))}
-    </Grid>
-  );
+  if (statistics.isSuccess) {
+    return (
+      <Grid container rowSpacing={3} columnSpacing={2}>
+        {statsiticsCards?.map((card) => (
+          <Grid key={card.id} item xs={12} sm={6} md={4} lg={3}>
+            <SttaistcCard
+              title={card.title}
+              icon={card.icon}
+              cardInfo={statistics?.data?.data?.[card.id]}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    );
+  }
 };
 
 export default StatsticsCardsContainer;

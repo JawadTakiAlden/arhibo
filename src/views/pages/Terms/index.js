@@ -23,7 +23,6 @@ const AllTerms = () => {
     return "loading ...";
   }
 
-  console.log(terms?.data?.data);
 
   return (
     <Box>

@@ -24,7 +24,6 @@ const AllFaq = () => {
     return "loading"
   }
 
-  console.log(faqs?.data?.data)
   return (
     <Box>
       <Box

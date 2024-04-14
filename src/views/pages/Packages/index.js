@@ -11,7 +11,7 @@ const PackagesList = () => {
   if (packages.isLoading) {
     return "loading ...";
   }
-  console.log(packages?.data?.data);
+  
   return (
     <Box>
       <Box

@@ -31,10 +31,10 @@ const CreateFaq = () => {
         <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-            question_ar : yup.string().max(255).required(t('FaqForms.question_ar_val')),
-            question : yup.string().max(255).required(t('FaqForms.question_en_val')),
-            answer_ar: yup.string().max(255).required(t('FaqForms.answer_ar_val')),
-            answer: yup.string().max(255).required(t('FaqForms.answer_en_val')),
+            question_ar : yup.string().required(t('FaqForms.question_ar_val')),
+            question : yup.string().required(t('FaqForms.question_en_val')),
+            answer_ar: yup.string().required(t('FaqForms.answer_ar_val')),
+            answer: yup.string().required(t('FaqForms.answer_en_val')),
         })}
           initialValues={{
             question_ar : "",

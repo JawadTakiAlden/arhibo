@@ -100,10 +100,10 @@ const EditButton = ({ row }) => {
               name_ar: row.name_ar,
             }}
             validationSchema={yup.object({
-              name: yup.string().max(255).required("name is required"),
+              name: yup.string().required("name is required"),
               name_ar: yup
                 .string()
-                .max(255)
+                
                 .required("arabic name is required"),
             })}
             onSubmit={async (values) => {

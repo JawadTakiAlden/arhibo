@@ -40,7 +40,6 @@ const AllTemplate = () => {
     return "loading ..."
   }
 
-  console.log(templates?.data?.data)
   return (
     <Box>
       <TemproryLoader loading={templates.isRefetching} />

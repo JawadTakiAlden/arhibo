@@ -44,19 +44,19 @@ const ShowPolicy = () => {
           validationSchema={yup.object({
             title_ar: yup
               .string()
-              .max(255)
+              
               .required(t("PolicyForms.title_ar_val")),
               title: yup
               .string()
-              .max(255)
+              
               .required(t("PolicyForms.title_en_val")),
               body_ar: yup
               .string()
-              .max(255)
+              
               .required(t("PolicyForms.description_ar_val")),
               body: yup
               .string()
-              .max(255)
+              
               .required(t("PolicyForms.description_en_val")),
           })}
           initialValues={{

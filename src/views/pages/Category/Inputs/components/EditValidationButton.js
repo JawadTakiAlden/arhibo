@@ -116,15 +116,15 @@ const EditValidationButton = ({row}) => {
             validationSchema={yup.object({
                 message: yup
                 .string()
-                .max(255)
+                
                 .required("message is required"),
                 message_ar: yup
                 .string()
-                .max(255)
+                
                 .required("arabic message is required"),
                 name: yup
                 .string()
-                .max(255)
+                
                 .required("name is required"),
             })}
             onSubmit={async (values) => {

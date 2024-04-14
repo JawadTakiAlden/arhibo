@@ -39,7 +39,6 @@ const ShowCoupon = () => {
     return "loading ..."
   }
 
-  console.log(couponInfo?.data?.data)
   return (
     <Box
       sx={{
@@ -59,7 +58,7 @@ const ShowCoupon = () => {
           validationSchema={yup.object({
             coupon_code: yup
               .string()
-              .max(255)
+              
               .required(t("CouponForms.name_ar_val")),
             offer: yup
               .number()

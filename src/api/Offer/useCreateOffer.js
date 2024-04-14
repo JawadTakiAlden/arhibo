@@ -8,6 +8,9 @@ const useCreateOffer = () => {
         return request({
             url : `/offers`,
             method : 'post',
+            headers : {
+                "Content-Type" : "multipart/form-data"
+            },
             data
         })
     }

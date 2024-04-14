@@ -44,16 +44,16 @@ const ShowTerm = () => {
           validationSchema={yup.object({
             title_ar: yup
               .string()
-              .max(255)
+              
               .required(t("TermForms.title_ar_val")),
-            title: yup.string().max(255).required(t("TermForms.title_en_val")),
+            title: yup.string().required(t("TermForms.title_en_val")),
             body_ar: yup
               .string()
-              .max(255)
+              
               .required(t("TermForms.description_ar_val")),
             body: yup
               .string()
-              .max(255)
+              
               .required(t("TermForms.description_en_val")),
           })}
           initialValues={{
