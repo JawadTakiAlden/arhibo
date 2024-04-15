@@ -11,7 +11,7 @@ import store from "./store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const client = new QueryClient();
 root.render(
-  <BrowserRouter>
+  <BrowserRouter >
     <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
       <QueryClientProvider client={client}>
         <Provider store={store}>

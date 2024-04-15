@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import Loadable from "../components/Loadable";
+import { Navigate } from "react-router";
 const AllCatgeory = Loadable(lazy(() => import("../views/pages/Category")));
 const ShowCatgeory = Loadable(
   lazy(() => import("../views/pages/Category/ShowCatgeory"))
