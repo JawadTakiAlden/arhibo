@@ -15,49 +15,9 @@ import {
   CouponIcon,
   TemplateIcon,
 } from "../../../../assets/iconsExporter";
+import { useTranslation } from "react-i18next";
 
-const statsiticsCards = [
-  {
-    id: "users",
-    title: "Number Of Accounts",
-    icon: <PeopleOutlined />,
-  },
-  {
-    id: "categories",
-    title: "Number Of Catgeories",
-    icon: CatgeoryIcon,
-  },
-  {
-    id: "templates",
-    title: "Number Of Templates",
-    icon: TemplateIcon,
-  },
-  {
-    id: "invitations",
-    title: "Number Of Events",
-    icon: <InsertInvitation />,
-  },
-  {
-    id: "invitees",
-    title: "Number of invitations issued",
-    icon: <PeopleOutlined />,
-  },
-  {
-    id: "number_of_coupons",
-    title: "Number Of Coupons",
-    icon: CouponIcon,
-  },
-  {
-    id: "number_of_in_used_coupons",
-    title: "Number of coupons used",
-    icon: CouponIcon,
-  },
-  {
-    id: "number_of_people_invited_by_app",
-    title: "Number of people who received an invitation",
-    icon: <PeopleOutlined />,
-  },
-];
+
 
 const SttaistcCard = ({ cardInfo, title, icon }) => {
   const theme = useTheme();
@@ -114,6 +74,49 @@ const SttaistcCard = ({ cardInfo, title, icon }) => {
 
 const StatsticsCardsContainer = () => {
   const statistics = useGetStatistics();
+  const {t} = useTranslation()
+  const statsiticsCards = [
+    {
+      id: "users",
+      title: t('Home.number_of_accounts'),
+      icon: <PeopleOutlined />,
+    },
+    {
+      id: "categories",
+      title: t('Home.number_of_categories'),
+      icon: CatgeoryIcon,
+    },
+    {
+      id: "templates",
+      title: t('Home.number_of_template'),
+      icon: TemplateIcon,
+    },
+    {
+      id: "invitations",
+      title: t('Home.number_of_events'),
+      icon: <InsertInvitation />,
+    },
+    {
+      id: "invitees",
+      title: t('Home.number_of_invetation_issued'),
+      icon: <PeopleOutlined />,
+    },
+    {
+      id: "number_of_coupons",
+      title: t('Home.number_of_coupons'),
+      icon: CouponIcon,
+    },
+    {
+      id: "number_of_in_used_coupons",
+      title: t('Home.number_of_coupons_used'),
+      icon: CouponIcon,
+    },
+    {
+      id: "number_of_people_invited_by_app",
+      title: t('Home.number_of_people_who_recived_invation'),
+      icon: <PeopleOutlined />,
+    },
+  ];
 
   if (statistics.isLoading) {
     return "loading ...";

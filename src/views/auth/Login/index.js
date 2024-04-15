@@ -1,9 +1,8 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import LoginForm from "./LoginForm";
 import LoginImage from "../../../assets/images/login.png";
 import { useTranslation } from "react-i18next";
-import useGetOffers from "../../../api/Offer/useGetOffers";
 
 const Login = () => {
   const { t } = useTranslation();

@@ -209,7 +209,7 @@ const ShowCatgeory = () => {
 
                 }}
               >
-                show inputs
+                {t('ShowCategory.show_inputs')}
               </Button>
               <Button
                 component={Link}
@@ -218,7 +218,7 @@ const ShowCatgeory = () => {
                 variant="contained"
                 color="success"
               >
-                show Filters
+                {t('ShowCategory.show_filters')}
               </Button>
             </form>
           )}

@@ -42,11 +42,15 @@
         "name_ar" : "Arabic Name",
         "name_en" : "English Name",
         "description_ar" : "Arabic Description",
-        "description_en" : "English Description"
+        "description_en" : "English Description",
+        "icon_of_category" : "Icon Of Catgeory",
+        "image_of_category" : "Image Of Catgeory"
     },
     "ShowCategory" : {
         "delete_catgeory" : "Delete Catgeory",
-        "warning" : "You are going to delete “Save the date Category , Are you sure?"
+        "warning" : "You are going to delete “Save the date Category , Are you sure?",
+        "show_filters" : "Show Filters",
+        "show_inputs" : "Show Inputs"
     },
     "TemplateForms" : {
         "title_ar_val" : "arabic title is required", 
@@ -146,5 +150,15 @@
     },
     "CouponForms" : {
         
+    },
+    "Home" : {
+        "number_of_accounts" : "Number Of Account",
+        "number_of_categories" : "Number Of Catgeories",
+        "number_of_template" : "Number Of Template",
+        "number_of_events" : "Number Of Events",
+        "number_of_invetation_issued" : "Number Of Invitations Issued",
+        "number_of_coupons" : "Number Of Coupons",
+        "number_of_coupons_used" : "Number Of Coupons Used",
+        "number_of_people_who_recived_invation" : "Number Of People Who Received An Invitation"
     }
 }

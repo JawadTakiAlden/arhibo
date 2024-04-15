@@ -61,14 +61,14 @@ const CreateCatgeory = () => {
                 handelBlur={handleBlur}
                 values={values}
                 setFieldValue={setFieldValue}
-                label={"Image Of Catgeory"}
+                label={t('CategoryForms.icon_of_category')}
               />
               <FileInput 
                 handelBlur={handleBlur}
                 values={values}
                 arrtName="photo"
                 setFieldValue={setFieldValue}
-                label={"Photo Of Catgeory"}
+                label={t('CategoryForms.image_of_category')}
               />
               <FormControl color="success" fullWidth sx={{mb : 1}}>
                 <InputLabel>{t('CategoryForms.name_ar')}</InputLabel>
