@@ -28,7 +28,7 @@ const CreateTemplate = () => {
     values = {
       ...values,
       category_id : values.category_id.id,
-      filter_id : values.filter_id.id
+      filter_id : values.filter_id ? values.filter_id?.id : null
     }
     createTemplate.mutate(values);
   };
@@ -54,7 +54,7 @@ const CreateTemplate = () => {
         .required(t("TemplateForms.description_en_val")),
       category_id: yup.mixed().required(t("TemplateForms.category_val")),
       image: yup.mixed().required(t("TemplateForms.image_val")),
-      filter_id: yup.mixed().required(t("TemplateForms.category_val")),
+      filter_id: yup.mixed(),
       emoji: yup.string().nullable(),
     }),
 
