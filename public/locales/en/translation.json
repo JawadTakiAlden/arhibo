@@ -160,5 +160,12 @@
         "number_of_coupons" : "Number Of Coupons",
         "number_of_coupons_used" : "Number Of Coupons Used",
         "number_of_people_who_recived_invation" : "Number Of People Who Received An Invitation"
+    },
+    "Featuers" : {
+        "name" : "Name",
+        "description" : "Description",
+        "price" : "Price",
+        "quantity" : "Quantity",
+        "type" : "Type"
     }
 }

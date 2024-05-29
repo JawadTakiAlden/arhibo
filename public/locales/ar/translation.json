@@ -157,5 +157,12 @@
     "number_of_coupons": "عدد القسائم",
     "number_of_coupons_used": "عدد القسائم المستخدمة",
     "number_of_people_who_recived_invation": "عدد الأشخاص الذين تلقوا دعوة"
-  }
+  },
+  "Featuers" : {
+    "name" : "الاسم",
+    "description" : "الوصف",
+    "price" : "السعر",
+    "quantity" : "الكمية",
+    "type" : "النوع"
+}
 }

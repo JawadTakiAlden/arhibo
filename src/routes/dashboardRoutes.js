@@ -79,6 +79,8 @@ const SecondaryPackages = Loadable(
 );
 const Dashboard = Loadable(lazy(() => import("../views/Dashboard")));
 const Offer = Loadable(lazy(() => import("../views/pages/Offer")));
+const Featuers = Loadable(lazy(() => import("../views/pages/Featuers")));
+const NickNames = Loadable(lazy(() => import("../views/pages/NickName")));
 
 export const dashboardRoutes = {
   path: "dashboard",
@@ -127,6 +129,14 @@ export const dashboardRoutes = {
           ],
         },
       ],
+    },
+    {
+      path : 'featuers',
+      element : <Featuers />
+    },
+    {
+      path : 'nicknames',
+      element : <NickNames />
     },
     {
       path: "secondaryPackages",

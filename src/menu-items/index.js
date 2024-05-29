@@ -1,4 +1,4 @@
-import { Dashboard } from "@mui/icons-material";
+import { Dashboard, FeaturedPlayList } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
 import { AboutAppIcon, CatgeoryIcon, ContactUsIcon, CouponIcon, FaqIcon, OfferIcon, PackageIcon, PolicyIcon, ProhibitedIcon, ServiceIcon, TemplateIcon, TermIcon } from "../assets/iconsExporter";
 
@@ -32,6 +32,18 @@ export const menuitems = [
     path: "/dashboard/packages",
     name: "Packages",
     icon: PackageIcon
+  },
+  {
+    id: "featuers",
+    path: "/dashboard/featuers",
+    name: "Featuers",
+    icon: CatgeoryIcon
+  },
+  {
+    id: "nicknames",
+    path: "/dashboard/nicknames",
+    name: "Nickname",
+    icon: CatgeoryIcon
   },
   {
     id: "secondaryPackages",
