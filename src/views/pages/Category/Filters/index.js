@@ -9,6 +9,8 @@ import { MaterialReactTable, useMaterialReactTable } from 'material-react-table'
 import AddButton from './components/AddButton';
 import Search from '../../../../components/Search';
 import { SearchOutlined } from '@mui/icons-material';
+import { MRT_Localization_AR } from 'material-react-table/locales/ar';
+import { MRT_Localization_EN } from 'material-react-table/locales/en';
 
 const FiltersOfCategory = () => {
     const { t , i18n } = useTranslation();
@@ -17,12 +19,13 @@ const FiltersOfCategory = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: i18n.language === 'ar' ? 'name' : 'name_ar',
-        header: 'Input Name',
+        accessorKey: i18n.language === 'ar' ? 'name_ar' : 'name',
+        header: t('CategoryFilters.filter_name'),
         size: 150,
       },
       {
         accessorKey: "action",
+        type : "actions",
         Cell: ({ row }) => {
           return (
             <Box
@@ -50,6 +53,7 @@ const FiltersOfCategory = () => {
     enableSorting: false,
     enableColumnActions: false,
     enableFilters: false,
+    localization : i18n.language === 'ar' ?  MRT_Localization_AR : MRT_Localization_EN,
     state: {
       density: "compact",
       isLoading : filters.isLoading

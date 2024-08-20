@@ -55,10 +55,10 @@ const DeleteButton = () => {
               letterSpacing: "3%",
             }}
           >
-            {t("ShowTemplate.delete_template")}
+            {t("deleteTitle", {objectName : "Templage"})}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-            {t("ShowTemplate.delete_warning")}
+          {t("deleteWarning", {objectName : "templage"})}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

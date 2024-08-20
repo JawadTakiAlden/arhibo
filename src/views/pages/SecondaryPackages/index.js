@@ -1,16 +1,15 @@
-import { Box, Button, Fab, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography, useTheme } from "@mui/material";
 import React from "react";
 import ColoredWord from "../../../components/ColoredWord";
 import { useTranslation } from "react-i18next";
 import AddButton from "./components/AddButton";
-import { DeleteOutlined, EditOutlined } from "@mui/icons-material";
 import EditButton from "./components/EditButton";
 import DeleteButton from "./components/DeleteButton";
 import useGetSecondaryPackage from "../../../api/SecondaryPackages/useGetSecondaryPackage";
 
 const SecondaryPackageCard = ({secondaryPackage}) => {
   const theme = useTheme();
-  
+  const {t} = useTranslation()
   return (
     <Box
       sx={{
@@ -35,7 +34,7 @@ const SecondaryPackageCard = ({secondaryPackage}) => {
             }}
             color={theme.palette.success.dark}
           >
-            number of people :
+            {t('SecondaryPackage.number_of_people')} :
           </ColoredWord>{" "}
           {secondaryPackage.number_of_invitees}
         </Typography>
@@ -48,9 +47,9 @@ const SecondaryPackageCard = ({secondaryPackage}) => {
             }}
             color={theme.palette.success.dark}
           >
-            price :
+            {t('SecondaryPackage.price')} :
           </ColoredWord>{" "}
-          {secondaryPackage.price} SR
+          {secondaryPackage.price} {t('Shared.sr')}
         </Typography>
       </Box>
       <Box
@@ -73,7 +72,7 @@ const SecondaryPackages = () => {
   const { t } = useTranslation();
   const secondaryPaclages = useGetSecondaryPackage()
   if(secondaryPaclages.isLoading){
-    return "loading ..."
+    return t('Shared.loading')
   }
   return (
     <Box>

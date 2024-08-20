@@ -90,7 +90,9 @@ const CreatePolicy = () => {
                     label={t('TermForms.description_ar')}
                     name="body_ar"
                     value={values.body_ar}
-                    inputComponent={'textarea'}
+                    multiline
+                  minRows={4}
+                  maxRows={6}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.body_ar && touched.body_ar}
@@ -108,7 +110,9 @@ const CreatePolicy = () => {
                     name="body"
                     value={values.body}
                     onChange={handleChange}
-                    inputComponent={'textarea'}
+                    multiline
+                  minRows={4}
+                  maxRows={6}
                     onBlur={handleBlur}
                     error={errors.body && touched.body}
                 />

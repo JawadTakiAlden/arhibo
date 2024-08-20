@@ -23,13 +23,13 @@ const CreateTemplate = () => {
   const { t } = useTranslation();
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
-  const createTemplate = useCreateTemplate()
+  const createTemplate = useCreateTemplate();
   const handelCreate = (values) => {
     values = {
       ...values,
-      category_id : values.category_id.id,
-      filter_id : values.filter_id ? values.filter_id?.id : null
-    }
+      category_id: values.category_id.id,
+      filter_id: values.filter_id ? values.filter_id?.id : null,
+    };
     createTemplate.mutate(values);
   };
   const {
@@ -42,18 +42,18 @@ const CreateTemplate = () => {
     handleSubmit,
   } = useFormik({
     validationSchema: yup.object({
-      title_ar: yup.string().required(t("TemplateForms.title_ar_val")),
-      title: yup.string().required(t("TemplateForms.title_en_val")),
+      title_ar: yup.string().required(),
+      title: yup.string().required(),
       description_ar: yup
         .string()
-        
-        .required(t("TemplateForms.description_ar_val")),
+
+        .required(),
       description: yup
         .string()
-        
-        .required(t("TemplateForms.description_en_val")),
-      category_id: yup.mixed().required(t("TemplateForms.category_val")),
-      image: yup.mixed().required(t("TemplateForms.image_val")),
+
+        .required(),
+      category_id: yup.mixed().required(),
+      image: yup.mixed().required(),
       filter_id: yup.mixed(),
       emoji: yup.string().nullable(),
     }),
@@ -114,7 +114,7 @@ const CreateTemplate = () => {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Category"
+                  label={t("TemplateForms.category")}
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: (
@@ -150,7 +150,7 @@ const CreateTemplate = () => {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Filter"
+                  label={t("TemplateForms.filter")}
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: (
@@ -223,9 +223,9 @@ const CreateTemplate = () => {
             )}
           </FormControl>
           <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-          <InputLabel>{t("TemplateForms.description_en")}</InputLabel>
+            <InputLabel>{t("TemplateForms.emoji")}</InputLabel>
             <OutlinedInput
-              label={t("TemplateForms.description_en")}
+              label={t("TemplateForms.emoji")}
               name="emoji"
               value={values.emoji}
               onChange={handleChange}

@@ -17,6 +17,7 @@ import useGetAllCategories from "../../../api/Category/useGetAllCategories";
 import useDebounce from "../../../utils/useDebounce";
 import TemproryLoader from "../../../components/TemproryLoader";
 
+
 const AllCatgeory = () => {
   const { t, i18n } = useTranslation();
   const [search , setSearch] = useState('')
@@ -31,7 +32,7 @@ const AllCatgeory = () => {
   } , [search])
 
   if(catgeoire.isLoading){
-    return "loading ..."
+    return t('Shared.loading')
   }
 
   return (
@@ -56,7 +57,7 @@ const AllCatgeory = () => {
           {t("add_new")}
         </Button>
         <Search
-          placeholder={t("add_new")}
+          placeholder={t("search")}
           color="success"
           onChange={(e) => {
             setSearch(e.target.value)
@@ -87,12 +88,12 @@ const AllCatgeory = () => {
             component={Link}
             to={`/dashboard/categories/${catgeoyr?.id}`}
           >
-            <CardMedia component="img" height="180" image={catgeoyr?.image} />
+            <CardMedia component="img" height="180" sx={{objectFit : 'scale-down'}} image={catgeoyr?.image} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 <ColoredWord sx={{ fontWeight: "600" }}>
                   {" "}
-                  {t("name")}
+                  {t("AllCatgeory.name")}
                 </ColoredWord>{" "}
                 : {i18n.language === "ar" ? catgeoyr.name_ar : catgeoyr.name}
               </Typography>

@@ -45,10 +45,10 @@ const DeleteButton = ({row}) => {
                 <DeleteOutlined />
             </IconButton>
             <DialogContentText sx={{maxWidth : '300px' , mb : 2 , fontWeight : '500' , fontSize : '24px' ,letterSpacing :'3%'}}>
-            {t('AllCoupons.DeleteButton.delete_coupon')}
+            {t('deleteTitle' , {objectName : "detail"})}
           </DialogContentText>
           <DialogContentText sx={{maxWidth : '300px'}}>
-          {t('AllCoupons.DeleteButton.delete_warning')}
+          {t('deleteWarning' , {objectName : "detail"})}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

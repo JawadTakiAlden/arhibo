@@ -61,14 +61,14 @@ const AddButton = () => {
               letterSpacing: "3%",
             }}
           >
-            Add New Offer
+            {t("Offers.add_new_offer")}
           </DialogContentText>
           <Formik
             initialValues={{
               image: "",
             }}
             validationSchema={yup.object({
-              image: yup.mixed().required("image is required"),
+              image: yup.mixed().required(t("Offers.image_required")),
             })}
             onSubmit={async (values) => {
               await createOffer.mutateAsync(values);
@@ -81,7 +81,7 @@ const AddButton = () => {
                   handelBlur={handleBlur}
                   setFieldValue={setFieldValue}
                   values={values}
-                  label={"Image"}
+                  label={t("Offers.image")}
                 />
                 <LoadingButton
                   loading={createOffer.isPending}
@@ -90,7 +90,7 @@ const AddButton = () => {
                   variant="contained"
                   color="success"
                 >
-                  Create
+                  {t("Offers.create")}
                 </LoadingButton>
               </form>
             )}

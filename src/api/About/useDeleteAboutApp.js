@@ -16,7 +16,7 @@ const useDeleteAboutApp = () => {
 
   const mutation = useMutation({
     mutationFn: updateAboutRequest,
-    mutationKey: [`update-about-app`],
+    mutationKey: [`delete-about-app`],
     onSuccess: (data) => {
       queryClient.refetchQueries([`get-about-apps`]);
       enqueueSnackbar(data?.data?.message, { variant: "success" });

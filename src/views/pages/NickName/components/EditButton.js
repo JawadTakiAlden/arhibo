@@ -1,28 +1,20 @@
 import {
-  Autocomplete,
-  CircularProgress,
   Dialog,
   DialogContent,
   DialogContentText,
   FormControl,
-  FormControlLabel,
   FormHelperText,
   IconButton,
   InputLabel,
   OutlinedInput,
-  Radio,
-  RadioGroup,
   SvgIcon,
-  TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Formik } from "formik";
 import { Add } from "@mui/icons-material";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import useGetPackages from "../../../../api/Packages/useGetPackages";
-import useUpdateFeatuer from "../../../../api/Featuers/useUpdateFeatuer";
 import DialogTransition from "../../../../components/DialogTransation";
 import useUpdateNickName from "../../../../api/NickName/useUpdateNickName";
 const EditButton = ({ row }) => {
@@ -41,8 +33,6 @@ const EditButton = ({ row }) => {
   return (
     <>
       <IconButton
-        // variant="contained"
-        // color="darkBlue"
         color="success"
         endIcon={<Add />}
         size="medium"
@@ -98,18 +88,20 @@ const EditButton = ({ row }) => {
               letterSpacing: "3%",
             }}
           >
-            Add New Featuer
+            {t("Nickname.edit_nickname")}
           </DialogContentText>
           <Formik
             initialValues={{
               nickname: row.nickname,
             }}
             validationSchema={yup.object({
-              nickname: yup.string().required("nickname is required"),
-        
+              nickname: yup.string().required(),
             })}
             onSubmit={async (values) => {
-              await updateNickName.mutateAsync({data : values , nickNameID : row.id});
+              await updateNickName.mutateAsync({
+                data: values,
+                nickNameID: row.id,
+              });
               handleClose();
             }}
           >
@@ -123,9 +115,9 @@ const EditButton = ({ row }) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Nickname</InputLabel>
+                  <InputLabel>{t("Nickname.nickname")}</InputLabel>
                   <OutlinedInput
-                    label="Nickname"
+                    label={t("EditFeature.nickname")}
                     name="nickname"
                     value={values.nickname}
                     onChange={handleChange}
@@ -146,7 +138,7 @@ const EditButton = ({ row }) => {
                   variant="contained"
                   color="success"
                 >
-                  Create
+                  {t("edit")}
                 </LoadingButton>
               </form>
             )}

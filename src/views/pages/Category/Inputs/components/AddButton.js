@@ -24,7 +24,7 @@ const AddButton = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const { catgeoryID } = useParams();
-  const createInput = useCreateInput()
+  const createInput = useCreateInput();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -67,7 +67,7 @@ const AddButton = () => {
               letterSpacing: "3%",
             }}
           >
-            Add New Input
+            {t("InputOfCategory.dialog.add_new_input")}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -80,24 +80,20 @@ const AddButton = () => {
             validationSchema={yup.object({
               input_name: yup
                 .string()
-                
-                .required("input name is required"),
+                .required(t("InputOfCategory.dialog.input_name_required")),
               input_name_ar: yup
                 .string()
-                
-                .required("input name is required"),
+                .required(t("InputOfCategory.dialog.input_name_ar_required")),
               placeholder: yup
                 .string()
-                
-                .required("placeholder is required"),
+                .required(t("InputOfCategory.dialog.placeholder_required")),
               placeholder_ar: yup
                 .string()
-                
-                .required("arabic placeholder is required"),
+                .required(t("InputOfCategory.dialog.placeholder_ar_required")),
             })}
-            onSubmit={ async (values) => {
-              await createInput.mutateAsync(values)
-              handleClose()
+            onSubmit={async (values) => {
+              await createInput.mutateAsync(values);
+              handleClose();
             }}
           >
             {({
@@ -110,9 +106,11 @@ const AddButton = () => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Input Name</InputLabel>
+                  <InputLabel>
+                    {t("InputOfCategory.dialog.input_name")}
+                  </InputLabel>
                   <OutlinedInput
-                    label="Input Name"
+                    label={t("InputOfCategory.dialog.input_name")}
                     name="input_name"
                     value={values.input_name}
                     onChange={handleChange}
@@ -124,9 +122,11 @@ const AddButton = () => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Input Arabic Name</InputLabel>
+                  <InputLabel>
+                    {t("InputOfCategory.dialog.input_name_ar")}
+                  </InputLabel>
                   <OutlinedInput
-                    label="Input Arabic Name"
+                    label={t("InputOfCategory.dialog.input_name_ar")}
                     name="input_name_ar"
                     value={values.input_name_ar}
                     onChange={handleChange}
@@ -134,13 +134,17 @@ const AddButton = () => {
                     error={errors.input_name_ar && touched.input_name_ar}
                   />
                   {errors.input_name_ar && touched.input_name_ar && (
-                    <FormHelperText error>{errors.input_name_ar}</FormHelperText>
+                    <FormHelperText error>
+                      {errors.input_name_ar}
+                    </FormHelperText>
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Placeholder</InputLabel>
+                  <InputLabel>
+                    {t("InputOfCategory.dialog.placeholder")}
+                  </InputLabel>
                   <OutlinedInput
-                    label="Placeholder"
+                    label={t("InputOfCategory.dialog.placeholder")}
                     name="placeholder"
                     value={values.placeholder}
                     onChange={handleChange}
@@ -152,9 +156,11 @@ const AddButton = () => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Placeholder</InputLabel>
+                  <InputLabel>
+                    {t("InputOfCategory.dialog.placeholder_ar")}
+                  </InputLabel>
                   <OutlinedInput
-                    label="Arabic Placeholder"
+                    label={t("InputOfCategory.dialog.placeholder_ar")}
                     name="placeholder_ar"
                     value={values.placeholder_ar}
                     onChange={handleChange}
@@ -162,22 +168,24 @@ const AddButton = () => {
                     error={errors.placeholder_ar && touched.placeholder_ar}
                   />
                   {errors.placeholder_ar && touched.placeholder_ar && (
-                    <FormHelperText error>{errors.placeholder_ar}</FormHelperText>
+                    <FormHelperText error>
+                      {errors.placeholder_ar}
+                    </FormHelperText>
                   )}
                 </FormControl>
-                <LoadingButton loading={createInput.isPending} type="submit" fullWidth variant="contained" color="success">Create</LoadingButton>
+                <LoadingButton
+                  loading={createInput.isPending}
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="success"
+                >
+                  {t("InputOfCategory.dialog.create")}
+                </LoadingButton>
               </form>
             )}
           </Formik>
         </DialogContent>
-        {/* <DialogActions>
-          <Button color="grey" variant="contained" onClick={handleClose}>
-            {t("dialog_cancel")}
-          </Button>
-          <Button color="lighRed" variant="contained" onClick={handleClose}>
-            {t("dialog_delete")}
-          </Button>
-        </DialogActions> */}
       </Dialog>
     </>
   );

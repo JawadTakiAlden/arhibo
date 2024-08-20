@@ -53,9 +53,7 @@ const AddValidationButton = ({input_id}) => {
           <IconButton
             variant="contained"
             color="success"
-            sx={{
-              mb: 3,
-            }}
+            sx={{ mb: 3 }}
           >
             <Add />
           </IconButton>
@@ -68,33 +66,30 @@ const AddValidationButton = ({input_id}) => {
               letterSpacing: "3%",
             }}
           >
-            Add New Validation
+            {t("AddValidation.title")}
           </DialogContentText>
           <Formik
             initialValues={{
-                message: "",
-                message_ar: "",
-                name: "",
-                input_id : input_id
-              }}
-              validationSchema={yup.object({
-                  message: yup
-                  .string()
-                  
-                  .required("message is required"),
-                  message_ar: yup
-                  .string()
-                  
-                  .required("message is required"),
-                  name: yup
-                  .string()
-                  
-                  .required("regex_code is required"),
-              })}
-              onSubmit={ async (values) => {
-                await createvalidation.mutateAsync(values)
-                handleClose()
-              }}
+              message: "",
+              message_ar: "",
+              name: "",
+              input_id: input_id,
+            }}
+            validationSchema={yup.object({
+              message: yup
+                .string()
+                .required(t("AddValidation.message_required")),
+              message_ar: yup
+                .string()
+                .required(t("AddValidation.message_ar_required")),
+              name: yup
+                .string()
+                .required(t("AddValidation.regex_code_required")),
+            })}
+            onSubmit={async (values) => {
+              await createvalidation.mutateAsync(values);
+              handleClose();
+            }}
           >
             {({
               handleSubmit,
@@ -106,9 +101,9 @@ const AddValidationButton = ({input_id}) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Regex Code</InputLabel>
+                  <InputLabel>{t("AddValidation.regex_code")}</InputLabel>
                   <OutlinedInput
-                    label="Regex Code"
+                    label={t("AddValidation.regex_code")}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -120,9 +115,9 @@ const AddValidationButton = ({input_id}) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Message</InputLabel>
+                  <InputLabel>{t("AddValidation.message")}</InputLabel>
                   <OutlinedInput
-                    label="Message"
+                    label={t("AddValidation.message")}
                     name="message"
                     value={values.message}
                     onChange={handleChange}
@@ -134,9 +129,9 @@ const AddValidationButton = ({input_id}) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Message</InputLabel>
+                  <InputLabel>{t("AddValidation.message_ar")}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Message"
+                    label={t("AddValidation.message_ar")}
                     name="message_ar"
                     value={values.message_ar}
                     onChange={handleChange}
@@ -147,19 +142,19 @@ const AddValidationButton = ({input_id}) => {
                     <FormHelperText error>{errors.message_ar}</FormHelperText>
                   )}
                 </FormControl>
-                <LoadingButton loading={createvalidation.isPending} type="submit" fullWidth variant="contained" color="success">Create</LoadingButton>
+                <LoadingButton
+                  loading={createvalidation.isPending}
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="success"
+                >
+                  {t("AddValidation.create")}
+                </LoadingButton>
               </form>
             )}
           </Formik>
         </DialogContent>
-        {/* <DialogActions>
-          <Button color="grey" variant="contained" onClick={handleClose}>
-            {t("dialog_cancel")}
-          </Button>
-          <Button color="lighRed" variant="contained" onClick={handleClose}>
-            {t("dialog_delete")}
-          </Button>
-        </DialogActions> */}
       </Dialog>
     </>
   );

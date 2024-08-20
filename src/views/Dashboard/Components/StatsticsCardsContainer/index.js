@@ -17,9 +17,7 @@ import {
 } from "../../../../assets/iconsExporter";
 import { useTranslation } from "react-i18next";
 
-
-
-const SttaistcCard = ({ cardInfo, title, icon }) => {
+const StatisticCard = ({ cardInfo, title, icon }) => {
   const theme = useTheme();
   return (
     <Box
@@ -72,71 +70,69 @@ const SttaistcCard = ({ cardInfo, title, icon }) => {
   );
 };
 
-const StatsticsCardsContainer = () => {
+const StatisticsCardsContainer = () => {
   const statistics = useGetStatistics();
-  const {t} = useTranslation()
-  const statsiticsCards = [
+  const { t } = useTranslation();
+  const statisticsCards = [
     {
       id: "users",
-      title: t('Home.number_of_accounts'),
+      title: t("Home.number_of_accounts"),
       icon: <PeopleOutlined />,
     },
     {
       id: "categories",
-      title: t('Home.number_of_categories'),
+      title: t("Home.number_of_categories"),
       icon: CatgeoryIcon,
     },
     {
       id: "templates",
-      title: t('Home.number_of_template'),
+      title: t("Home.number_of_template"),
       icon: TemplateIcon,
     },
     {
       id: "invitations",
-      title: t('Home.number_of_events'),
+      title: t("Home.number_of_events"),
       icon: <InsertInvitation />,
     },
     {
       id: "invitees",
-      title: t('Home.number_of_invetation_issued'),
+      title: t("Home.number_of_invetation_issued"),
       icon: <PeopleOutlined />,
     },
     {
       id: "number_of_coupons",
-      title: t('Home.number_of_coupons'),
+      title: t("Home.number_of_coupons"),
       icon: CouponIcon,
     },
     {
       id: "number_of_in_used_coupons",
-      title: t('Home.number_of_coupons_used'),
+      title: t("Home.number_of_coupons_used"),
       icon: CouponIcon,
     },
     {
       id: "number_of_people_invited_by_app",
-      title: t('Home.number_of_people_who_recived_invation'),
+      title: t("Home.number_of_people_who_recived_invation"),
       icon: <PeopleOutlined />,
     },
   ];
 
   if (statistics.isLoading) {
-    return "loading ...";
+    return t("Shared.loading");
   }
 
-  if (statistics.isSuccess) {
-    return (
-      <Grid container rowSpacing={3} columnSpacing={2}>
-        {statsiticsCards?.map((card) => (
-          <Grid key={card.id} item xs={12} sm={6} md={4} lg={3}>
-            <SttaistcCard
-              title={card.title}
-              icon={card.icon}
-              cardInfo={statistics?.data?.data?.[card.id]}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    );
-  }
+  return (
+    <Grid container rowSpacing={3} columnSpacing={2}>
+      {statisticsCards?.map((card) => (
+        <Grid key={card.id} item xs={12} sm={6} md={4} lg={3}>
+          <StatisticCard
+            title={card.title}
+            icon={card.icon}
+            cardInfo={statistics?.data?.data?.[card.id]}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  );
 };
 
-export default StatsticsCardsContainer;
+export default StatisticsCardsContainer;

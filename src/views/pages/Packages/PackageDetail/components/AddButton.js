@@ -78,10 +78,10 @@ const AddButton = () => {
             }}
             validationSchema={yup.object({
               price: yup.number().min(0).required("price is required"),
-              price_qr: yup
-                .number()
-                .min(0)
-                .required("price with qr code is required"),
+              // price_qr: yup
+              //   .number()
+              //   .min(0)
+              //   .required("price with qr code is required"),
               number_of_invitees: yup
                 .number()
                 .min(1)
@@ -116,7 +116,7 @@ const AddButton = () => {
                     <FormHelperText error>{errors.price}</FormHelperText>
                   )}
                 </FormControl>
-                <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                   <InputLabel>Price With QR</InputLabel>
                   <OutlinedInput
                     label="Price With QR"
@@ -130,7 +130,7 @@ const AddButton = () => {
                   {errors.price_qr && touched.price_qr && (
                     <FormHelperText error>{errors.price_qr}</FormHelperText>
                   )}
-                </FormControl>
+                </FormControl> */}
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                   <InputLabel>Number Of people</InputLabel>
                   <OutlinedInput

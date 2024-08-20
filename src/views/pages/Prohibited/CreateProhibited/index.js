@@ -36,8 +36,8 @@ const CreatePrihibited = () => {
         <Formik
           onSubmit={handelCreate}
           validationSchema={yup.object({
-            name: yup.string().required("name is required"),
-            name_ar: yup.string().required("arabic name is required"),
+            name: yup.string().required(),
+            name_ar: yup.string().required(),
           })}
           initialValues={{
             name: "",
@@ -54,9 +54,9 @@ const CreatePrihibited = () => {
           }) => (
             <form onSubmit={handleSubmit}>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                <InputLabel>Name</InputLabel>
+                <InputLabel>{t("CreateProhibitedThings.name_en")}</InputLabel>
                 <OutlinedInput
-                  label={"Name"}
+                  label={t("CreateProhibitedThings.name_en")}
                   name="name"
                   onChange={handleChange}
                   value={values.name}
@@ -68,9 +68,9 @@ const CreatePrihibited = () => {
                 )}
               </FormControl>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                <InputLabel>Arabic name</InputLabel>
+                <InputLabel>{t("CreateProhibitedThings.name_ar")}</InputLabel>
                 <OutlinedInput
-                  label="Arabic name"
+                  label={t("CreateProhibitedThings.name_ar")}
                   name="name_ar"
                   value={values.name_ar}
                   onChange={handleChange}

@@ -33,18 +33,19 @@ const CreateCatgeory = () => {
         <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-            name_ar : yup.string().required(t('CategoryForms.name_ar_val')),
-            name : yup.string().required(t('CategoryForms.name_en_val')),
-            description_ar: yup.string().required(t('CategoryForms.description_ar_val')),
-            description: yup.string().required(t('CategoryForms.description_en_val')),
-            image : yup.mixed().required(t('CategoryForms.image_val')),
-            photo : yup.mixed().required(t('CategoryForms.image_val'))
+            name_ar : yup.string().required(),
+            name : yup.string().required(),
+            description_ar: yup.string().required(),
+            description: yup.string().required(),
+            image : yup.mixed().required(),
+            photo : yup.mixed().required()
         })}
           initialValues={{
             name_ar : "",
             name : "",
             description_ar: "",
             description: "",
+            image : ""
           }}
         >
           {({
@@ -60,6 +61,7 @@ const CreateCatgeory = () => {
               <FileInput 
                 handelBlur={handleBlur}
                 values={values}
+                arrtName="image"
                 setFieldValue={setFieldValue}
                 label={t('CategoryForms.icon_of_category')}
               />

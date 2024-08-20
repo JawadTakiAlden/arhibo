@@ -105,7 +105,9 @@ const CreateTerm = () => {
                   value={values.body_ar}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  inputComponent={'textarea'}
+                  multiline
+                  minRows={4}
+                  maxRows={6}
                   error={errors.body_ar && touched.body_ar}
                 />
                 {errors.body_ar && touched.body_ar && (
@@ -120,7 +122,9 @@ const CreateTerm = () => {
                   value={values.body}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  inputComponent={'textarea'}
+                  multiline
+                  minRows={4}
+                  maxRows={6}
                   error={errors.body && touched.body}
                 />
                 {errors.body && touched.body && (

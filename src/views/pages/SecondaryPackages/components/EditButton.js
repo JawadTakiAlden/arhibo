@@ -1,16 +1,26 @@
 import { Add, EditOutlined } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Dialog, DialogContent, DialogContentText, Fab, FormControl, FormHelperText, IconButton, InputLabel, OutlinedInput } from "@mui/material";
+import {
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  Fab,
+  FormControl,
+  FormHelperText,
+  IconButton,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import * as yup from 'yup'
+import * as yup from "yup";
 import DialogTransition from "../../../../components/DialogTransation";
 import useUpdateSecondaryPackage from "../../../../api/SecondaryPackages/useUpdateSecondaryPackage";
 
-const EditButton = ({secondaryPackage}) => {
+const EditButton = ({ secondaryPackage }) => {
   const { t } = useTranslation();
-  const update = useUpdateSecondaryPackage()
+  const update = useUpdateSecondaryPackage();
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,7 +58,7 @@ const EditButton = ({secondaryPackage}) => {
               letterSpacing: "3%",
             }}
           >
-            Add New Package
+            {t("EditSecondaryPackage.edit_title")}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -56,14 +66,14 @@ const EditButton = ({secondaryPackage}) => {
               number_of_invitees: secondaryPackage.number_of_invitees,
             }}
             validationSchema={yup.object({
-              price: yup.number().min(0).required("filter name is required"),
-              number_of_invitees: yup
-                .number()
-                .min(0)
-                .required("arabic filter name is required"),
+              price: yup.number().min(0).required(),
+              number_of_invitees: yup.number().min(0).required(),
             })}
             onSubmit={async (values) => {
-              await update.mutateAsync({data : values , id : secondaryPackage.id});
+              await update.mutateAsync({
+                data: values,
+                id: secondaryPackage.id,
+              });
               handleClose();
             }}
           >
@@ -77,10 +87,10 @@ const EditButton = ({secondaryPackage}) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Price</InputLabel>
+                  <InputLabel> {t("EditSecondaryPackage.price")}</InputLabel>
                   <OutlinedInput
                     type="number"
-                    label="Price"
+                    label={t("EditSecondaryPackage.price")}
                     name="price"
                     value={values.price}
                     onChange={handleChange}
@@ -92,10 +102,12 @@ const EditButton = ({secondaryPackage}) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Number Of People</InputLabel>
+                  <InputLabel>
+                    {t("EditSecondaryPackage.number_of_people")}
+                  </InputLabel>
                   <OutlinedInput
                     type="number"
-                    label="Number Of People"
+                    label={t("EditSecondaryPackage.number_of_people")}
                     name="number_of_invitees"
                     value={values.number_of_invitees}
                     onChange={handleChange}
@@ -117,7 +129,7 @@ const EditButton = ({secondaryPackage}) => {
                   variant="contained"
                   color="success"
                 >
-                  Update
+                  {t("edit")}
                 </LoadingButton>
               </form>
             )}

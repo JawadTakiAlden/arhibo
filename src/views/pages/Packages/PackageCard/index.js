@@ -1,11 +1,10 @@
-import { CircleOutlined, FiberManualRecord } from "@mui/icons-material";
+import { FiberManualRecord } from "@mui/icons-material";
 import {
   Box,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  SvgIcon,
   Table,
   TableBody,
   TableCell,
@@ -16,14 +15,17 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ColoredWord from "../../../../components/ColoredWord";
+import { useTranslation } from "react-i18next";
 
-const columns = ["Number", "With QR", "Without QR"];
+const columns = ["Number", "Price"];
+const columns_ar = ["عدد الاشخاص" , "السعر"];
 
 const PackageCard = ({ packageInfo }) => {
   const [description, setDescription] = useState([]);
+  const {t , i18n} = useTranslation()
   const theme = useTheme();
   useEffect(() => {
-    const description = packageInfo.description;
+    const description = i18n.language === 'en' ? packageInfo.description : packageInfo.description_ar;
     const descriptionSliced = description
       .split("\n").filter(ele => ele)
     setDescription(descriptionSliced);
@@ -46,7 +48,7 @@ const PackageCard = ({ packageInfo }) => {
           color: "white",
         }}
       >
-        {packageInfo.name}
+        {i18n.language === 'en' ? packageInfo.name : packageInfo.name_ar}
       </Typography>
       <Box
         sx={{
@@ -62,7 +64,7 @@ const PackageCard = ({ packageInfo }) => {
             color: "#000",
           }}
         >
-          Description
+          {t('PackageCard.description')}
         </Typography>
         <List
           sx={{
@@ -95,7 +97,9 @@ const PackageCard = ({ packageInfo }) => {
               backgroundColor: "#EBEBEB",
             }}
           >
-            {columns.map((col, i) => {
+            {
+            
+            (i18n.language === 'en' ? columns : columns_ar).map((col, i) => {
               return (
                 <TableCell
                   sx={{
@@ -122,7 +126,7 @@ const PackageCard = ({ packageInfo }) => {
                 <ColoredWord color={theme.palette.success.main}>
                   {obj.number_of_invitees}
                 </ColoredWord>{" "}
-                people
+                {t('PackageCard.people')}
               </TableCell>
               <TableCell
                 sx={{
@@ -130,15 +134,7 @@ const PackageCard = ({ packageInfo }) => {
                   borderBottom : 'none'
                 }}
               >
-                {obj.price_qr} SR
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontWeight: "700",
-                  borderBottom : 'none'
-                }}
-              >
-                {obj.price} SR
+                {obj.price} {t('PackageCard.sr')}
               </TableCell>
             </TableRow>
           ))}

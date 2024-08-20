@@ -41,11 +41,11 @@ const ShowCatgeory = () => {
   };
 
   if (catgeoryInfo.isLoading) {
-    return "loading";
+    return t("Shared.loading");
   }
 
   const handelUpdate = (values) => {
-    updateCatgeory.mutate(values)
+    updateCatgeory.mutate(values);
   };
   return (
     <Box
@@ -66,21 +66,21 @@ const ShowCatgeory = () => {
           validationSchema={yup.object({
             name_ar: yup
               .string()
-              
-              .required(t("CategoryForms.name_ar_val")),
+
+              .required(),
             name: yup
               .string()
-              
-              .required(t("CategoryForms.name_en_val")),
+
+              .required(),
             description_ar: yup
               .string()
-              
-              .required(t("CategoryForms.description_ar_val")),
+
+              .required(),
             description: yup
               .string()
-              
-              .required(t("CategoryForms.description_en_val")),
-            image: yup.mixed().required(t("CategoryForms.image_val")),
+
+              .required(),
+            image: yup.mixed().required(),
           })}
           initialValues={{
             name_ar: catgeoryInfo?.data?.data?.name_ar,
@@ -205,11 +205,10 @@ const ShowCatgeory = () => {
                 variant="contained"
                 color="success"
                 sx={{
-                  mb : 1
-
+                  mb: 1,
                 }}
               >
-                {t('ShowCategory.show_inputs')}
+                {t("ShowCategory.show_inputs")}
               </Button>
               <Button
                 component={Link}
@@ -218,7 +217,7 @@ const ShowCatgeory = () => {
                 variant="contained"
                 color="success"
               >
-                {t('ShowCategory.show_filters')}
+                {t("ShowCategory.show_filters")}
               </Button>
             </form>
           )}
@@ -249,15 +248,15 @@ const ShowCatgeory = () => {
               letterSpacing: "3%",
             }}
           >
-            {t("ShowCatgeory.delete_catgeory")}
+            {t("deleteTitle" , {objectName : "Category"})}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-            {t("ShowCatgeory.warning")}
+          {t("deleteWarning" , {objectName : "category"})}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button color="grey" variant="contained" onClick={handleClose}>
-            {t("doalog_cancel")}
+            {t("dialog_cancel")}
           </Button>
           <LoadingButton
             color="lighRed"
@@ -266,7 +265,7 @@ const ShowCatgeory = () => {
               deleteCatgeory.mutate();
             }}
           >
-            {t("dialog.delete")}
+            {t("dialog_delete")}
           </LoadingButton>
         </DialogActions>
       </Dialog>

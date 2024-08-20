@@ -19,6 +19,9 @@ import { useTranslation } from "react-i18next";
 import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useCreateCoupon from "../../../../api/Coupon/useCreateCoupon";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 
 const CreateCoupon = () => {
   const { t } = useTranslation();
@@ -32,6 +35,7 @@ const CreateCoupon = () => {
       ...values,
       categories: values.categories.map((cat) => cat.id),
       packages: values.packages.map((cat) => cat.id),
+      expiry_date: dayjs(values.expiry_date).format("YYYY-MM-DD"),
     };
     createCoupon.mutate(values);
   };
@@ -54,7 +58,7 @@ const CreateCoupon = () => {
           validationSchema={yup.object({
             coupon_code: yup
               .string()
-              
+
               .required(t("CouponForms.name_ar_val")),
             offer: yup
               .number()
@@ -69,10 +73,15 @@ const CreateCoupon = () => {
               .array()
               .min(1)
               .required(t("CouponForms.description_en_val")),
+
+            number: yup.number().required("number is required"),
+            expiry_date: yup.date().required("expiry date is requried"),
           })}
           initialValues={{
             coupon_code: "",
             offer: "",
+            number: "",
+            expiry_date: "",
             categories: [],
             packages: [],
           }}
@@ -114,6 +123,34 @@ const CreateCoupon = () => {
                 />
                 {errors.offer && touched.offer && (
                   <FormHelperText error>{errors.offer}</FormHelperText>
+                )}
+              </FormControl>
+              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                <InputLabel>Number</InputLabel>
+                <OutlinedInput
+                  label="Number"
+                  name="number"
+                  type="number"
+                  value={values.number}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={errors.number && touched.number}
+                />
+                {errors.number && touched.number && (
+                  <FormHelperText error>{errors.number}</FormHelperText>
+                )}
+              </FormControl>
+              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                {/* <InputLabel>Expiry Date</InputLabel> */}
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    label="Expiry Date"
+                    value={values.expiry_date}
+                    onChange={(newValue) => setFieldValue('expiry_date' , newValue)}
+                  />
+                </LocalizationProvider>
+                {errors.expiry_date && touched.expiry_date && (
+                  <FormHelperText error>{errors.expiry_date}</FormHelperText>
                 )}
               </FormControl>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
@@ -219,7 +256,6 @@ const CreateCoupon = () => {
 };
 
 export default CreateCoupon;
-
 
 // get packages
 // show packages

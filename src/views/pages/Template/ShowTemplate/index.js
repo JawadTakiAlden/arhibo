@@ -5,12 +5,10 @@ import {
   FormControl,
   FormHelperText,
   InputLabel,
-  MenuItem,
   OutlinedInput,
-  Select,
   TextField,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -21,10 +19,8 @@ import {
 import { useTranslation } from "react-i18next";
 import useShowTemplate from "../../../../api/Template/useShowTemplate";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
-import useGetFiltersOfCategory from "../../../../api/Category/useGetFiltersOfCategory";
 import useUpdateTemplate from "../../../../api/Template/useUpdateTemplate";
 import DeleteButton from "./components/DeleteButton";
-import useGetCatgeoryWithFilters from "../../../../api/Category/useGetCatgeoryWithFilters";
 import useGetAllFilters from "../../../../api/Filters/useGetAllFilters";
 
 const ShowTemplate = () => {
@@ -48,7 +44,7 @@ const ShowTemplate = () => {
   const filters = useGetAllFilters();
 
   if (template.isLoading) {
-    return "loading ...";
+    return t('Shared.loading')
   }
 
 
@@ -80,22 +76,22 @@ const ShowTemplate = () => {
             title_ar: yup
               .string()
               
-              .required(t("TemplateForms.title_ar_val")),
+              .required(),
             title: yup
               .string()
               
-              .required(t("TemplateForms.title_en_val")),
+              .required(),
             description_ar: yup
               .string()
               
-              .required(t("TemplateForms.description_ar_val")),
+              .required(),
             description: yup
               .string()
               
-              .required(t("TemplateForms.description_en_val")),
-            category_id: yup.mixed().required(t("TemplateForms.category_val")),
-            filter_id: yup.mixed().required(t("TemplateForms.category_val")),
-            emoji: yup.string().required("emoje is required"),
+              .required(),
+            category_id: yup.mixed().required(),
+            filter_id: yup.mixed().required(),
+            emoji: yup.string().required(),
           })}
           onSubmit={handelUpdate}
         >
@@ -137,7 +133,7 @@ const ShowTemplate = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Category"
+                      label={t('TemplateForms.category')}
                       InputProps={{
                         ...params.InputProps,
                         endAdornment: (
@@ -176,7 +172,7 @@ const ShowTemplate = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Filter"
+                      label={t("TemplateForms.filter")}
                       InputProps={{
                         ...params.InputProps,
                         endAdornment: (
@@ -249,9 +245,9 @@ const ShowTemplate = () => {
                 )}
               </FormControl>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                <InputLabel>{t("TemplateForms.description_en")}</InputLabel>
+                <InputLabel>{t("TemplateForms.emoji")}</InputLabel>
                 <OutlinedInput
-                  label={t("TemplateForms.description_en")}
+                  label={t("TemplateForms.emoji")}
                   name="emoji"
                   value={values.emoji}
                   onChange={handleChange}

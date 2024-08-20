@@ -81,7 +81,7 @@ const FileInput = ({
         <Typography>{t("FileInput.suported_types")}</Typography>
       </Box>
       {values[arrtName] && (
-        <Typography sx={{ my: 1, textDecoration: "underline" }}>
+        <Typography sx={{ my: 1, textDecoration: "underline" , maxWidth : '400px' , overflow : 'hidden' , maxHeight : '150px' }}>
           {values[arrtName]?.name}
         </Typography>
       )}
@@ -123,7 +123,7 @@ const FileInput = ({
         src={values.image ? URL.createObjectURL(values[arrtName]) : initialImage}
         alt="update-file-input"
         style={{
-          objectFit: "contain",
+          objectFit: "scale-down",
           maxHeight : '100%',
           maxWidth : '100%'
         }}
@@ -133,7 +133,7 @@ const FileInput = ({
         name="image"
         accept="image/png,image/jpg,image/jpeg"
         onChange={(e) => {
-          setFieldValue({arrtName}, e.target.files[0]);
+          setFieldValue(arrtName, e.target.files[0]);
         }}
         onBlur={handelBlur}
       />

@@ -15,17 +15,12 @@ const PackageDetail = () => {
       () => [
         {
           accessorKey: 'number_of_invitees',
-          header: 'Number OF People',
+          header: t('PackageDaitals.number_of_invitees'),
           size: 150,
         },
         {
           accessorKey: 'price',
-          header: 'With QR',
-          size: 150,
-        },
-        {
-          accessorKey:  'price_qr',
-          header: 'Without QR',
+          header: t('PackageDaitals.price'),
           size: 150,
         },
         {

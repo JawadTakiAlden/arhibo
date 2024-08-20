@@ -42,8 +42,6 @@ const EditButton = ({ row }) => {
   return (
     <>
       <IconButton
-        // variant="contained"
-        // color="darkBlue"
         color="success"
         endIcon={<Add />}
         size="medium"
@@ -78,16 +76,7 @@ const EditButton = ({ row }) => {
         onClose={handleClose}
       >
         <DialogContent>
-          <IconButton
-            variant="contained"
-            color="success"
-            sx={
-              {
-                // mb: 3,
-                // mt : 3
-              }
-            }
-          >
+          <IconButton variant="contained" color="success">
             <Add />
           </IconButton>
           <DialogContentText
@@ -99,7 +88,7 @@ const EditButton = ({ row }) => {
               letterSpacing: "3%",
             }}
           >
-            Add New Featuer
+            {t("EditFeature.edit_feature")}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -110,32 +99,26 @@ const EditButton = ({ row }) => {
               type: row.type,
               price: row.price,
               quantity: row.quantity,
-              package_ids: row.packages
+              package_ids: row.packages,
             }}
             validationSchema={yup.object({
-              name: yup.string().required("english features name is required"),
-              name_ar: yup
-                .string()
-                .required("arabic features name is required"),
-              description: yup
-                .string()
-                .nullable("english features description is required"),
-              description_ar: yup
-                .string()
-                .nullable("arabic features description is required"),
-              quantity: yup.number().min(0).required("qunatity is required"),
-              price: yup.number().required("price is rqeuired"),
-              type: yup.string().required("type is required"),
-              package_ids: yup
-                .array()
-                .min(1)
-                .required("your must provide one package  at least"),
+              name: yup.string().required(),
+              name_ar: yup.string().required(),
+              description: yup.string().nullable(),
+              description_ar: yup.string().nullable(),
+              quantity: yup.number().min(0).required(),
+              price: yup.number().required(),
+              type: yup.string().required(),
+              package_ids: yup.array().min(1).required(),
             })}
             onSubmit={async (values) => {
               values.package_ids = values.package_ids.map(
                 (packageObj) => packageObj.id
               );
-              await createFeatuer.mutateAsync({data : values , featuerID : row.id});
+              await createFeatuer.mutateAsync({
+                data: values,
+                featuerID: row.id,
+              });
               handleClose();
             }}
           >
@@ -150,9 +133,9 @@ const EditButton = ({ row }) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Features Name</InputLabel>
+                  <InputLabel>{t("EditFeature.name")}</InputLabel>
                   <OutlinedInput
-                    label="English Features Name"
+                    label={t("EditFeature.name")}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -164,9 +147,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Features Name</InputLabel>
+                  <InputLabel>{t("EditFeature.name_ar")}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Features Name"
+                    label={t("EditFeature.name_ar")}
                     name="name_ar"
                     value={values.name_ar}
                     onChange={handleChange}
@@ -178,9 +161,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Features Description</InputLabel>
+                  <InputLabel>{t("EditFeature.description")}</InputLabel>
                   <OutlinedInput
-                    label="English Features Description"
+                    label={t("EditFeature.description")}
                     name="description"
                     value={values.description}
                     onChange={handleChange}
@@ -192,9 +175,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Features Description</InputLabel>
+                  <InputLabel>{t("EditFeature.description_ar")}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Filter Description"
+                    label={t("EditFeature.description_ar")}
                     name="description_ar"
                     value={values.description_ar}
                     onChange={handleChange}
@@ -208,9 +191,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Quantity</InputLabel>
+                  <InputLabel>{t("EditFeature.quantity")}</InputLabel>
                   <OutlinedInput
-                    label="Quantity"
+                    label={t("EditFeature.quantity")}
                     name="quantity"
                     type="number"
                     value={values.quantity}
@@ -223,9 +206,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Price</InputLabel>
+                  <InputLabel>{t("EditFeature.price")}</InputLabel>
                   <OutlinedInput
-                    label="Price"
+                    label={t("EditFeature.price")}
                     type="number"
                     name="price"
                     value={values.price}
@@ -265,7 +248,7 @@ const EditButton = ({ row }) => {
                     renderInput={(params) => (
                       <TextField
                         {...params}
-                        label="Packages"
+                        label={t("EditFeature.packages")}
                         error={!!touched.package_ids && !!errors.package_ids}
                         color="success"
                         fullWidth
@@ -288,9 +271,6 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl fullWidth color="success">
-                  {/* <FormLabel id="type" >
-                    Type
-                  </FormLabel> */}
                   <RadioGroup
                     name="type"
                     value={values.type}
@@ -299,12 +279,12 @@ const EditButton = ({ row }) => {
                     <FormControlLabel
                       value="withValue"
                       control={<Radio />}
-                      label="With Value"
+                      label={t("EditFeature.withValue")}
                     />
                     <FormControlLabel
                       value="withoutValue"
                       control={<Radio />}
-                      label="Without Value"
+                      label={t("EditFeature.withoutValue")}
                     />
                   </RadioGroup>
                 </FormControl>
@@ -318,7 +298,7 @@ const EditButton = ({ row }) => {
                   variant="contained"
                   color="success"
                 >
-                  Create
+                  {t("add")}
                 </LoadingButton>
               </form>
             )}

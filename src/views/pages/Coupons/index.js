@@ -1,4 +1,4 @@
-import { Add, DeleteOutlined, SearchOutlined } from "@mui/icons-material";
+import { Add, SearchOutlined } from "@mui/icons-material";
 import {
   Box,
   IconButton,
@@ -19,49 +19,6 @@ import {
 import DeleteButton from "./Components/DeleteButton.js";
 import useGetCoupon from "../../../api/Coupon/useGetCoupon.js";
 
-const data = [
-  {
-    id: 1,
-    coupon: "dksjandsakjnd",
-    time_of_used: 22,
-    offer: "20%",
-    category: "wedding",
-    package: "vip",
-  },
-  {
-    id: 1,
-    coupon: "dksjandsakjnd",
-    time_of_used: 22,
-    offer: "20%",
-    category: "wedding",
-    package: "vip",
-  },
-  {
-    id: 1,
-    coupon: "dksjandsakjnd",
-    time_of_used: 22,
-    offer: "20%",
-    category: "wedding",
-    package: "vip",
-  },
-  {
-    id: 1,
-    coupon: "dksjandsakjnd",
-    time_of_used: 22,
-    offer: "20%",
-    category: "wedding",
-    package: "vip",
-  },
-  {
-    id: 1,
-    coupon: "dksjandsakjnd",
-    time_of_used: 22,
-    offer: "20%",
-    category: "wedding",
-    package: "vip",
-  },
-];
-
 const AllCoupons = () => {
   const { t , i18n} = useTranslation();
   const theme = useTheme();
@@ -75,13 +32,18 @@ const AllCoupons = () => {
         size: 150,
       },
       {
-        accessorKey: "number_of_used",
-        header: t("AllCoupons.time_of_used"),
+        accessorKey: "number",
+        header: t("AllCoupons.max_number_of_used"),
         size: 150,
       },
       {
         accessorKey: "offer",
-        header: t("AllCoupons.offer"),
+        header: t("AllCoupons.offer_discount"),
+        size: 200,
+      },
+      {
+        accessorKey: "expiry_date",
+        header: t("AllCoupons.expiry_date"),
         size: 200,
       },
       {

@@ -2,11 +2,12 @@ import { Breadcrumbs, Typography } from '@mui/material';
 import React from 'react'
 import LinkRouter from './LinkRouter';
 import { useLocation } from 'react-router';
-import { breadcrumbNameMap } from '../../../routes/breadcrumbNameMap';
+import useGetBreadCrumbNameMap from '../../../routes/breadcrumbNameMap';
 
 const BreadcrumbNameMap = () => {
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
+    const breadcrumbNameMap = useGetBreadCrumbNameMap()
     return (
       <Breadcrumbs aria-label="breadcrumb">
       {pathnames.map((value, index) => {

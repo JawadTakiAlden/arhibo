@@ -33,11 +33,11 @@ const CreateService = () => {
         <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-            title_ar : yup.string().required(t('ServiceForms.title_ar_val')),
-            title : yup.string().required(t('ServiceForms.title_en_val')),
-            body: yup.string().required(t('ServiceForms.description_ar_val')),
-            body_ar: yup.string().required(t('ServiceForms.description_en_val')),
-            image : yup.mixed().required(t('ServiceForms.image_val'))
+            title_ar : yup.string().required(),
+            title : yup.string().required(),
+            body: yup.string().required(),
+            body_ar: yup.string().required(),
+            image : yup.mixed().required()
         })}
           initialValues={{
             title_ar : "",
@@ -100,7 +100,9 @@ const CreateService = () => {
                     label={t('ServiceForms.description_ar')}
                     name="body_ar"
                     value={values.body_ar}
-                    inputComponent={'textarea'}
+                    multiline
+                    minRows={4}
+                    maxRows={6}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.body_ar && touched.body_ar}
@@ -117,7 +119,9 @@ const CreateService = () => {
                     label={t('ServiceForms.description_en')}
                     name="body"
                     value={values.body}
-                    inputComponent={'textarea'}
+                    multiline
+                    minRows={4}
+                    maxRows={6}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.body && touched.body}

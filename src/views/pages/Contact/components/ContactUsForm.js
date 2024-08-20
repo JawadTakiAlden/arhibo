@@ -25,12 +25,12 @@ const ContactUsForm = ({initialValues , handelClose}) => {
       <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-          phone : yup.string().required('phone is rqeuired'),
-          email : yup.string().required('email is required'),
-          facebook: yup.string().required('facebook is required'),
-          instagram: yup.string().required('instagram is required'),
-          whatsapp: yup.string().required('whatsapp is rqeuired'),
-          x: yup.string().required('x is required'),
+          phone : yup.string().required(),
+          email : yup.string().required(),
+          facebook: yup.string().required(),
+          instagram: yup.string().required(),
+          whatsapp: yup.string().required(),
+          x: yup.string().required(),
         })}
           initialValues={{
             phone : initialValues?.phone,
@@ -51,9 +51,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
           }) => (
             <form onSubmit={handleSubmit}>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>Phone</InputLabel>
+                <InputLabel>{t('ContactUs.phone')}</InputLabel>
                 <OutlinedInput 
-                    label='Phone'
+                    label={t('ContactUs.phone')}
                     name="phone"
                     onChange={handleChange}
                     value={values.phone}
@@ -67,9 +67,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>ُEmail</InputLabel>
+                <InputLabel>{t('ContactUs.email')}</InputLabel>
                 <OutlinedInput 
-                    label='ُEmail'
+                    label={t('ContactUs.email')}
                     name="email"
                     onChange={handleChange}
                     value={values.email}
@@ -83,9 +83,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>Facebook</InputLabel>
+                <InputLabel>{t('ContactUs.facebook')}</InputLabel>
                 <OutlinedInput 
-                    label='Facebook'
+                    label={t('ContactUs.facebook')}
                     name="facebook"
                     onChange={handleChange}
                     value={values.facebook}
@@ -99,9 +99,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>Instagram</InputLabel>
+                <InputLabel>{t('ContactUs.instagram')}</InputLabel>
                 <OutlinedInput 
-                    label='Instagram'
+                    label={t('ContactUs.instagram')}
                     name="instagram"
                     onChange={handleChange}
                     value={values.instagram}
@@ -115,9 +115,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>Whatsapp</InputLabel>
+                <InputLabel>{t('ContactUs.whatsapp')}</InputLabel>
                 <OutlinedInput 
-                    label='Whatsapp'
+                    label={t('ContactUs.whatsapp')}
                     name="whatsapp"
                     onChange={handleChange}
                     value={values.whatsapp}
@@ -131,9 +131,9 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>X</InputLabel>
+                <InputLabel>{t('ContactUs.x')}</InputLabel>
                 <OutlinedInput 
-                    label='X'
+                    label={t('ContactUs.x')}
                     name="x"
                     onChange={handleChange}
                     value={values.x}

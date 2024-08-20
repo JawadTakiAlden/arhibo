@@ -14,13 +14,14 @@ import ColoredWord from "../../../components/ColoredWord";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useGetServices from "../../../api/Services/useGetServices";
+import InViewImage from "../../../components/InViewImage";
 
 const AllServices = () => {
   const { t , i18n} = useTranslation();
   const services = useGetServices();
 
   if (services.isLoading) {
-    return "loading";
+    return t('Shared.loading')
   }
   return (
     <Box>
@@ -70,7 +71,15 @@ const AllServices = () => {
             component={Link}
             to={`/dashboard/services/${service.id}`}
           >
-            <CardMedia component="img" height="180" image={service.image} />
+            <CardMedia  height="180">
+              <InViewImage 
+                src={service.image}
+                alt={service.id}
+                style={{
+                  width : '100%'
+                }}
+              />
+            </CardMedia>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 <ColoredWord sx={{ fontWeight: "600" }}>

@@ -66,7 +66,7 @@ const AddButton = () => {
               letterSpacing: "3%",
             }}
           >
-            Add New Filter
+           {t('AddFilterInCategory.title')}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -75,11 +75,11 @@ const AddButton = () => {
               category_id: +catgeoryID,
             }}
             validationSchema={yup.object({
-              name: yup.string().required("filter name is required"),
+              name: yup.string().required(),
               name_ar: yup
                 .string()
                 
-                .required("arabic filter name is required"),
+                .required(),
             })}
             onSubmit={async (values) => {
                 await createFilter.mutateAsync(values);
@@ -96,9 +96,9 @@ const AddButton = () => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Filter Name</InputLabel>
+                  <InputLabel>{t('FiltersForm.name_en')}</InputLabel>
                   <OutlinedInput
-                    label="English Filter Name"
+                    label={t('FiltersForm.name_en')}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -110,9 +110,9 @@ const AddButton = () => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Filter Name</InputLabel>
+                  <InputLabel>{t('FiltersForm.name_ar')}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Filter Name"
+                    label={t('FiltersForm.name_ar')}
                     name="name_ar"
                     value={values.name_ar}
                     onChange={handleChange}
@@ -130,7 +130,7 @@ const AddButton = () => {
                   variant="contained"
                   color="success"
                 >
-                  Create
+                  {t('add')}
                 </LoadingButton>
               </form>
             )}

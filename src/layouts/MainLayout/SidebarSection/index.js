@@ -7,7 +7,7 @@ import List from "@mui/material/List";
 import Drawer from "@mui/material/Drawer";
 import { drawerWidth } from "../../../constants";
 import { Box, Typography, useTheme } from "@mui/material";
-import { menuitems } from "../../../menu-items";
+import  menuitems  from "../../../menu-items";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../../components/Logo";
 import { useTranslation } from "react-i18next";
@@ -56,7 +56,7 @@ const SidebarSection = ({ open }) => {
         {t("SidebarSection.header")}
       </Typography>
       <List>
-        {menuitems.map(({ id, name, path, icon }) => (
+        {menuitems().map(({ id, name, path, icon }) => (
           <ListItem
             sx={{
               width: "95%",

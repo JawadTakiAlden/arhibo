@@ -1,4 +1,4 @@
-import { Box, Button, InputAdornment, useTheme } from "@mui/material";
+import { Box, InputAdornment, useTheme } from "@mui/material";
 import {
   MaterialReactTable,
   useMaterialReactTable,
@@ -6,30 +6,27 @@ import {
 import React, { useMemo } from "react";
 import Search from "../../../components/Search";
 import { useTranslation } from "react-i18next";
-import { Add, SearchOutlined } from "@mui/icons-material";
+import { SearchOutlined } from "@mui/icons-material";
 import AddButton from "./components/AddButton";
 import DeleteButton from "./components/DeleteButton";
 import EditButton from "./components/EditButton";
 import useGetNickName from "../../../api/NickName/useGetNickName";
+import { MRT_Localization_AR } from "material-react-table/locales/ar";
+import { MRT_Localization_EN } from "material-react-table/locales/en";
 const NickNames = () => {
-  const { t, i18n } = useTranslation();
+  const { t , i18n} = useTranslation();
   const theme = useTheme();
     const nicknames = useGetNickName()
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'id',
-        header: t("Featuers.name"),
-        size: 150,
-      },
-      {
         accessorKey: 'nickname',
-        header: t("Featuers.name"),
+        header: t("Nickname.nickname"),
         size: 150,
       },
       {
         accessorKey: "action",
-        header: t("Featuers.action"),
+        // header: t("Featuers.action"),
         Cell: ({ row }) => {
           return (
             <Box
@@ -57,6 +54,7 @@ const NickNames = () => {
     enableSorting: false,
     enableColumnActions: false,
     enableFilters: false,
+    localization : i18n.language === 'ar' ? MRT_Localization_AR : MRT_Localization_EN,
     state: {
       density: "compact",
       isLoading: nicknames.isLoading,
@@ -105,7 +103,7 @@ const NickNames = () => {
   });
 
   if (nicknames.isLoading) {
-    return "loading ...";
+    return t('Shared.loading');
   }
   return (
     <Box

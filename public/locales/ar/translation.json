@@ -1,152 +1,23 @@
 {
+  "Shared": {
+    "loading": "جاري التحميل ...",
+    "sr": "ر.س"
+  },
   "LanguageSwitcher": {
-    "english": "الانجليزية",
+    "english": "الإنجليزية",
     "arabic": "العربية"
   },
   "Login": {
     "login": "تسجيل الدخول",
-    "owner": "لوحة تحكم المشرف"
+    "owner": "لوحة إدارة المشرف"
   },
   "LoginForm": {
-    "email": "البريد الالكتروني",
+    "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
     "login": "تسجيل الدخول"
   },
   "SidebarSection": {
-    "header": "اداة المشرف"
-  },
-  "add_new": "اضافة جديدة",
-  "search": "بحث...",
-  "add": "اضافة",
-  "edit": "تعديل",
-  "delete": "حذف",
-  "dialog_delete": "نعم , قم بحذفه",
-  "dialog_cancel": "لا , حافظ عليه",
-  "title": "العنوان",
-  "description": "الوصف",
-  "question": "السؤال",
-  "answer": "الجواب",
-  "category": "التصنيف",
-  "name": "الاسم",
-  "FileInput": {
-    "drop": "اسحب الملف المطلوب الى هنا لتعينه, او",
-    "browse": "اختار من الملفات",
-    "suported_types": "صيغ الملفات المدعومة هي : JPG,PNG,JPEG | والحجم الاكبر المسموح به هو : 20MB"
-  },
-  "CategoryForms": {
-    "name_ar_val": "الاسم العربي مطلوب لاتمام العملية",
-    "name_en_val": "الاسم الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "image_val": "الصورة مطلوبة لاتمام العملية",
-    "name_ar": "الاسم بالعربي",
-    "name_en": "الاسم بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي",
-    "icon_of_category": " أيقونة الفئة ",
-    "image_of_category": "صورة الفئة "
-  },
-  "ShowCategory": {
-    "delete_catgeory": "حذف تصنيف",
-    "warning": "انت على وشك حذف تصنيف حفظ الوقت , هل انت متأكد من هذا الامر",
-    "show_filters": "إظهار الفلاتر",
-    "show_inputs": "إظهار المدخلات الخاصة"
-  },
-  "TemplateForms": {
-    "title_ar_val": "العنوان العربي مطلوب لاتمام العملية",
-    "title_en_val": "العنوان الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "image_val": "الصورة مطلوبة لاتمام العملية",
-    "category_val": "تصنيف هذه الدعوة مطلوب لاتمام العملية",
-    "title_ar": "العنوان بالعربي",
-    "title_en": "العنوان بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي",
-    "category": "التصنيف"
-  },
-  "ShowTemplate": {
-    "delete_template": "حذف الدعوة",
-    "delete_warning": " انت على وشك حذف الدعوة ذو الاسم : توديع العذوبية , هل انت متأكد"
-  },
-  "ServiceForms": {
-    "title_ar_val": "العنوان العربي مطلوب لاتمام العملية",
-    "title_en_val": "العنوان الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "image_val": "الصورة مطلوبة لاتمام العملية",
-    "title_ar": "العنوان بالعربي",
-    "title_en": "العنوان بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي"
-  },
-  "ShowService": {
-    "delete_service": "حذف الخدمة",
-    "delete_warning": " انت على وشك حذف الخدمة ذو الاسم : توديع العذوبية , هل انت متأكد"
-  },
-  "TermForms": {
-    "title_ar_val": "العنوان العربي مطلوب لاتمام العملية",
-    "title_en_val": "العنوان الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "title_ar": "العنوان بالعربي",
-    "title_en": "العنوان بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي"
-  },
-  "ShowTerm": {
-    "delete_term": "حذف الشرط",
-    "delete_warning": " انت على وشك حذف الشرط : توديع العذوبية , هل انت متأكد"
-  },
-  "PolicyForms": {
-    "title_ar_val": "العنوان العربي مطلوب لاتمام العملية",
-    "title_en_val": "العنوان الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "title_ar": "العنوان بالعربي",
-    "title_en": "العنوان بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي"
-  },
-  "ShowPolicy": {
-    "delete_policy": "حذف السياسة",
-    "delete_warning": " انت على وشك حذف السياسة : توديع العذوبية , هل انت متأكد"
-  },
-  "FaqForms": {
-    "question_ar_val": "السؤال بللغة العربية مطلوب لاتمام العملية",
-    "question_en_val": "السؤال بللغة الانجليزية مطلوب لاتمام العملية",
-    "answer_ar_val": "الجواب بللغة العربية مطلوب لاتمام العملية",
-    "answer_en_val": "الجواب بللغة العربية مطلوب لاتمام العملية",
-    "question_ar": "السؤال بالعربي",
-    "question_en": "السؤال بالانجليزي",
-    "answer_ar": "الجواب بالعربي",
-    "answer_en": "الحواب بالانجليزي"
-  },
-  "ShowFaq": {
-    "delete_faq": "حذف السؤال الشائع",
-    "delete_warning": " انت على وشك حذف السؤال الشائع : توديع العذوبية , هل انت متأكد"
-  },
-  "AboutForms": {
-    "title_ar_val": "العنوان العربي مطلوب لاتمام العملية",
-    "title_en_val": "العنوان الانجليزي مطلوب لاتمام العملية",
-    "description_ar_val": "الوصف العربي مطلوب لاتمام العملية",
-    "description_en_val": "الوصف الانجليزي مطلوب لاتمام العملية",
-    "title_ar": "العنوان بالعربي",
-    "title_en": "العنوان بالانجليزي",
-    "description_ar": "الوصف بالعربي",
-    "description_en": "الوصف بالانجليزي"
-  },
-  "AllCoupons": {
-    "coupon": "كوبون الخصم",
-    "time_of_used": "عدد مرات الاستخدام",
-    "offer": "العرض",
-    "category": "التصنيف",
-    "package": "الفئة",
-    "action": "الحذف والتعديل",
-    "DeleteButton": {
-      "delete_coupon": "حذف الكوبون",
-      "delete_warning": " انت على وشك حذف الكوبون '59651496510 هل انت متأكد ؟'"
-    }
+    "header": "أداة الإدارة"
   },
   "Home": {
     "number_of_accounts": "عدد الحسابات",
@@ -158,11 +29,302 @@
     "number_of_coupons_used": "عدد القسائم المستخدمة",
     "number_of_people_who_recived_invation": "عدد الأشخاص الذين تلقوا دعوة"
   },
-  "Featuers" : {
-    "name" : "الاسم",
-    "description" : "الوصف",
-    "price" : "السعر",
-    "quantity" : "الكمية",
-    "type" : "النوع"
-}
+  "ContactUs": {
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "facebook": "فيسبوك",
+    "instagram": "إنستجرام",
+    "whatsapp": "واتساب",
+    "x": "إكس"
+  },
+  "PackageCard": {
+    "description": "الوصف",
+    "sr": "ر.س",
+    "people": "الأشخاص"
+  },
+  "CreatePackage": {
+    "name_ar": "الاسم بالعربية",
+    "name_en": "الاسم بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية",
+    "color": "اللون",
+    "packageDaitalsBtn": "تفاصيل الحزمة"
+  },
+  "PackageDaitals": {
+    "number_of_invitees": "عدد الأشخاص",
+    "price" : "السعر"
+  },
+  "add_new": "إضافة جديد",
+  "search": "بحث...",
+  "add": "إضافة",
+  "edit": "تعديل",
+  "delete": "حذف",
+  "dialog_delete": "نعم، احذفه",
+  "dialog_cancel": "لا، احتفظ به",
+  "title": "العنوان",
+  "description": "الوصف",
+  "question": "السؤال",
+  "answer": "الإجابة",
+  "category": "الفئة",
+  "name": "الاسم",
+  "FileInput": {
+    "drop": "أسقط الملفات لإرفاقها، أو",
+    "browse": "تصفح",
+    "suported_types": "أنواع الملفات المدعومة: jpg, jpeg, png | الحد الأقصى لحجم الملف: 20 ميجابايت"
+  },
+  "AllCatgeory": {
+    "name": "الاسم"
+  },
+  "CategoryForms": {
+    "name_ar": "الاسم بالعربية",
+    "name_en": "الاسم بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية",
+    "icon_of_category": "أيقونة الفئة",
+    "image_of_category": "صورة الفئة"
+  },
+  "ShowCategory": {
+    "delete_catgeory": "حذف الفئة",
+    "warning": "أنت على وشك حذف الفئة، هل أنت متأكد؟ لا يمكن التراجع عن هذا الإجراء",
+    "show_filters": "عرض المرشحات",
+    "show_inputs": "عرض المدخلات"
+  },
+
+  "deleteWarning": "هل أنت متأكد أنك تريد حذف {{objectName}}؟ لا يمكن التراجع عن هذا الإجراء",
+  "deleteTitle": "تأكيد حذف {{objectName}}",
+
+  "Offers": {
+    "add_new": "إضافة جديد",
+    "add_new_offer": "إضافة عرض جديد",
+    "image": "صورة",
+    "image_required": "الصورة مطلوبة",
+    "create": "إنشاء"
+  },
+
+  "InputOfCategory": {
+    "input_name": "اسم المدخل",
+    "placeholder": "النص الوصفي",
+    "regex_code": "كود Regex",
+    "message": "رسالة",
+    "dialog": {
+      "add_new": "إضافة جديد",
+      "input_name": "اسم المدخل",
+      "input_name_ar": "اسم المدخل بالعربية",
+      "placeholder": "النص الوصفي",
+      "placeholder_ar": "النص الوصفي بالعربية",
+      "dialog_cancel": "إلغاء",
+      "dialog_delete": "حذف",
+      "create": "إنشاء",
+      "add_new_input": "إضافة مدخل جديد",
+      "input_name_required": "اسم المدخل مطلوب",
+      "input_name_ar_required": "اسم المدخل بالعربية مطلوب",
+      "placeholder_required": "النص الوصفي مطلوب",
+      "placeholder_ar_required": "النص الوصفي بالعربية مطلوب"
+    }
+  },
+  "InputOfCategoryForms": {
+    "title": "تحديث المدخل",
+    "input_name": "اسم المدخل",
+    "input_name_ar": "اسم المدخل بالعربية",
+    "placeholder_en": "النص التوضيحي بالإنجليزية",
+    "placeholder_ar": "النص التوضيحي بالعربية"
+  },
+  "DeleteInputOfCategory": {
+    "title": "حذف مدخل الفئة",
+    "warning": "أنت على وشك حذف هذا المدخل، هل أنت متأكد؟ لا يمكن التراجع عن هذا الإجراء"
+  },
+  "AddValidation": {
+    "title": "إضافة تحقق جديد",
+    "regex_code": "رمز التعبير النمطي",
+    "message": "رسالة",
+    "message_ar": "رسالة بالعربية",
+    "create": "إنشاء",
+    "regex_code_required": "رمز التعبير النمطي مطلوب",
+    "message_required": "الرسالة مطلوبة",
+    "message_ar_required": "الرسالة بالعربية مطلوبة"
+  },
+  "EditValidationButton": {
+    "title": "تحديث التحقق",
+    "regex_code": "كود التعبير العادي",
+    "message": "الرسالة",
+    "message_ar": "الرسالة بالعربية"
+  },
+  "DeleteValudationButton": {
+    "title": "حذف التحقق",
+    "warning": "أنت على وشك حذف التحقق، هل أنت متأكد؟ لا يمكن التراجع عن هذا الإجراء"
+  },
+  "CategoryFilters": {
+    "filter_name": "اسم المرشح"
+  },
+  "FiltersForm": {
+    "name_en": "اسم المرشح بالإنجليزية",
+    "name_ar": "اسم المرشح بالعربية"
+  },
+  "EditCategoryFilters": {
+    "title": "تحديث المرشح"
+  },
+  "DeleteFilterOfCategory": {
+    "title": "حذف مرشح الفئة",
+    "warning": "أنت على وشك حذف المرشح، هل أنت متأكد؟ لا يمكن التراجع عن هذا الإجراء"
+  },
+  "AddFilterInCategory": {
+    "title": "إضافة مرشح جديد"
+  },
+  "AllTemplates": {
+    "emojy": "الرمز التعبيري",
+    "title": "العنوان",
+    "description": "الوصف"
+  },
+  "TemplateForms": {
+    "title_ar_val": "العنوان بالعربية مطلوب",
+    "title_en_val": "العنوان بالإنجليزية مطلوب",
+    "description_ar_val": "الوصف بالعربية مطلوب",
+    "description_en_val": "الوصف بالإنجليزية مطلوب",
+    "category_val": "الفئة مطلوبة",
+    "image_val": "الصورة مطلوبة",
+    "title_ar": "العنوان بالعربية",
+    "title_en": "العنوان بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية",
+    "category": "الفئة",
+    "emoji": "الرمز التعبيري",
+    "filter": "المرشح"
+  },
+  "ShowTemplate": {
+    "delete_template": "حذف القالب",
+    "delete_warning": "أنت على وشك حذف القالب “e3t6b22” ، هل أنت متأكد؟"
+  },
+  "ServiceForms": {
+    "title_ar_val": "العنوان بالعربية مطلوب",
+    "title_en_val": "العنوان بالإنجليزية مطلوب",
+    "description_ar_val": "الوصف بالعربية مطلوب",
+    "description_en_val": "الوصف بالإنجليزية مطلوب",
+    "image_val": "الصورة مطلوبة",
+    "title_ar": "العنوان بالعربية",
+    "title_en": "العنوان بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية"
+  },
+  "ShowService": {
+    "delete_service": "حذف الخدمة",
+    "delete_warning": "أنت على وشك حذف الخدمة “e3t6b22” ، هل أنت متأكد؟"
+  },
+  "TermForms": {
+    "title_ar_val": "العنوان بالعربية مطلوب",
+    "title_en_val": "العنوان بالإنجليزية مطلوب",
+    "description_ar_val": "الوصف بالعربية مطلوب",
+    "description_en_val": "الوصف بالإنجليزية مطلوب",
+    "title_ar": "العنوان بالعربية",
+    "title_en": "العنوان بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية"
+  },
+  "ShowTerm": {
+    "delete_term": "حذف الشروط",
+    "delete_warning": "أنت على وشك حذف الشروط “e3t6b22” ، هل أنت متأكد؟"
+  },
+  "PolicyForms": {
+    "title_ar_val": "العنوان بالعربية مطلوب",
+    "title_en_val": "العنوان بالإنجليزية مطلوب",
+    "description_ar_val": "الوصف بالعربية مطلوب",
+    "description_en_val": "الوصف بالإنجليزية مطلوب",
+    "title_ar": "العنوان بالعربية",
+    "title_en": "العنوان بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية"
+  },
+  "ShowPolicy": {
+    "delete_policy": "حذف السياسة",
+    "delete_warning": "أنت على وشك حذف السياسة “e3t6b22” ، هل أنت متأكد؟"
+  },
+  "FaqForms": {
+    "question_ar_val": "السؤال بالعربية مطلوب",
+    "question_en_val": "السؤال بالإنجليزية مطلوب",
+    "answer_ar_val": "الإجابة بالعربية مطلوبة",
+    "answer_en_val": "الإجابة بالإنجليزية مطلوبة",
+    "question_ar": "السؤال بالعربية",
+    "question_en": "السؤال بالإنجليزية",
+    "answer_ar": "الإجابة بالعربية",
+    "answer_en": "الإجابة بالإنجليزية"
+  },
+  "ShowFaq": {
+    "delete_faq": "حذف الأسئلة الشائعة",
+    "delete_warning": "أنت على وشك حذف الأسئلة الشائعة “e3t6b22” ، هل أنت متأكد؟"
+  },
+  "AboutForms": {
+    "title_ar_val": "العنوان بالعربية مطلوب",
+    "title_en_val": "العنوان بالإنجليزية مطلوب",
+    "description_ar_val": "الوصف بالعربية مطلوب",
+    "description_en_val": "الوصف بالإنجليزية مطلوب",
+    "title_ar": "العنوان بالعربية",
+    "title_en": "العنوان بالإنجليزية",
+    "description_ar": "الوصف بالعربية",
+    "description_en": "الوصف بالإنجليزية"
+  },
+  "AllCoupons": {
+    "coupon": "رمز القسيمة",
+    "max_number_of_used": "الحد الأقصى للاستخدامات",
+    "offer_discount": "العرض / الخصم",
+    "expiry_date": "تاريخ انتهاء الصلاحية",
+    "category": "الفئة",
+    "package": "الحزمة",
+    "action": "الإجراء",
+    "DeleteButton": {
+      "delete_coupon": "حذف القسيمة",
+      "delete_warning": "أنت على وشك حذف القسيمة “e3t6b22” ، هل أنت متأكد؟"
+    }
+  },
+  "CouponForms": {},
+  "Featuers": {
+    "name": "الاسم",
+    "description": "الوصف",
+    "price": "السعر",
+    "quantity": "الكمية",
+    "type": "النوع"
+  },
+  "EditFeature": {
+    "edit_feature": "تعديل الميزة",
+    "name": "اسم الميزة بالإنجليزية",
+    "name_ar": "اسم الميزة بالعربية",
+    "description": "وصف الميزة بالإنجليزية",
+    "description_ar": "وصف الميزة بالعربية",
+    "quantity": "الكمية",
+    "price": "السعر",
+    "packages": "الحزم",
+    "withValue": "بقيمة",
+    "withoutValue": "بدون قيمة"
+  },
+  "Nickname": {
+    "nickname": "اللقب",
+    "edit_nickname": "تعديل اللقب"
+  },
+  "SecondaryPackage": {
+    "number_of_people": "عدد الأشخاص",
+    "price": "السعر"
+  },
+  "EditSecondaryPackage": {
+    "edit_title": "تعديل الحزمة الثانوية",
+    "price": "السعر",
+    "number_of_people": "عدد الأشخاص"
+  },
+  "DeleteSecondaryPackage": {
+    "delete_title": "حذف الحزمة الثانوية",
+    "delete_warning": "أنت على وشك حذف الحزمة الثانوية، انتبه لا يمكن التراجع عن هذا الإجراء"
+  },
+  "ProhibitedThings": {
+    "name": "الاسم"
+  },
+  "EditProhibitedThings": {
+    "update_title": "تحديث المحظورات",
+    "name_en": "الاسم بالإنجليزية",
+    "name_ar": "الاسم بالعربية"
+  },
+  "DeleteProhibitedThings": {
+    "title": "حذف الموضوع المحظور",
+    "warning": "أنت على وشك حذف الموضوع المحظور، انتبه لا يمكن التراجع عن هذا الإجراء"
+  },
+  "CreateProhibitedThings": {
+    "name_en": "الاسم بالإنجليزية",
+    "name_ar": "الاسم بالعربية"
+  }
 }

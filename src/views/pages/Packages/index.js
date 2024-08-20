@@ -9,7 +9,7 @@ const PackagesList = () => {
   const { t } = useTranslation();
   const packages = useGetPackages();
   if (packages.isLoading) {
-    return "loading ...";
+    return t('Shared.loading');
   }
   
   return (

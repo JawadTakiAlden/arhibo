@@ -26,7 +26,7 @@ const ShowService = () => {
   };
 
   if(serviceInfo.isLoading){
-    return "loading ..."
+    return t('Shared.loading')
   }
   return (
     <Box
@@ -48,20 +48,20 @@ const ShowService = () => {
             title_ar: yup
               .string()
               
-              .required(t("ServiceForms.title_ar_val")),
+              .required(),
             title: yup
               .string()
               
-              .required(t("ServiceForms.title_en_val")),
+              .required(),
               body_ar: yup
               .string()
               
-              .required(t("ServiceForms.description_ar_val")),
+              .required(),
               body: yup
               .string()
               
-              .required(t("ServiceForms.description_en_val")),
-            image: yup.mixed().required(t("ServiceForms.image_val")),
+              .required(),
+            image: yup.mixed().required(),
           })}
           initialValues={{
             title_ar: serviceInfo?.data?.data?.title_ar,
@@ -120,7 +120,9 @@ const ShowService = () => {
                   name="body_ar"
                   value={values.body_ar}
                   onChange={handleChange}
-                  inputComponent={'textarea'}
+                  multiline
+                  minRows={4}
+                  maxRows={6}
                   onBlur={handleBlur}
                   error={errors.body_ar && touched.body_ar}
                 />
@@ -136,7 +138,9 @@ const ShowService = () => {
                   value={values.body}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  inputComponent={'textarea'}
+                  multiline
+                  minRows={4}
+                  maxRows={6}
                   error={errors.body && touched.body}
                 />
                 {errors.body && touched.body && (

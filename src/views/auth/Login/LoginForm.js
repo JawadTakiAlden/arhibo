@@ -46,12 +46,12 @@ const LoginForm = () => {
             password: "",
           }}
           validationSchema={yup.object({
-            email: yup.string().email().required("email is required"),
+            email: yup.string().email().required(),
             password: yup
               .string()
               .min(7)
               .max(26)
-              .required("password is required"),
+              .required(),
           })}
           onSubmit={LoginUserIn}
         >

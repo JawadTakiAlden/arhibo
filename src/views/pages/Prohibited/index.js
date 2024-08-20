@@ -1,11 +1,5 @@
-import { Add, DeleteOutlined, SearchOutlined } from "@mui/icons-material";
-import {
-  Box,
-  IconButton,
-  InputAdornment,
-  SvgIcon,
-  useTheme,
-} from "@mui/material";
+import { Add, SearchOutlined } from "@mui/icons-material";
+import { Box, InputAdornment, useTheme } from "@mui/material";
 import React, { useMemo } from "react";
 import Button from "../../../components/Button";
 import Search from "../../../components/Search";
@@ -19,32 +13,19 @@ import DeleteButton from "./components/DeleteButton";
 import useGetPrihibted from "../../../api/Prihibited/useGetPrihibted";
 import EditButton from "./components/EditButton";
 
-const data = [
-  {
-    id: 1,
-    prohibited_things:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used",
-  },
-];
 const ProhibitedThings = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const theme = useTheme();
-  const pirhibted = useGetPrihibted()
+  const pirhibted = useGetPrihibted();
   const columns = useMemo(
     () => [
       {
-        accessorKey: "name",
-        header: "Name",
-        size: 150,
-      },
-      {
-        accessorKey: "name_ar",
+        accessorKey: (row) => (i18n.language === "en" ? row.name : row.name_ar),
         header: "Name",
         size: 150,
       },
       {
         accessorKey: "action",
-        header: t("AllCoupons.action"),
         Cell: ({ row }) => {
           return (
             <Box
@@ -67,7 +48,7 @@ const ProhibitedThings = () => {
 
   const table = useMaterialReactTable({
     columns,
-    data : pirhibted?.data?.data || [],
+    data: pirhibted?.data?.data || [],
     enableBottomToolbar: false,
     enableTopToolbar: false,
     enableSorting: false,
@@ -75,7 +56,7 @@ const ProhibitedThings = () => {
     enableFilters: false,
     state: {
       density: "compact",
-      isLoading : pirhibted.isLoading
+      isLoading: pirhibted.isLoading,
     },
     muiTableHeadRowProps: {
       sx: {

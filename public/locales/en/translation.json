@@ -1,171 +1,331 @@
 {
-    "LanguageSwitcher" : {
-        "english" : "English",
-        "arabic" : "Arabic" 
-    },
-    "Login" : {
-        "login" : "Login",
-        "owner" : "Admin Dashboard"
-    },
-    "LoginForm" : {
-        "email" : "Email",
-        "password" : "Password",
-        "login" : "Login"
-    },
-    "SidebarSection" : {
-        "header" : "Admin Tool"
-    },
-    "add_new" : "Add New",
-    "search" : "Search...",
-    "add" : "Add",
-    "edit" : "Edit",
-    "delete" : "Delete",
-    "dialog_delete" : "Yes , Delete it",
-    "dialog_cancel" : "No , Keep it",
-    "title" : "Title",
-    "description" : "Description",
-    "question" : "Question",
-    "answer" : "Answer",
-    "category" : "Category",
-    "name" : "Name",
-    "FileInput" : {
-        "drop" : "Drop files to attach, or",
-        "browse" : "Browse",
-        "suported_types" : "Supported File Types: jpg, jpeg, png | Max File Size: 20 MB"
-    },
-    "CategoryForms" : {
-        "name_ar_val" : "arabic name is required", 
-        "name_en_val" : "english name is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required", 
-        "image_val" : "image is required",
-        "name_ar" : "Arabic Name",
-        "name_en" : "English Name",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description",
-        "icon_of_category" : "Icon Of Catgeory",
-        "image_of_category" : "Image Of Catgeory"
-    },
-    "ShowCategory" : {
-        "delete_catgeory" : "Delete Catgeory",
-        "warning" : "You are going to delete “Save the date Category , Are you sure?",
-        "show_filters" : "Show Filters",
-        "show_inputs" : "Show Inputs"
-    },
-    "TemplateForms" : {
-        "title_ar_val" : "arabic title is required", 
-        "title_en_val" : "english title is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required",
-        "category_val" : "cateogry is required",
-        "image_val" : "image is required",
-        "title_ar" : "Arabic Title",
-        "title_en" : "English Title",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description",
-        "category" : "Catgeory"
-    },
-    "ShowTemplate" : {
-        "delete_template" : "Delete Template",
-        "delete_warning" : " You are going to delete “e3t6b22” Template , Are you sure?"
-    },
-    "ServiceForms" : {
-        "title_ar_val" : "arabic title is required", 
-        "title_en_val" : "english title is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required", 
-        "image_val" : "image is required",
-        "title_ar" : "Arabic Title",
-        "title_en" : "English Title",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description"
-    },
-    "ShowService" : {
-        "delete_service" : "Delete Service",
-        "delete_warning" : " You are going to delete “e3t6b22” Template , Are you sure?"
-    },
-    "TermForms" : {
-        "title_ar_val" : "arabic title is required", 
-        "title_en_val" : "english title is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required",
-        "title_ar" : "Arabic Title",
-        "title_en" : "English Title",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description"
-    },
-    "ShowTerm" : {
-        "delete_term" : "Delete Term",
-        "delete_warning" : " You are going to delete “e3t6b22” Term , Are you sure?"
-    },
-    "PolicyForms" : {
-        "title_ar_val" : "arabic title is required", 
-        "title_en_val" : "english title is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required",
-        "title_ar" : "Arabic Title",
-        "title_en" : "English Title",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description"
-    },
-    "ShowPolicy" : {
-        "delete_policy" : "Delete Term",
-        "delete_warning" : " You are going to delete “e3t6b22” Term , Are you sure?"
-    },
-    "FaqForms" : {
-        "question_ar_val" : "arabic question is required",
-        "question_en_val" : "english question is required",
-        "answer_ar_val" : "arabic answer is required",
-        "answer_en_val" : "english answer is required",
-        "question_ar" : "Arabic Question",
-        "question_en" : "English Question",
-        "answer_ar" : "Arabic Answer",
-        "answer_en" : "English Answer"
-    },
-    "ShowFaq" : {
-        "delete_faq" : "Delete FAQ",
-        "delete_warning" : " You are going to delete “e3t6b22” Faq , Are you sure?"
-    },
-    "AboutForms" : {
-        "title_ar_val" : "arabic title is required", 
-        "title_en_val" : "english title is required", 
-        "description_ar_val" : "arabic description is required", 
-        "description_en_val" : "english description is required",
-        "title_ar" : "Arabic Title",
-        "title_en" : "English Title",
-        "description_ar" : "Arabic Description",
-        "description_en" : "English Description"
-    },
-    "AllCoupons" : {
-        "coupon" : "Coupon",
-        "time_of_used" : "Time Of Used",
-        "offer" : "Offer",
-        "category" : "Category",
-        "package" : "Package",
-        "action" : "Action",
-        "DeleteButton" : {
-            "delete_coupon" : "Delete Coupon",
-            "delete_warning" : " You are going to delete “e3t6b22” Coupon , Are you sure?"
-        }
-    },
-    "CouponForms" : {
-        
-    },
-    "Home" : {
-        "number_of_accounts" : "Number Of Account",
-        "number_of_categories" : "Number Of Catgeories",
-        "number_of_template" : "Number Of Template",
-        "number_of_events" : "Number Of Events",
-        "number_of_invetation_issued" : "Number Of Invitations Issued",
-        "number_of_coupons" : "Number Of Coupons",
-        "number_of_coupons_used" : "Number Of Coupons Used",
-        "number_of_people_who_recived_invation" : "Number Of People Who Received An Invitation"
-    },
-    "Featuers" : {
-        "name" : "Name",
-        "description" : "Description",
-        "price" : "Price",
-        "quantity" : "Quantity",
-        "type" : "Type"
+  "Shared": {
+    "loading": "Loading ...",
+    "sr": "SR"
+  },
+  "LanguageSwitcher": {
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "Login": {
+    "login": "Login",
+    "owner": "Admin Dashboard"
+  },
+  "LoginForm": {
+    "email": "Email",
+    "password": "Password",
+    "login": "Login"
+  },
+  "SidebarSection": {
+    "header": "Admin Tool"
+  },
+  "Home": {
+    "number_of_accounts": "Number Of Account",
+    "number_of_categories": "Number Of Catgeories",
+    "number_of_template": "Number Of Template",
+    "number_of_events": "Number Of Events",
+    "number_of_invetation_issued": "Number Of Invitations Issued",
+    "number_of_coupons": "Number Of Coupons",
+    "number_of_coupons_used": "Number Of Coupons Used",
+    "number_of_people_who_recived_invation": "Number Of People Who Received An Invitation"
+  },
+  "ContactUs": {
+    "phone": "Phone",
+    "email": "Email",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "whatsapp": "Whatsapp",
+    "x": "X"
+  },
+  "PackageCard": {
+    "description": "Description",
+    "sr": "SR",
+    "people": "People"
+  },
+  "CreatePackage": {
+    "name_ar": "Arabic Name",
+    "name_en": "English Name",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description",
+    "color": "Color",
+    "packageDaitalsBtn": "package details"
+  },
+  "PackageDaitals": {
+    "number_of_invitees": "Number OF People",
+    "price" : "Price"
+  },
+  "add_new": "Add New",
+  "search": "Search...",
+  "add": "Add",
+  "edit": "Edit",
+  "delete": "Delete",
+  "dialog_delete": "Yes , Delete it",
+  "dialog_cancel": "No , Keep it",
+  "title": "Title",
+  "description": "Description",
+  "question": "Question",
+  "answer": "Answer",
+  "category": "Category",
+  "name": "Name",
+  "FileInput": {
+    "drop": "Drop files to attach, or",
+    "browse": "Browse",
+    "suported_types": "Supported File Types: jpg, jpeg, png | Max File Size: 20 MB"
+  },
+  "AllCatgeory": {
+    "name": "Name"
+  },
+
+  "deleteWarning": "Are you sure you want to delete this {{objectName}} ? This action cannot be undone",
+  "deleteTitle": "Delete {{objectName}} Confirmation",
+
+  "CategoryForms": {
+    "name_ar": "Arabic Name",
+    "name_en": "English Name",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description",
+    "icon_of_category": "Icon Of Catgeory",
+    "image_of_category": "Image Of Catgeory"
+  },
+  "ShowCategory": {
+    "delete_catgeory": "Delete Catgeory",
+    "warning": "You are going to delete Category , Are you sure? , this action can't be undo",
+    "show_filters": "Show Filters",
+    "show_inputs": "Show Inputs"
+  },
+  "InputOfCategory": {
+    "input_name": "Input Name",
+    "placeholder": "Placeholder",
+    "regex_code": "Regex Code",
+    "message": "Message",
+    "dialog": {
+      "add_new": "Add New",
+      "input_name": "Input Name",
+      "input_name_ar": "Input Arabic Name",
+      "placeholder": "Placeholder",
+      "placeholder_ar": "Arabic Placeholder",
+      "dialog_cancel": "Cancel",
+      "dialog_delete": "Delete",
+      "create": "Create",
+      "add_new_input": "Add New Input",
+      "input_name_required": "Input name is required",
+      "input_name_ar_required": "Arabic input name is required",
+      "placeholder_required": "Placeholder is required",
+      "placeholder_ar_required": "Arabic placeholder is required"
     }
+  },
+  "InputOfCategoryForms": {
+    "title": "Update Input",
+    "input_name": "Input Name",
+    "input_name_ar": "Arabic Input Name",
+    "placeholder_en": "English Placeholder",
+    "placeholder_ar": "Arabic Placeholder"
+  },
+  "DeleteInputOfCategory": {
+    "title": "Delete Input Of Category",
+    "warning": "You are going to delete this input , Are you sure? , this action can't be undo"
+  },
+
+  "AddValidation": {
+    "title": "Add New Validation",
+    "regex_code": "Regex Code",
+    "message": "Message",
+    "message_ar": "Arabic Message",
+    "create": "Create",
+    "regex_code_required": "Regex code is required",
+    "message_required": "Message is required",
+    "message_ar_required": "Arabic message is required"
+  },
+  "EditValidationButton": {
+    "title": "Update Validation",
+    "regex_code": "Regex Code",
+    "message": "Message",
+    "message_ar": "Arabic Message"
+  },
+  "DeleteValudationButton": {
+    "title": "Delete Validation",
+    "warning": "You are going to delete validation , Are you sure? , this action can't be undo"
+  },
+  "CategoryFilters": {
+    "filter_name": "Filter Name"
+  },
+  "FiltersForm": {
+    "name_en": "English Filter Name",
+    "name_ar": "Arabic Filter Name"
+  },
+  "EditCategoryFilters": {
+    "title": "Update Filter"
+  },
+  "DeleteFilterOfCategory": {
+    "title": "Delete Category's Filter",
+    "warning": "You are going to delete filter , Are you sure? , this action can't be undo"
+  },
+  "AddFilterInCategory": {
+    "title": "Add New Filter"
+  },
+  "AllTemplates": {
+    "emojy": "Emoji",
+    "title": "Title",
+    "description": "Description"
+  },
+  "TemplateForms": {
+    "title_ar_val": "arabic title is required",
+    "title_en_val": "english title is required",
+    "description_ar_val": "arabic description is required",
+    "description_en_val": "english description is required",
+    "category_val": "cateogry is required",
+    "image_val": "image is required",
+    "title_ar": "Arabic Title",
+    "title_en": "English Title",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description",
+    "category": "Catgeory",
+    "emoji": "Emoji",
+    "filter": "Filter"
+  },
+  "ShowTemplate": {
+    "delete_template": "Delete Template",
+    "delete_warning": " You are going to delete “e3t6b22” Template , Are you sure?"
+  },
+  "ServiceForms": {
+    "title_ar_val": "arabic title is required",
+    "title_en_val": "english title is required",
+    "description_ar_val": "arabic description is required",
+    "description_en_val": "english description is required",
+    "image_val": "image is required",
+    "title_ar": "Arabic Title",
+    "title_en": "English Title",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description"
+  },
+  "ShowService": {
+    "delete_service": "Delete Service",
+    "delete_warning": " You are going to delete “e3t6b22” Template , Are you sure?"
+  },
+  "TermForms": {
+    "title_ar_val": "arabic title is required",
+    "title_en_val": "english title is required",
+    "description_ar_val": "arabic description is required",
+    "description_en_val": "english description is required",
+    "title_ar": "Arabic Title",
+    "title_en": "English Title",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description"
+  },
+  "ShowTerm": {
+    "delete_term": "Delete Term",
+    "delete_warning": " You are going to delete “e3t6b22” Term , Are you sure?"
+  },
+  "PolicyForms": {
+    "title_ar_val": "arabic title is required",
+    "title_en_val": "english title is required",
+    "description_ar_val": "arabic description is required",
+    "description_en_val": "english description is required",
+    "title_ar": "Arabic Title",
+    "title_en": "English Title",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description"
+  },
+  "ShowPolicy": {
+    "delete_policy": "Delete Term",
+    "delete_warning": " You are going to delete “e3t6b22” Term , Are you sure?"
+  },
+  "FaqForms": {
+    "question_ar_val": "arabic question is required",
+    "question_en_val": "english question is required",
+    "answer_ar_val": "arabic answer is required",
+    "answer_en_val": "english answer is required",
+    "question_ar": "Arabic Question",
+    "question_en": "English Question",
+    "answer_ar": "Arabic Answer",
+    "answer_en": "English Answer"
+  },
+  "ShowFaq": {
+    "delete_faq": "Delete FAQ",
+    "delete_warning": " You are going to delete “e3t6b22” Faq , Are you sure?"
+  },
+  "AboutForms": {
+    "title_ar_val": "arabic title is required",
+    "title_en_val": "english title is required",
+    "description_ar_val": "arabic description is required",
+    "description_en_val": "english description is required",
+    "title_ar": "Arabic Title",
+    "title_en": "English Title",
+    "description_ar": "Arabic Description",
+    "description_en": "English Description"
+  },
+  "Offers": {
+    "add_new": "Add New",
+    "add_new_offer": "Add New Offer",
+    "image": "Image",
+    "image_required": "Image is required",
+    "create": "Create"
+  },
+  "AllCoupons": {
+    
+    "coupon": "Coupon Code",
+    "max_number_of_used": "Max Number of Uses",
+    "offer_discount": "Offer/Discount",
+    "expiry_date": "Expiry Date",
+    "category": "Category",
+    "package": "Package",
+    "action": "Action",
+    "DeleteButton": {
+      "delete_coupon": "Delete Coupon",
+      "delete_warning": " You are going to delete “e3t6b22” Coupon , Are you sure?"
+    }
+  },
+  "CouponForms": {},
+  "Featuers": {
+    "name": "Name",
+    "description": "Description",
+    "price": "Price",
+    "quantity": "Quantity",
+    "type": "Type"
+  },
+  "EditFeature": {
+    "edit_feature": "Edit Feature",
+    "name": "English Features Name",
+    "name_ar": "Arabic Features Name",
+    "description": "English Features Description",
+    "description_ar": "Arabic Features Description",
+    "quantity": "Quantity",
+    "price": "Price",
+    "packages": "Packages",
+    "withValue": "With Value",
+    "withoutValue": "Without Value"
+  },
+  "Nickname": {
+    "nickname": "Nickname",
+    "edit_nickname": "Edit Nickname"
+  },
+  "SecondaryPackage": {
+    "number_of_people": "Number of People",
+    "price": "Price"
+  },
+  "EditSecondaryPackage": {
+    "edit_title": "Edit Secondary Package",
+    "price": "Price",
+    "number_of_people": "Number of People"
+  },
+  "DeleteSecondaryPackage": {
+    "delete_title": "Delete Scondary Package",
+    "delete_warning": "You are going to delete secondary package , take care this action cant't be undo"
+  },
+  "ProhibitedThings": {
+    "name": "Name"
+  },
+  "EditProhibitedThings": {
+    "update_title": "Update Prohibited",
+    "name_en": "English Name",
+    "name_ar": "Arabic Name"
+  },
+  "DeleteProhibitedThings": {
+    "title": "Delete prohibited subject ",
+    "warning": "You are going to delete prohibited subject , take care this action cant't be undo"
+  },
+  "CreateProhibitedThings": {
+    "name_en": "English Name",
+    "name_ar": "Arabic Name"
+  }
 }

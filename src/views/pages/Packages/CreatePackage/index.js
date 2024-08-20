@@ -30,10 +30,10 @@ const CreatePackage = () => {
           <Formik
         onSubmit={handelCreate}
         validationSchema={yup.object({
-            name_ar : yup.string().required(t('CategoryForms.name_ar_val')),
-            name : yup.string().required(t('CategoryForms.name_en_val')),
-            description_ar: yup.string().required(t('CategoryForms.description_ar_val')),
-            description: yup.string().required(t('CategoryForms.description_en_val')),
+            name_ar : yup.string().required(),
+            name : yup.string().required(),
+            description_ar: yup.string().required(),
+            description: yup.string().required(),
         })}
           initialValues={{
             name_ar : "",
@@ -50,13 +50,12 @@ const CreatePackage = () => {
             values,
             errors,
             touched,
-            setFieldValue,
           }) => (
             <form onSubmit={handleSubmit}>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>{t('CategoryForms.name_ar')}</InputLabel>
+                <InputLabel>{t('CreatePackage.name_ar')}</InputLabel>
                 <OutlinedInput 
-                    label={t('CategoryForms.name_ar')}
+                    label={t('CreatePackage.name_ar')}
                     name="name_ar"
                     onChange={handleChange}
                     value={values.name_ar}
@@ -70,9 +69,9 @@ const CreatePackage = () => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>{t('CategoryForms.name_en')}</InputLabel>
+                <InputLabel>{t('CreatePackage.name_en')}</InputLabel>
                 <OutlinedInput 
-                    label={t('CategoryForms.name_en')}
+                    label={t('CreatePackage.name_en')}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -86,14 +85,16 @@ const CreatePackage = () => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>{t('CategoryForms.description_ar')}</InputLabel>
+                <InputLabel>{t('CreatePackage.description_ar')}</InputLabel>
                 <OutlinedInput 
-                    label={t('CategoryForms.description_ar')}
+                    label={t('CreatePackage.description_ar')}
                     name="description_ar"
                     value={values.description_ar}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    inputComponent={'textarea'}
+                    multiline
+                    minRows={4}
+                    maxRows={6}
                     error={errors.description_ar && touched.description_ar}
                 />
                 {
@@ -103,12 +104,14 @@ const CreatePackage = () => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>{t('CategoryForms.description_en')}</InputLabel>
+                <InputLabel>{t('CreatePackage.description_en')}</InputLabel>
                 <OutlinedInput 
-                    label={t('CategoryForms.description_en')}
+                    label={t('CreatePackage.description_en')}
                     name="description"
                     value={values.description}
-                    inputComponent={'textarea'}
+                    multiline
+                    minRows={4}
+                    maxRows={6}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={errors.description && touched.description}
@@ -120,9 +123,9 @@ const CreatePackage = () => {
                 }
               </FormControl>
               <FormControl color="success" fullWidth sx={{mb : 1}}>
-                <InputLabel>Color</InputLabel>
+                <InputLabel>{t('CreatePackage.color')}</InputLabel>
                 <OutlinedInput 
-                    label='Color'
+                    label={t('CreatePackage.color')}
                     name="color"
                     value={values.color}
                     onChange={handleChange}

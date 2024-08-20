@@ -1,15 +1,22 @@
 import { DeleteOutlined } from "@mui/icons-material";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, IconButton } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  IconButton,
+} from "@mui/material";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import DialogTransition from "../../../../components/DialogTransation";
 import { LoadingButton } from "@mui/lab";
 import useDeleteOffer from "../../../../api/Offer/useDeleteOffer";
 
-const DeleteButton = ({row}) => {
+const DeleteButton = ({ row }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const deleteOffer = useDeleteOffer()
+  const deleteOffer = useDeleteOffer();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -61,10 +68,10 @@ const DeleteButton = ({row}) => {
               letterSpacing: "3%",
             }}
           >
-            {t("AllCoupons.DeleteButton.delete_coupon")}
+            {t("deleteTitle", { objectName: "Offer" })}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-            {t("AllCoupons.DeleteButton.delete_warning")}
+            {t("deleteWarning", { objectName: "offer" })}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

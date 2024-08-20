@@ -15,7 +15,7 @@ import useDeletePackage from "../../../../../api/Packages/useDeletePackage";
 const DeleteButton = () => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
-  const deletePackage = useDeletePackage()
+  const deletePackage = useDeletePackage();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -61,10 +61,10 @@ const DeleteButton = () => {
               letterSpacing: "3%",
             }}
           >
-            {t("ShowFaq.delete_faq")}
+            {t("deleteTitle", { objectName: "Package" })}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-            {t("ShowFaq.delete_warning")}
+            {t("deleteWarning", { objectName: "package" })}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

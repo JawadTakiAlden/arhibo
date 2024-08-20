@@ -59,10 +59,10 @@ const DeleteButton = ({ row }) => {
               letterSpacing: "3%",
             }}
           >
-            {t("AllCoupons.DeleteButton.delete_coupon")}
+            {t("DeleteFilterOfCategory.title")}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-            {t("AllCoupons.DeleteButton.delete_warning")}
+            {t("DeleteFilterOfCategory.warning")}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

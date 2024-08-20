@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  FormControlLabel,
-  InputAdornment,
-  Switch,
-  useTheme,
-} from "@mui/material";
+import { Box, InputAdornment, Switch, useTheme } from "@mui/material";
 import {
   MaterialReactTable,
   useMaterialReactTable,
@@ -13,17 +6,19 @@ import {
 import React, { useMemo } from "react";
 import Search from "../../../components/Search";
 import { useTranslation } from "react-i18next";
-import { Add, SearchOutlined } from "@mui/icons-material";
+import { SearchOutlined } from "@mui/icons-material";
 import useGetFeatuers from "../../../api/Featuers/useGetFeatuers";
 import AddButton from "./components/AddButton";
 import DeleteButton from "./components/DeleteButton";
 import EditButton from "./components/EditButton";
 import useUpdateFeatuer from "../../../api/Featuers/useUpdateFeatuer";
+import { MRT_Localization_AR } from "material-react-table/locales/ar";
+import { MRT_Localization_EN } from "material-react-table/locales/en";
 
 const Featuers = () => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
-  const update = useUpdateFeatuer()
+  const update = useUpdateFeatuer();
   const featuers = useGetFeatuers();
   const columns = useMemo(
     () => [
@@ -53,12 +48,11 @@ const Featuers = () => {
       },
       {
         accessorKey: "qunatity",
-        header: t("Featuers.qunatity"),
+        header: t("Featuers.quantity"),
         size: 200,
       },
       {
         accessorKey: "action",
-        header: t("Featuers.action"),
         Cell: ({ row }) => {
           return (
             <Box
@@ -74,11 +68,11 @@ const Featuers = () => {
                 checked={row.original.is_active}
                 onChange={() => {
                   update.mutate({
-                    data : {
-                      'is_active' : !row.original.is_active
+                    data: {
+                      is_active: !row.original.is_active,
                     },
-                    featuerID : row.original.id
-                  })
+                    featuerID: row.original.id,
+                  });
                 }}
                 disabled={update.isPending}
               />
@@ -98,6 +92,7 @@ const Featuers = () => {
     enableSorting: false,
     enableColumnActions: false,
     enableFilters: false,
+    localization : i18n.language === 'ar' ? MRT_Localization_AR : MRT_Localization_EN,
     state: {
       density: "compact",
       isLoading: featuers.isLoading,
@@ -146,7 +141,7 @@ const Featuers = () => {
   });
 
   if (featuers.isLoading) {
-    return "loading ...";
+    return t("Shared.loading");
   }
   return (
     <Box

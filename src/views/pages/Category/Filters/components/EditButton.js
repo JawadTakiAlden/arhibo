@@ -17,9 +17,11 @@ import { useParams } from "react-router";
 import { Formik } from "formik";
 import { LoadingButton } from "@mui/lab";
 import useUpdateFilter from "../../../../../api/Category/useUpdateFilter";
+import { useTranslation } from "react-i18next";
 const EditButton = ({ row }) => {
   const [open, setOpen] = useState(false);
   const { catgeoryID } = useParams();
+  const {t} = useTranslation()
   const updateFilter = useUpdateFilter()
   const handleClickOpen = () => {
     setOpen(true);
@@ -104,7 +106,7 @@ const EditButton = ({ row }) => {
               letterSpacing: "3%",
             }}
           >
-            Update Input
+            {t('EditCategoryFilters.title')}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -113,11 +115,11 @@ const EditButton = ({ row }) => {
               category_id: +catgeoryID,
             }}
             validationSchema={yup.object({
-              name: yup.string().required("filter name is required"),
+              name: yup.string().required(),
               name_ar: yup
                 .string()
                 
-                .required("arabic filter name is required"),
+                .required(),
             })}
             onSubmit={async (values) => {
               await updateFilter.mutateAsync({data : values , filterID : row.id});
@@ -134,9 +136,9 @@ const EditButton = ({ row }) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Filter Name</InputLabel>
+                  <InputLabel>{t('FiltersForm.name_en')}</InputLabel>
                   <OutlinedInput
-                    label="English Filter Name"
+                    label={t('FiltersForm.name_en')}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -148,9 +150,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Filter Name</InputLabel>
+                  <InputLabel>{t('FiltersForm.name_ar')}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Filter Name"
+                    label={t('FiltersForm.name_ar')}
                     name="name_ar"
                     value={values.name_ar}
                     onChange={handleChange}
@@ -168,7 +170,7 @@ const EditButton = ({ row }) => {
                   variant="contained"
                   color="success"
                 >
-                  Update
+                  {t('edit')}
                 </LoadingButton>
               </form>
             )}

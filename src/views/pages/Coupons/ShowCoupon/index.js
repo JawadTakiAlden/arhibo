@@ -18,25 +18,29 @@ import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useUpdateCoupon from "../../../../api/Coupon/useUpdateCoupon";
 import useShowCoupon from "../../../../api/Coupon/useShowCoupon";
+import dayjs from "dayjs";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 const ShowCoupon = () => {
   const { t } = useTranslation();
   const [packageOpen, setPackageOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const packages = useGetPackages();
   const catgeories = useGetAllCategories();
-  const couponInfo = useShowCoupon()
-  const updateCoupon = useUpdateCoupon()
+  const couponInfo = useShowCoupon();
+  const updateCoupon = useUpdateCoupon();
   const handelCreate = (values) => {
     values = {
       ...values,
       categories: values.categories.map((cat) => cat.id),
       packages: values.packages.map((cat) => cat.id),
+      expiry_date: dayjs(values.expiry_date).format("YYYY-MM-DD"),
     };
     updateCoupon.mutate(values);
   };
 
-  if(couponInfo.isLoading){
-    return "loading ..."
+  if (couponInfo.isLoading) {
+    return "loading ...";
   }
 
   return (
@@ -58,7 +62,7 @@ const ShowCoupon = () => {
           validationSchema={yup.object({
             coupon_code: yup
               .string()
-              
+
               .required(t("CouponForms.name_ar_val")),
             offer: yup
               .number()
@@ -73,12 +77,14 @@ const ShowCoupon = () => {
               .array()
               .min(1)
               .required(t("CouponForms.description_en_val")),
+            expiry_date: yup.date().required("expiry date is requried"),
           })}
           initialValues={{
             coupon_code: couponInfo?.data?.data?.coupon_code,
             offer: couponInfo?.data?.data?.offer,
             categories: couponInfo?.data?.data?.categories,
             packages: couponInfo?.data?.data?.packages,
+            expiry_date: dayjs(couponInfo?.data?.data?.expiry_date),
           }}
         >
           {({
@@ -118,6 +124,21 @@ const ShowCoupon = () => {
                 />
                 {errors.offer && touched.offer && (
                   <FormHelperText error>{errors.offer}</FormHelperText>
+                )}
+              </FormControl>
+              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                {/* <InputLabel>Expiry Date</InputLabel> */}
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    label="Expiry Date"
+                    value={values.expiry_date}
+                    onChange={(newValue) =>
+                      setFieldValue("expiry_date", newValue)
+                    }
+                  />
+                </LocalizationProvider>
+                {errors.expiry_date && touched.expiry_date && (
+                  <FormHelperText error>{errors.expiry_date}</FormHelperText>
                 )}
               </FormControl>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
@@ -224,6 +245,6 @@ const ShowCoupon = () => {
       </Box>
     </Box>
   );
-}
+};
 
-export default ShowCoupon
+export default ShowCoupon;

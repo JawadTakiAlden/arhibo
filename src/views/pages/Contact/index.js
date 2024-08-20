@@ -11,7 +11,7 @@ const ContactInfo = () => {
   const {t} = useTranslation()
   const theme = useTheme()
   if(contactUs.isLoading){
-    return "loading..."
+    return t("Shared.loading")
   }
   return (
     <Box>

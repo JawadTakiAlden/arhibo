@@ -1,21 +1,33 @@
-import { Dialog, DialogContent, DialogContentText, FormControl, FormHelperText, IconButton, InputLabel, OutlinedInput, SvgIcon } from "@mui/material";
+import {
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  FormControl,
+  FormHelperText,
+  IconButton,
+  InputLabel,
+  OutlinedInput,
+  SvgIcon,
+} from "@mui/material";
 import React, { useState } from "react";
 import DialogTransition from "../../../../components/DialogTransation";
 import { Formik } from "formik";
 import { LoadingButton } from "@mui/lab";
 import useUpdateProhibited from "../../../../api/Prihibited/useUpdateProhibited";
-import * as yup from 'yup'
+import * as yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const EditButton = ({ row }) => {
-    const update = useUpdateProhibited()
-    const [open, setOpen] = useState(false);
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const update = useUpdateProhibited();
+  const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <IconButton
@@ -92,7 +104,7 @@ const EditButton = ({ row }) => {
               letterSpacing: "3%",
             }}
           >
-            Update Prohibited
+            {t("EditProhibitedThings.update_title")}
           </DialogContentText>
           <Formik
             initialValues={{
@@ -100,11 +112,8 @@ const EditButton = ({ row }) => {
               name_ar: row.name_ar,
             }}
             validationSchema={yup.object({
-              name: yup.string().required("name is required"),
-              name_ar: yup
-                .string()
-                
-                .required("arabic name is required"),
+              name: yup.string().required(),
+              name_ar: yup.string().required(),
             })}
             onSubmit={async (values) => {
               await update.mutateAsync({
@@ -124,9 +133,9 @@ const EditButton = ({ row }) => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>English Name</InputLabel>
+                  <InputLabel> {t("EditProhibitedThings.name_en")}</InputLabel>
                   <OutlinedInput
-                    label="English Name"
+                    label={t("EditProhibitedThings.name_en")}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -138,9 +147,9 @@ const EditButton = ({ row }) => {
                   )}
                 </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Arabic Name</InputLabel>
+                  <InputLabel>{t("EditProhibitedThings.name_ar")}</InputLabel>
                   <OutlinedInput
-                    label="Arabic Name"
+                    label={t("EditProhibitedThings.name_ar")}
                     name="name_ar"
                     value={values.name_ar}
                     onChange={handleChange}
@@ -158,7 +167,7 @@ const EditButton = ({ row }) => {
                   variant="contained"
                   color="success"
                 >
-                  Update
+                  {t("edit")}
                 </LoadingButton>
               </form>
             )}
