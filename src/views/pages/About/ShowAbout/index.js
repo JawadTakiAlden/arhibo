@@ -10,7 +10,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { DownloadOutlined , CreateOutlined, EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useShowAbout from "../../../../api/About/useShowAbout";
 import useUpdateAbout from "../../../../api/About/useUpdateAbout";
@@ -148,7 +148,7 @@ const ShowAbout = () => {
                   sx={{
                     flexBasis: "50%",
                   }}
-                  startIcon={<DownloadOutlined fontSize="medium" />}
+                  startIcon={<EditOutlined fontSize="medium" />}
                 >
                   {t("edit")}
                 </LoadingButton>

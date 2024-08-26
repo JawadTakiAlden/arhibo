@@ -9,7 +9,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useCreateAbout from "../../../../api/About/useCreateAbout";
 const CreateAbout = () => {
@@ -127,7 +127,7 @@ const CreateAbout = () => {
                 variant="contained"
                 type="submit"
                   loading={createAbout.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t("add")}
               </LoadingButton>

@@ -6,7 +6,7 @@ import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from 'yup'
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { DownloadOutlined , CreateOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useCreateCategory from "../../../../api/Category/useCreateCategory";
 
@@ -160,7 +160,7 @@ const CreateCatgeory = () => {
                 variant="contained"
                 loading={createCategory.isPending}
                 type="submit"
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t('add')}
               </LoadingButton>
