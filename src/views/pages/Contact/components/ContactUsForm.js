@@ -1,4 +1,4 @@
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import { Box, FormControl, FormHelperText, InputLabel, OutlinedInput } from "@mui/material";
 import { Formik } from "formik";
@@ -152,7 +152,7 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 variant="contained"
                 type="submit"
                 loading={contactUs.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t('add')}
               </LoadingButton>

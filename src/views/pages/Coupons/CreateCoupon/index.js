@@ -14,7 +14,7 @@ import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
@@ -243,7 +243,7 @@ const CreateCoupon = () => {
                 variant="contained"
                 loading={createCoupon.isPending}
                 type="submit"
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t("add")}
               </LoadingButton>

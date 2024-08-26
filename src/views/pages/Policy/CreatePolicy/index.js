@@ -5,7 +5,7 @@ import {
   import { Formik } from "formik";
   import * as yup from 'yup'
   import { LoadingButton } from "@mui/lab";
-  import { DownloadOutlined } from "@mui/icons-material";
+  import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
   import { useTranslation } from "react-i18next";
 import useCreatePloicy from "../../../../api/Policy/useCreatePloicy";
 const CreatePolicy = () => {
@@ -128,7 +128,7 @@ const CreatePolicy = () => {
                 variant="contained"
                 type="submit"
                 loading={createPolicy.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t('add')}
               </LoadingButton>

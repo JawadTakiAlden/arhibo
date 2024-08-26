@@ -1,4 +1,4 @@
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import {
   Box,
@@ -87,7 +87,7 @@ const CreatePrihibited = () => {
                 variant="contained"
                 type="submit"
                 loading={createPrihibited.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t("add")}
               </LoadingButton>

@@ -6,7 +6,7 @@ import {
   import { Formik } from "formik";
   import * as yup from 'yup'
   import { LoadingButton } from "@mui/lab";
-  import { DownloadOutlined } from "@mui/icons-material";
+  import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
   import { useTranslation } from "react-i18next";
 import useCreateService from "../../../../api/Services/useCreateService";
   
@@ -138,7 +138,7 @@ const CreateService = () => {
                 variant="contained"
                 type="submit"
                 loading={createService.isPending}
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t('add')}
               </LoadingButton>

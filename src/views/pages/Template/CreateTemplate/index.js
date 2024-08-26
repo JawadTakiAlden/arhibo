@@ -13,7 +13,7 @@ import FileInput from "../../../../components/FileInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useGetFiltersOfCategory from "../../../../api/Category/useGetFiltersOfCategory";
@@ -242,7 +242,7 @@ const CreateTemplate = () => {
             variant="contained"
             type="submit"
             loading={createTemplate.isPending}
-            startIcon={<DownloadOutlined fontSize="medium" />}
+            startIcon={<CreateOutlined fontSize="medium" />}
           >
             {t("add")}
           </LoadingButton>

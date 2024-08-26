@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useGetPackages from "../../../../api/Packages/useGetPackages";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
@@ -235,7 +235,7 @@ const ShowCoupon = () => {
                 variant="contained"
                 loading={updateCoupon.isPending}
                 type="submit"
-                startIcon={<DownloadOutlined fontSize="medium" />}
+                startIcon={<CreateOutlined fontSize="medium" />}
               >
                 {t("add")}
               </LoadingButton>

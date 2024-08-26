@@ -1,4 +1,4 @@
-import { DownloadOutlined } from "@mui/icons-material";
+import { DownloadOutlined, EditOutlined } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
 import {
   Box,
@@ -159,7 +159,7 @@ const ShowPackage = () => {
                     flexBasis: "50%",
                   }}
                   type="submit"
-                  startIcon={<DownloadOutlined fontSize="medium" />}
+                  startIcon={<EditOutlined fontSize="medium" />}
                 >
                   {t("edit")}
                 </LoadingButton>

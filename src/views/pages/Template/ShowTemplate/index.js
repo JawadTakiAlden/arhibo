@@ -15,6 +15,7 @@ import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
 import {
   DownloadOutlined,
+  EditOutlined,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useShowTemplate from "../../../../api/Template/useShowTemplate";
@@ -275,7 +276,7 @@ const ShowTemplate = () => {
                   sx={{
                     flexBasis: "50%",
                   }}
-                  startIcon={<DownloadOutlined fontSize="medium" />}
+                  startIcon={<EditOutlined fontSize="medium" />}
                 >
                   {t("edit")}
                 </LoadingButton>
