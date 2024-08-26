@@ -38,14 +38,16 @@ const CreateCatgeory = () => {
             description_ar: yup.string().required(),
             description: yup.string().required(),
             image : yup.mixed().required(),
-            photo : yup.mixed().required()
+            photo : yup.mixed().required(),
+            nice_sentence : yup.string().required()
         })}
           initialValues={{
             name_ar : "",
             name : "",
             description_ar: "",
             description: "",
-            image : ""
+            image : "",
+            nice_sentence : ""
           }}
         >
           {({
@@ -133,6 +135,22 @@ const CreateCatgeory = () => {
                 {
                     errors.description && touched.description && <FormHelperText error>
                         {errors.description}
+                    </FormHelperText>
+                }
+              </FormControl>
+              <FormControl color="success" fullWidth sx={{mb : 1}}>
+                <InputLabel>{t('CategoryForms.nice_sentence')}</InputLabel>
+                <OutlinedInput 
+                    label={t('CategoryForms.nice_sentence')}
+                    name="nice_sentence"
+                    value={values.nice_sentence}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={errors.nice_sentence && touched.nice_sentence}
+                />
+                {
+                    errors.nice_sentence && touched.nice_sentence && <FormHelperText error>
+                        {errors.nice_sentence}
                     </FormHelperText>
                 }
               </FormControl>

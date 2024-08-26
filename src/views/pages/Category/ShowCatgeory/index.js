@@ -81,12 +81,14 @@ const ShowCatgeory = () => {
 
               .required(),
             image: yup.mixed().required(),
+            nice_sentence : yup.string().required()
           })}
           initialValues={{
             name_ar: catgeoryInfo?.data?.data?.name_ar,
             name: catgeoryInfo?.data?.data?.name,
             description_ar: catgeoryInfo?.data?.data?.description_ar,
             description: catgeoryInfo?.data?.data?.description,
+            nice_sentence : catgeoryInfo?.data?.data?.nice_sentence,
           }}
         >
           {({
@@ -161,6 +163,20 @@ const ShowCatgeory = () => {
                 />
                 {errors.description && touched.description && (
                   <FormHelperText error>{errors.description}</FormHelperText>
+                )}
+              </FormControl>
+              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                <InputLabel>{t("CategoryForms.nice_sentence")}</InputLabel>
+                <OutlinedInput
+                  label={t("CategoryForms.nice_sentence")}
+                  name="nice_sentence"
+                  value={values.nice_sentence}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={errors.nice_sentence && touched.nice_sentence}
+                />
+                {errors.nice_sentence && touched.nice_sentence && (
+                  <FormHelperText error>{errors.nice_sentence}</FormHelperText>
                 )}
               </FormControl>
               <Box
@@ -248,10 +264,10 @@ const ShowCatgeory = () => {
               letterSpacing: "3%",
             }}
           >
-            {t("deleteTitle" , {objectName : "Category"})}
+            {t("deleteTitle", { objectName: "Category" })}
           </DialogContentText>
           <DialogContentText sx={{ maxWidth: "300px" }}>
-          {t("deleteWarning" , {objectName : "category"})}
+            {t("deleteWarning", { objectName: "category" })}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

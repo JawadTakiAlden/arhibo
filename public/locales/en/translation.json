@@ -85,7 +85,8 @@
     "description_ar": "Arabic Description",
     "description_en": "English Description",
     "icon_of_category": "Icon Of Catgeory",
-    "image_of_category": "Image Of Catgeory"
+    "image_of_category": "Image Of Catgeory",
+    "nice_sentence" : "Nice Sentence"
   },
   "ShowCategory": {
     "delete_catgeory": "Delete Catgeory",

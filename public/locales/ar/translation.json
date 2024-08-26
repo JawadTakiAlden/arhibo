@@ -52,7 +52,7 @@
   },
   "PackageDaitals": {
     "number_of_invitees": "عدد الأشخاص",
-    "price" : "السعر"
+    "price": "السعر"
   },
   "add_new": "إضافة جديد",
   "search": "بحث...",
@@ -81,7 +81,8 @@
     "description_ar": "الوصف بالعربية",
     "description_en": "الوصف بالإنجليزية",
     "icon_of_category": "أيقونة الفئة",
-    "image_of_category": "صورة الفئة"
+    "image_of_category": "صورة الفئة",
+    "nice_sentence": "جملة جميلة"
   },
   "ShowCategory": {
     "delete_catgeory": "حذف الفئة",
