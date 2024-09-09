@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import StatsticsCardsContainer from "./Components/StatsticsCardsContainer";
+import PushNotification from "./Components/PushNotification";
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
         }}
       >
         <StatsticsCardsContainer />
+        <PushNotification />
       </Box>
     </Box>
   );

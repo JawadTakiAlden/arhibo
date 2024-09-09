@@ -46,16 +46,14 @@ const CreateTemplate = () => {
       title: yup.string().required(),
       description_ar: yup
         .string()
-
         .required(),
       description: yup
         .string()
-
         .required(),
       category_id: yup.mixed().required(),
       image: yup.mixed().required(),
       filter_id: yup.mixed(),
-      emoji: yup.string().nullable(),
+      // emoji: yup.string().nullable(),
     }),
 
     initialValues: {
@@ -65,7 +63,7 @@ const CreateTemplate = () => {
       description: "",
       category_id: "",
       filter_id: "",
-      emoji: "",
+      // emoji: "",
       image: "",
     },
     onSubmit: handelCreate,
@@ -222,7 +220,7 @@ const CreateTemplate = () => {
               <FormHelperText error>{errors.description}</FormHelperText>
             )}
           </FormControl>
-          <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+          {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
             <InputLabel>{t("TemplateForms.emoji")}</InputLabel>
             <OutlinedInput
               label={t("TemplateForms.emoji")}
@@ -235,7 +233,7 @@ const CreateTemplate = () => {
             {errors.emoji && touched.emoji && (
               <FormHelperText error>{errors.emoji}</FormHelperText>
             )}
-          </FormControl>
+          </FormControl> */}
           <LoadingButton
             color="darkBlue"
             fullWidth

@@ -54,6 +54,14 @@
     "number_of_invitees": "Number OF People",
     "price" : "Price"
   },
+  "dashboard" : {
+    "notification" : {
+      "labels" : {
+        "title" : "Notification Title",
+        "body" : "Notification Body"
+      }
+    }
+  },
   "add_new": "Add New",
   "search": "Search...",
   "add": "Create",

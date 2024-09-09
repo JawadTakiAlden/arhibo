@@ -47,7 +47,7 @@ const Featuers = () => {
         size: 200,
       },
       {
-        accessorKey: "qunatity",
+        accessorKey: "quantity",
         header: t("Featuers.quantity"),
         size: 200,
       },

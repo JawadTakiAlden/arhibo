@@ -63,6 +63,7 @@ const EditValidationButton = ({ row }) => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton

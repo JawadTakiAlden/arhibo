@@ -154,7 +154,7 @@ const ContactUsForm = ({initialValues , handelClose}) => {
                 loading={contactUs.isPending}
                 startIcon={<CreateOutlined fontSize="medium" />}
               >
-                {t('add')}
+                {t('edit')}
               </LoadingButton>
             </form>
           )}

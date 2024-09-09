@@ -29,6 +29,14 @@
     "number_of_coupons_used": "عدد القسائم المستخدمة",
     "number_of_people_who_recived_invation": "عدد الأشخاص الذين تلقوا دعوة"
   },
+  "dashboard" : {
+    "notification" : {
+      "labels" : {
+        "title" : "عنوان الاشعار",
+        "body" : "الموضوع"
+      }
+    }
+  },
   "ContactUs": {
     "phone": "الهاتف",
     "email": "البريد الإلكتروني",

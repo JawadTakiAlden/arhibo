@@ -35,6 +35,7 @@ const DeleteButton = () => {
         TransitionComponent={DialogTransition}
         keepMounted
         onClose={handleClose}
+         scroll="paper"
       >
         <DialogContent>
             <IconButton

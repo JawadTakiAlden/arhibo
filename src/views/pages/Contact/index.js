@@ -7,7 +7,7 @@ import { Email, Facebook, Instagram, Phone, WhatsApp, X } from '@mui/icons-mater
 
 const ContactInfo = () => {
   const contactUs = useGetContact()
-  const [formOpen , setFormOpen] = useState(false)
+  const [formOpen , setFormOpen] = useState(true)
   const {t} = useTranslation()
   const theme = useTheme()
   if(contactUs.isLoading){
@@ -15,15 +15,15 @@ const ContactInfo = () => {
   }
   return (
     <Box>
-      <Button onClick={()=>{
+      {/* <Button onClick={()=>{
         setFormOpen(prev => !prev)
-      }} color='darkBlue' variant='contained' size='medium'>{t('add_new')}</Button>
+      }} color='darkBlue' variant='contained' size='medium'>{t('add_new')}</Button> */}
       <Collapse in={formOpen}>
         <ContactUsForm initialValues={contactUs?.data?.data} handelClose={() => {
           setFormOpen(false)
         }} />
       </Collapse>
-      <Box
+      {/* <Box
         sx={{
           my : 2,
           backgroundColor : 'white',
@@ -120,7 +120,7 @@ const ContactInfo = () => {
         >
           <Email /> {contactUs?.data?.data?.email}
         </Typography>
-      </Box>
+      </Box> */}
     </Box>
   )
 }

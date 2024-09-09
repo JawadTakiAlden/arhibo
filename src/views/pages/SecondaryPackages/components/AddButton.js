@@ -38,6 +38,7 @@ const AddButton = () => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton

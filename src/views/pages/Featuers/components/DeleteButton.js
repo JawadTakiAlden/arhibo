@@ -38,6 +38,7 @@ const DeleteButton = ({ row }) => {
         open={open}
         TransitionComponent={DialogTransition}
         keepMounted
+         scroll="paper"
         onClose={handleClose}
       >
         <DialogContent>

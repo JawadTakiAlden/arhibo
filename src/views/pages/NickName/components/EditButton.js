@@ -65,6 +65,7 @@ const EditButton = ({ row }) => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton

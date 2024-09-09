@@ -42,10 +42,8 @@ const EditButton = ({ row }) => {
   return (
     <>
       <IconButton
+        variant="contained"
         color="success"
-        endIcon={<Add />}
-        size="medium"
-        onClick={handleClickOpen}
       >
         <SvgIcon>
           <svg
@@ -74,6 +72,7 @@ const EditButton = ({ row }) => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton variant="contained" color="success">

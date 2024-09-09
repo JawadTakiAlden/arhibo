@@ -2,10 +2,12 @@ import { useCallback } from 'react'
 import { request } from '../request'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useSnackbar } from 'notistack'
+import { useNavigate } from 'react-router'
 
 const useCreateCategory = () => {
     const queryClient = useQueryClient()
     const { enqueueSnackbar } = useSnackbar();
+    const router = useNavigate()
 
     const createCategoryRequest = useCallback((data) => {
         return request({
@@ -24,6 +26,7 @@ const useCreateCategory = () => {
         onSuccess : (data) => {
             queryClient.refetchQueries(['get-all-categories'])
             enqueueSnackbar(data?.data?.message , {variant : 'success'})
+            router(-1)
         },
         onError : (error) => {
             if(error.response){

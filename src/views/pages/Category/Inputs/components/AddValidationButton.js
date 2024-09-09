@@ -45,6 +45,7 @@ const AddValidationButton = ({input_id}) => {
         {t("add_new")}
       </Button>
       <Dialog
+       scroll="paper"
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}

@@ -11,6 +11,9 @@ client.interceptors.response.use(
   });
 export const request = async ({ ...options }) => {
   client.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('token_admin_arhibo')}`;
-  options.url = options.url + `?ln=${i18next.language}`
+  options.params = {
+    ...options.params,
+    ln : i18next.language
+  }
   return client(options).then((res) => res);
 };

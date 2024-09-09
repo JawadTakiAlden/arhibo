@@ -56,7 +56,7 @@ const AddButton = () => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
-        // scroll={scroll}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton
@@ -268,10 +268,7 @@ const AddButton = () => {
                     </FormHelperText>
                   }
                 </FormControl>
-                <FormControl fullWidth color="success">
-                  {/* <FormLabel id="type" >
-                    Type
-                  </FormLabel> */}
+                {/* <FormControl fullWidth color="success">
                   <RadioGroup
                     name="type"
                     value={values.type}
@@ -288,7 +285,7 @@ const AddButton = () => {
                       label="Without Value"
                     />
                   </RadioGroup>
-                </FormControl>
+                </FormControl> */}
                 <LoadingButton
                   loading={createFeatuer.isPending}
                   type="submit"

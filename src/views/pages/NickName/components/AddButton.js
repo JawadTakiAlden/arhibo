@@ -54,7 +54,7 @@ const AddButton = () => {
         open={open}
         TransitionComponent={DialogTransition}
         onClose={handleClose}
-        // scroll={scroll}
+         scroll="paper"
       >
         <DialogContent>
           <IconButton

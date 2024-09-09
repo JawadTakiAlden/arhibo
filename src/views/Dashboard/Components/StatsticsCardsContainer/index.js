@@ -105,11 +105,6 @@ const StatisticsCardsContainer = () => {
       icon: CouponIcon,
     },
     {
-      id: "number_of_in_used_coupons",
-      title: t("Home.number_of_coupons_used"),
-      icon: CouponIcon,
-    },
-    {
       id: "number_of_people_invited_by_app",
       title: t("Home.number_of_people_who_recived_invation"),
       icon: <PeopleOutlined />,

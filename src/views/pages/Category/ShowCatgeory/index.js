@@ -10,8 +10,10 @@ import {
   IconButton,
   InputLabel,
   OutlinedInput,
+  Tooltip,
+  Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -24,6 +26,7 @@ import { Link, useParams } from "react-router-dom";
 import useShowCategory from "../../../../api/Category/useShowCategory";
 import useUpdateCategory from "../../../../api/Category/useUpdateCategory";
 import useDeleteCategory from "../../../../api/Category/useDeleteCategory";
+import useGetVarsOfNiceSentence from "../../../../api/Category/useGetVarsOfNiceSentence";
 
 const ShowCatgeory = () => {
   const [open, setOpen] = useState(false);
@@ -32,6 +35,12 @@ const ShowCatgeory = () => {
   const catgeoryInfo = useShowCategory();
   const updateCatgeory = useUpdateCategory();
   const deleteCatgeory = useDeleteCategory();
+  const varNames = useGetVarsOfNiceSentence("edit" , catgeoryID);
+  const templateMessageRef = useRef(null);
+
+  if (varNames.isLoading) {
+    return <Typography>Loading ...</Typography>;
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -81,7 +90,8 @@ const ShowCatgeory = () => {
 
               .required(),
             image: yup.mixed().required(),
-            nice_sentence : yup.string().required()
+            nice_sentence : yup.string().required(),
+            whatsapp_template : yup.string().required(),
           })}
           initialValues={{
             name_ar: catgeoryInfo?.data?.data?.name_ar,
@@ -89,6 +99,7 @@ const ShowCatgeory = () => {
             description_ar: catgeoryInfo?.data?.data?.description_ar,
             description: catgeoryInfo?.data?.data?.description,
             nice_sentence : catgeoryInfo?.data?.data?.nice_sentence,
+            whatsApp_template : catgeoryInfo?.data?.data?.whatsApp_template,
           }}
         >
           {({
@@ -165,18 +176,137 @@ const ShowCatgeory = () => {
                   <FormHelperText error>{errors.description}</FormHelperText>
                 )}
               </FormControl>
+              <Box>
+                <Typography>
+                  to write nice senctence you can use some dynamic varible in
+                  your message , these are the list of varible name that you can
+                  use in you message , please make sure you write the var name
+                  in the same spliting you see
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                    gap: "20px",
+                    my: 3,
+                    backgroundColor: "grey.50",
+                    p: 2,
+                    borderRadius: "8px",
+                  }}
+                >
+                  {varNames?.data?.data?.map((varName, i) => {
+                    return (
+                      <Tooltip title="click to copy" key={i}>
+                        <Typography
+                          sx={{
+                            p: 0.5,
+                            backgroundColor: "grey.200",
+                            borderRadius: "4px",
+                            transition: "0.2s",
+                            cursor: "pointer",
+                            "&:hover": {
+                              transform: "scale(1.02)",
+                            },
+                          }}
+                          onClick={() => {
+                            if(values.whatsApp_template.length > 0){
+                              const lastChar = values.whatsApp_template.charAt(
+                                values.whatsApp_template.trim().length - 1
+                              );
+                              if (lastChar === "{") {
+                                setFieldValue(
+                                  "whatsApp_template",
+                                  values.whatsApp_template + varName + "}}"
+                                );
+                              } else {
+                                setFieldValue(
+                                  "whatsApp_template",
+                                  values.whatsApp_template + ` {{${varName} }} `
+                                );
+                              }
+                            }else{
+
+                            }
+                          }}
+                        >
+                          {varName}
+                        </Typography>
+                      </Tooltip>
+                    );
+                  })}
+                </Box>
+              </Box>
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                <InputLabel>{t("CategoryForms.nice_sentence")}</InputLabel>
+                <InputLabel>Whatsapp Template Message</InputLabel>
                 <OutlinedInput
-                  label={t("CategoryForms.nice_sentence")}
-                  name="nice_sentence"
-                  value={values.nice_sentence}
-                  onChange={handleChange}
+                  ref={templateMessageRef}
+                  label={"Whatsapp Template Message"}
+                  name="whatsApp_template"
+                  multiline
+                  minRows={3}
+                  value={values.whatsApp_template}
+                  onChange={(e) => {
+                    let newValue = e.target.value;
+                    if (
+                      e.target.value.charAt(e.target.value.length - 1) ===
+                        "{" &&
+                      e.target.value.length > values.whatsApp_template.length
+                    ) {
+                      newValue += "{ ";
+                      setFieldValue("whatsApp_template", newValue);
+                      return;
+                    }
+                    if (
+                      e.target.value.charAt(e.target.value.length - 1) ===
+                        "}" &&
+                      e.target.value.length > values.whatsApp_template.length
+                    ) {
+                      newValue += "} ";
+                      setFieldValue("whatsApp_template", newValue);
+                      return;
+                    }
+                    setFieldValue("whatsApp_template", e.target.value);
+                  }}
+                  onKeyDown={(e) => {
+                    const arrayMessage = values.whatsApp_template.split(" ");
+                    const lastWord = arrayMessage[arrayMessage.length - 1];
+                    const prevLastWord = arrayMessage[arrayMessage.length - 2];
+                    if (e.key === "Tab") {
+                      e.preventDefault();
+                      const sug = varNames?.data?.data?.filter((item) => {
+                        return item.startsWith(lastWord);
+                      });
+
+                      if (sug.length === 1) {
+                        if (prevLastWord === "{{") {
+                          const newVlaue = [
+                            ...arrayMessage.splice(0, arrayMessage.length - 1),
+                            ...sug,
+                            " }} ",
+                          ].join(" ");
+                          setFieldValue("whatsApp_template", newVlaue);
+                          return 
+                        }else {
+                          const newVlaue = [
+                            ...arrayMessage.splice(0, arrayMessage.length - 1),
+                            "{{",
+                            ...sug,
+                            " }} ",
+                          ].join(" ");
+                          setFieldValue("whatsApp_template", newVlaue);
+                          return
+                        }
+                      }
+                    }
+                  }}
                   onBlur={handleBlur}
-                  error={errors.nice_sentence && touched.nice_sentence}
+                  error={errors.whatsApp_template && touched.whatsApp_template}
                 />
-                {errors.nice_sentence && touched.nice_sentence && (
-                  <FormHelperText error>{errors.nice_sentence}</FormHelperText>
+                {errors.whatsApp_template && touched.whatsApp_template && (
+                  <FormHelperText error>
+                    {errors.whatsApp_template}
+                  </FormHelperText>
                 )}
               </FormControl>
               <Box
@@ -243,6 +373,7 @@ const ShowCatgeory = () => {
         open={open}
         TransitionComponent={DialogTransition}
         keepMounted
+         scroll="paper"
         onClose={handleClose}
       >
         <DialogContent>
