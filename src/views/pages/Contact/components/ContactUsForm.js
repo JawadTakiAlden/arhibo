@@ -12,7 +12,6 @@ const ContactUsForm = ({initialValues , handelClose}) => {
   const contactUs = useStoreOrUpdate()
   const handelCreate = async (values) => {
     await contactUs.mutateAsync(values)
-    handelClose()
   }
   return (
     <Box

@@ -18,7 +18,7 @@ const useGetVarsOfNiceSentence = (q = "create" , category_id = null) => {
     } , [catgeoryID])
     const query = useQuery({
         queryFn : getInformationRequest,
-        queryKey : [`get-inforamtion`],
+        queryKey : [`get-inforamtion-${q}-${category_id}`],
     })
     return query
 }

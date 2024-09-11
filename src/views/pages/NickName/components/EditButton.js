@@ -33,6 +33,7 @@ const EditButton = ({ row }) => {
   return (
     <>
       <IconButton
+      variant="contained"
         color="success"
         endIcon={<Add />}
         size="medium"

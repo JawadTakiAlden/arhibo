@@ -26,7 +26,6 @@ const NickNames = () => {
       },
       {
         accessorKey: "action",
-        // header: t("Featuers.action"),
         Cell: ({ row }) => {
           return (
             <Box
