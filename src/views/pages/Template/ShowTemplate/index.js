@@ -189,7 +189,7 @@ const ShowTemplate = () => {
                   )}
                 />
               </FormControl>
-              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+              {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                 <InputLabel>{t("TemplateForms.title_ar")}</InputLabel>
                 <OutlinedInput
                   label={t("TemplateForms.title_ar")}
@@ -258,7 +258,7 @@ const ShowTemplate = () => {
                 {errors.emoji && touched.emoji && (
                   <FormHelperText error>{errors.emoji}</FormHelperText>
                 )}
-              </FormControl>
+              </FormControl> */}
 
               <Box
                 sx={{

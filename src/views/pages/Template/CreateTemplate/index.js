@@ -42,14 +42,14 @@ const CreateTemplate = () => {
     handleSubmit,
   } = useFormik({
     validationSchema: yup.object({
-      title_ar: yup.string().required(),
-      title: yup.string().required(),
-      description_ar: yup
-        .string()
-        .required(),
-      description: yup
-        .string()
-        .required(),
+      // title_ar: yup.string().required(),
+      // title: yup.string().required(),
+      // description_ar: yup
+      //   .string()
+      //   .required(),
+      // description: yup
+      //   .string()
+      //   .required(),
       category_id: yup.mixed().required(),
       image: yup.mixed().required(),
       filter_id: yup.mixed(),
@@ -57,10 +57,10 @@ const CreateTemplate = () => {
     }),
 
     initialValues: {
-      title_ar: "",
-      title: "",
-      description_ar: "",
-      description: "",
+      // title_ar: "",
+      // title: "",
+      // description_ar: "",
+      // description: "",
       category_id: "",
       filter_id: "",
       // emoji: "",
@@ -164,7 +164,7 @@ const CreateTemplate = () => {
               )}
             />
           </FormControl>
-          <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+          {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
             <InputLabel>{t("TemplateForms.title_ar")}</InputLabel>
             <OutlinedInput
               label={t("TemplateForms.title_ar")}
@@ -219,7 +219,7 @@ const CreateTemplate = () => {
             {errors.description && touched.description && (
               <FormHelperText error>{errors.description}</FormHelperText>
             )}
-          </FormControl>
+          </FormControl> */}
           {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
             <InputLabel>{t("TemplateForms.emoji")}</InputLabel>
             <OutlinedInput

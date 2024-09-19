@@ -118,7 +118,7 @@ const AllTemplate = () => {
               />
             </CardMedia>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              {/* <Typography gutterBottom variant="h5" component="div">
                 <ColoredWord sx={{ fontWeight: "600" }}>
                   {t("AllTemplates.emojy")}
                 </ColoredWord>{" "}
@@ -138,7 +138,7 @@ const AllTemplate = () => {
                 {i18n.language === "ar"
                   ? template.description_ar
                   : template.description}
-              </Typography>
+              </Typography> */}
             </CardContent>
             <CardActions
               sx={{

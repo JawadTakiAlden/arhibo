@@ -115,7 +115,7 @@ const CreateCatgeory = () => {
                   <FormHelperText error>{errors.name}</FormHelperText>
                 )}
               </FormControl>
-              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+              {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                 <InputLabel>{t("CategoryForms.description_ar")}</InputLabel>
                 <OutlinedInput
                   label={t("CategoryForms.description_ar")}
@@ -142,7 +142,7 @@ const CreateCatgeory = () => {
                 {errors.description && touched.description && (
                   <FormHelperText error>{errors.description}</FormHelperText>
                 )}
-              </FormControl>
+              </FormControl> */}
               <Box>
                 <Typography>
                   to write nice senctence you can use some dynamic varible in
@@ -177,18 +177,18 @@ const CreateCatgeory = () => {
                             },
                           }}
                           onClick={() => {
-                            const lastChar = values.whatsapp_template.charAt(
-                              values.whatsapp_template.trim().length - 1
+                            const lastChar = values.whatsApp_template.charAt(
+                              values.whatsApp_template.trim().length - 1
                             );
                             if (lastChar === "{") {
                               setFieldValue(
-                                "whatsapp_template",
-                                values.whatsapp_template + varName + "}}"
+                                "whatsApp_template",
+                                values.whatsApp_template + varName + "}}"
                               );
                             } else {
                               setFieldValue(
-                                "whatsapp_template",
-                                values.whatsapp_template + ` {{${varName} }} `
+                                "whatsApp_template",
+                                values.whatsApp_template + ` {{${varName} }} `
                               );
                             }
                           }}

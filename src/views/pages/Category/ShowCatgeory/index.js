@@ -148,7 +148,7 @@ const ShowCatgeory = () => {
                   <FormHelperText error>{errors.name}</FormHelperText>
                 )}
               </FormControl>
-              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+              {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                 <InputLabel>{t("CategoryForms.description_ar")}</InputLabel>
                 <OutlinedInput
                   label={t("CategoryForms.description_ar")}
@@ -175,7 +175,7 @@ const ShowCatgeory = () => {
                 {errors.description && touched.description && (
                   <FormHelperText error>{errors.description}</FormHelperText>
                 )}
-              </FormControl>
+              </FormControl> */}
               <Box>
                 <Typography>
                   to write nice senctence you can use some dynamic varible in
@@ -210,23 +210,19 @@ const ShowCatgeory = () => {
                             },
                           }}
                           onClick={() => {
-                            if(values.whatsApp_template.length > 0){
-                              const lastChar = values.whatsApp_template.charAt(
-                                values.whatsApp_template.trim().length - 1
+                            const lastChar = values.whatsApp_template.charAt(
+                              values.whatsApp_template.trim().length - 1
+                            );
+                            if (lastChar === "{") {
+                              setFieldValue(
+                                "whatsApp_template",
+                                values.whatsApp_template + varName + "}}"
                               );
-                              if (lastChar === "{") {
-                                setFieldValue(
-                                  "whatsApp_template",
-                                  values.whatsApp_template + varName + "}}"
-                                );
-                              } else {
-                                setFieldValue(
-                                  "whatsApp_template",
-                                  values.whatsApp_template + ` {{${varName} }} `
-                                );
-                              }
-                            }else{
-
+                            } else {
+                              setFieldValue(
+                                "whatsApp_template",
+                                values.whatsApp_template + ` {{${varName} }} `
+                              );
                             }
                           }}
                         >
