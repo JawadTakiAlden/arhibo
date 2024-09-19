@@ -75,6 +75,7 @@ const AddButton = () => {
               price: "",
               price_qr: "",
               number_of_invitees: "",
+              price_reminder_per_person : "",
               package_id: +packageID,
             }}
             validationSchema={yup.object({
@@ -117,21 +118,21 @@ const AddButton = () => {
                     <FormHelperText error>{errors.price}</FormHelperText>
                   )}
                 </FormControl>
-                {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                  <InputLabel>Price With QR</InputLabel>
+                <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                  <InputLabel>Single Reminder Message Price</InputLabel>
                   <OutlinedInput
-                    label="Price With QR"
+                    label="Single Reminder Message Price"
                     type="number"
-                    name="price_qr"
-                    value={values.price_qr}
+                    name="price_reminder_per_person"
+                    value={values.price_reminder_per_person}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={errors.price_qr && touched.price_qr}
+                    error={errors.price_reminder_per_person && touched.price_reminder_per_person}
                   />
-                  {errors.price_qr && touched.price_qr && (
-                    <FormHelperText error>{errors.price_qr}</FormHelperText>
+                  {errors.price_reminder_per_person && touched.price_reminder_per_person && (
+                    <FormHelperText error>{errors.price_reminder_per_person}</FormHelperText>
                   )}
-                </FormControl> */}
+                </FormControl>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                   <InputLabel>Number Of people</InputLabel>
                   <OutlinedInput
