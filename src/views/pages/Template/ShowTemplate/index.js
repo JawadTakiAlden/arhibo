@@ -13,10 +13,7 @@ import FileInput from "../../../../components/FileInput";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import {
-  DownloadOutlined,
-  EditOutlined,
-} from "@mui/icons-material";
+import { DownloadOutlined, EditOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useShowTemplate from "../../../../api/Template/useShowTemplate";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
@@ -27,7 +24,7 @@ import useGetAllFilters from "../../../../api/Filters/useGetAllFilters";
 const ShowTemplate = () => {
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
- 
+
   const { t } = useTranslation();
 
   const template = useShowTemplate();
@@ -35,9 +32,9 @@ const ShowTemplate = () => {
   const handelUpdate = (values) => {
     values = {
       ...values,
-      category_id : values.category_id.id,
-      filter_id : values.filter_id.id
-    }
+      category_id: values.category_id.id,
+      filter_id: values.filter_id.id,
+    };
     updateTemplate.mutate(values);
   };
 
@@ -45,9 +42,8 @@ const ShowTemplate = () => {
   const filters = useGetAllFilters();
 
   if (template.isLoading) {
-    return t('Shared.loading')
+    return t("Shared.loading");
   }
-
 
   return (
     <Box
@@ -72,23 +68,24 @@ const ShowTemplate = () => {
             category_id: template?.data?.data?.category,
             filter_id: template?.data?.data?.filters[0],
             emoji: template?.data?.data?.emoji,
+            template_code: template?.data?.data?.template_code,
           }}
           validationSchema={yup.object({
             title_ar: yup
               .string()
-              
+
               .required(),
             title: yup
               .string()
-              
+
               .required(),
             description_ar: yup
               .string()
-              
+
               .required(),
             description: yup
               .string()
-              
+
               .required(),
             category_id: yup.mixed().required(),
             filter_id: yup.mixed().required(),
@@ -134,7 +131,7 @@ const ShowTemplate = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label={t('TemplateForms.category')}
+                      label={t("TemplateForms.category")}
                       InputProps={{
                         ...params.InputProps,
                         endAdornment: (
@@ -189,20 +186,22 @@ const ShowTemplate = () => {
                   )}
                 />
               </FormControl>
-              {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-                <InputLabel>{t("TemplateForms.title_ar")}</InputLabel>
+
+              <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                <InputLabel>Template Code</InputLabel>
                 <OutlinedInput
-                  label={t("TemplateForms.title_ar")}
-                  name="title_ar"
+                  label={"Template Code"}
+                  name="template_code"
                   onChange={handleChange}
-                  value={values.title_ar}
+                  value={values.template_code}
                   onBlur={handleBlur}
-                  error={errors.title_ar && touched.title_ar}
+                  error={errors.template_code && touched.template_code}
                 />
-                {errors.title_ar && touched.title_ar && (
-                  <FormHelperText error>{errors.title_ar}</FormHelperText>
+                {errors.template_code && touched.template_code && (
+                  <FormHelperText error>{errors.template_code}</FormHelperText>
                 )}
               </FormControl>
+              {/*
               <FormControl color="success" fullWidth sx={{ mb: 1 }}>
                 <InputLabel>{t("TemplateForms.title_en")}</InputLabel>
                 <OutlinedInput

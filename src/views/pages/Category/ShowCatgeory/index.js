@@ -262,7 +262,8 @@ const ShowCatgeory = () => {
                       setFieldValue("whatsApp_template", newValue);
                       return;
                     }
-                    setFieldValue("whatsApp_template", e.target.value);
+                    setFieldValue("whatsApp_template", 
+                      e.target.value);
                   }}
                   onKeyDown={(e) => {
                     const arrayMessage = values.whatsApp_template.split(" ");

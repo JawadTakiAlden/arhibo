@@ -53,6 +53,7 @@ const CreateTemplate = () => {
       category_id: yup.mixed().required(),
       image: yup.mixed().required(),
       filter_id: yup.mixed(),
+      template_code : yup.string()
       // emoji: yup.string().nullable(),
     }),
 
@@ -61,6 +62,7 @@ const CreateTemplate = () => {
       // title: "",
       // description_ar: "",
       // description: "",
+      template_code : "",
       category_id: "",
       filter_id: "",
       // emoji: "",
@@ -164,20 +166,21 @@ const CreateTemplate = () => {
               )}
             />
           </FormControl>
-          {/* <FormControl color="success" fullWidth sx={{ mb: 1 }}>
-            <InputLabel>{t("TemplateForms.title_ar")}</InputLabel>
+           <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+            <InputLabel>Template Code</InputLabel>
             <OutlinedInput
-              label={t("TemplateForms.title_ar")}
-              name="title_ar"
+              label={"Template Code"}
+              name="template_code"
               onChange={handleChange}
-              value={values.title_ar}
+              value={values.template_code}
               onBlur={handleBlur}
-              error={errors.title_ar && touched.title_ar}
+              error={errors.template_code && touched.template_code}
             />
-            {errors.title_ar && touched.title_ar && (
-              <FormHelperText error>{errors.title_ar}</FormHelperText>
+            {errors.template_code && touched.template_code && (
+              <FormHelperText error>{errors.template_code}</FormHelperText>
             )}
           </FormControl>
+          {/*
           <FormControl color="success" fullWidth sx={{ mb: 1 }}>
             <InputLabel>{t("TemplateForms.title_en")}</InputLabel>
             <OutlinedInput
