@@ -60,7 +60,8 @@
   },
   "PackageDaitals": {
     "number_of_invitees": "عدد الأشخاص",
-    "price": "السعر"
+    "price": "السعر",
+    "price_reminder_per_person" : " سعر التكذكرة / لكل شخص"
   },
   "add_new": "إضافة جديد",
   "search": "بحث...",

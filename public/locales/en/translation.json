@@ -52,7 +52,8 @@
   },
   "PackageDaitals": {
     "number_of_invitees": "Number OF People",
-    "price" : "Price"
+    "price" : "Price",
+    "price_reminder_per_person" : "Reminer Price / Per Person"
   },
   "dashboard" : {
     "notification" : {

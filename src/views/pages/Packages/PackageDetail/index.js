@@ -19,6 +19,11 @@ const PackageDetail = () => {
           size: 150,
         },
         {
+          accessorKey: 'price_reminder_per_person',
+          header: t('PackageDaitals.price_reminder_per_person'),
+          size: 150,
+        },
+        {
           accessorKey: 'price',
           header: t('PackageDaitals.price'),
           size: 150,
@@ -47,7 +52,7 @@ const PackageDetail = () => {
     const table = useMaterialReactTable({
       columns,
       data : packageDetails?.data?.data || [],
-      enableBottomToolbar: false,
+      // enableBottomToolbar: false,
       enableTopToolbar: false,
       enableSorting: false,
       enableColumnActions: false,

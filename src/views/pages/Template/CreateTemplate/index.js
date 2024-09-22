@@ -13,7 +13,7 @@ import FileInput from "../../../../components/FileInput";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { LoadingButton } from "@mui/lab";
-import { CreateOutlined, DownloadOutlined } from "@mui/icons-material";
+import { CreateOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import useGetAllCategories from "../../../../api/Category/useGetAllCategories";
 import useGetFiltersOfCategory from "../../../../api/Category/useGetFiltersOfCategory";

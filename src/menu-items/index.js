@@ -82,7 +82,7 @@ const MenuItemsMap = () => {
         {
           id: "policies",
           path: "/dashboard/policies",
-          name: "Ploicy",
+          name: "Privacy Policy",
           icon: PolicyIcon,
         },
         {

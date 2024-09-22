@@ -20,7 +20,7 @@ const NickNames = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'nickname',
+        accessorKey: i18n.language === "en" ? 'nickname' : "nickname_ar",
         header: t("Nickname.nickname"),
         size: 150,
       },

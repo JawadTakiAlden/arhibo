@@ -83,9 +83,11 @@ const AddButton = () => {
           <Formik
             initialValues={{
               nickname: "",
+              nickname_ar : ""
             }}
             validationSchema={yup.object({
               nickname: yup.string().required("nickname is required"),
+              nickname_ar : yup.string().required("arabic nickname is required")
             })}
             onSubmit={async (values) => {
               await createNickName.mutateAsync(values);
@@ -99,7 +101,6 @@ const AddButton = () => {
               values,
               errors,
               touched,
-              setFieldValue,
             }) => (
               <form onSubmit={handleSubmit}>
                 <FormControl color="success" fullWidth sx={{ mb: 1 }}>
@@ -114,6 +115,20 @@ const AddButton = () => {
                   />
                   {errors.nickname && touched.nickname && (
                     <FormHelperText error>{errors.nickname}</FormHelperText>
+                  )}
+                </FormControl>
+                <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                  <InputLabel>Arabic Nickname</InputLabel>
+                  <OutlinedInput
+                    label="Arabic Nickname"
+                    name="nickname_ar"
+                    value={values.nickname_ar}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={errors.nickname_ar && touched.nickname_ar}
+                  />
+                  {errors.nickname_ar && touched.nickname_ar && (
+                    <FormHelperText error>{errors.nickname_ar}</FormHelperText>
                   )}
                 </FormControl>
 

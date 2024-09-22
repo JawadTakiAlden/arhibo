@@ -26,7 +26,7 @@ const AllTemplate = () => {
   const [search, setSearch] = useState("");
   const templates = useGetTemplates(search);
   const { t, i18n } = useTranslation();
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(0);
 
   const handelRefetchOnSearch = useDebounce(() => {
     templates.refetch();
@@ -48,7 +48,6 @@ const AllTemplate = () => {
     endIndex
   );
 
-  console.log(totalPages, startIndex, endIndex, currentPageElements);
 
   return (
     <Box>
@@ -152,11 +151,15 @@ const AllTemplate = () => {
             </CardActions>
           </Card>
         ))}
-        <Box
+        
+      </Box>
+      <Box
           sx={{
             display: "flex",
             alignItems: "center",
             gap: "5px",
+            flexWrap : 'wrap',
+            mt : 3
           }}
         >
           {Array(totalPages).fill(1).map((p , i) => {
@@ -178,10 +181,9 @@ const AllTemplate = () => {
             onClick={() => {
               setPage(i)
             }}
-            >{i * 12}</Typography>;
+            >{i}</Typography>;
           })}
         </Box>
-      </Box>
     </Box>
   );
 };
