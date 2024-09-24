@@ -95,9 +95,11 @@ const EditButton = ({ row }) => {
           <Formik
             initialValues={{
               nickname: row.nickname,
+               nickname_ar : row.nickname_ar
             }}
             validationSchema={yup.object({
-              nickname: yup.string().required(),
+              nickname: yup.string().max(9).required(),
+               nickname_ar : yup.string().max(9).required("arabic nickname is required")
             })}
             onSubmit={async (values) => {
               await updateNickName.mutateAsync({
@@ -128,6 +130,20 @@ const EditButton = ({ row }) => {
                   />
                   {errors.nickname && touched.nickname && (
                     <FormHelperText error>{errors.nickname}</FormHelperText>
+                  )}
+                </FormControl>
+                <FormControl color="success" fullWidth sx={{ mb: 1 }}>
+                  <InputLabel>Arabic Nickname</InputLabel>
+                  <OutlinedInput
+                    label="Arabic Nickname"
+                    name="nickname_ar"
+                    value={values.nickname_ar}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={errors.nickname_ar && touched.nickname_ar}
+                  />
+                  {errors.nickname_ar && touched.nickname_ar && (
+                    <FormHelperText error>{errors.nickname_ar}</FormHelperText>
                   )}
                 </FormControl>
                 <LoadingButton

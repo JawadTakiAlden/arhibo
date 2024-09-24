@@ -10,10 +10,10 @@ import BreadcrumbNameMap from "./BreadcrumbNameMap";
 import SidebarSection from "./SidebarSection";
 import DrawerHeader from "./Drawer/DrawerHeader";
 import AppBar from "./Drawer/AppBar";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import LanguageSwitcher from "../../components/Language";
 import useGetOffers from "../../api/Offer/useGetOffers";
-import { CircularProgress } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -38,6 +38,7 @@ const MainLayout = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const offers = useGetOffers();
+  const navigate = useNavigate()
 
   if (offers.isLoading) {
     return (
@@ -47,7 +48,7 @@ const MainLayout = () => {
           height: "100vh",
           display: "flex",
           alignItems: "center",
-          justifyContent : 'center'
+          justifyContent: "center",
         }}
       >
         <CircularProgress color="success" variant="indeterminate" />
@@ -94,7 +95,25 @@ const MainLayout = () => {
               </IconButton>
               <BreadcrumbNameMap />
             </Box>
-            <LanguageSwitcher fontcolor={theme.palette.darkBlue.main} />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
+              <LanguageSwitcher fontcolor={theme.palette.darkBlue.main} />
+              <Button
+                onClick={() => {
+                  localStorage.removeItem("token_admin_arhibo");
+                  navigate("/auth/login");
+                }}
+                color="error"
+                variant="contained"
+              >
+                Logout
+              </Button>
+            </Box>
           </Toolbar>
         </AppBar>
         <SidebarSection open={open} />

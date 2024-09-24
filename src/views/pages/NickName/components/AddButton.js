@@ -86,8 +86,8 @@ const AddButton = () => {
               nickname_ar : ""
             }}
             validationSchema={yup.object({
-              nickname: yup.string().required("nickname is required"),
-              nickname_ar : yup.string().required("arabic nickname is required")
+              nickname: yup.string().max(9).required("nickname is required"),
+              nickname_ar : yup.string().max(9).required("arabic nickname is required")
             })}
             onSubmit={async (values) => {
               await createNickName.mutateAsync(values);
