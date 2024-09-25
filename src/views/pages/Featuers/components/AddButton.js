@@ -88,7 +88,7 @@ const AddButton = () => {
               name_ar: "",
               description: "",
               description_ar: "",
-              type: "withValue",
+              type: "withoutValue",
               price: "",
               quantity: 1,
               package_ids: [],
