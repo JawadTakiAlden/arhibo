@@ -7,7 +7,6 @@ import { useSnackbar } from "notistack";
 
 const useLogin = () => {
   const { successHandeler } = useOnSuccess();
-  const { errorHandeler } = useOnError();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const loginRequest = (data) => {
@@ -22,17 +21,21 @@ const useLogin = () => {
     mutationKey: ["login"],
     mutationFn: loginRequest,
     onSuccess: (data) => {
-      if(data?.data?.user?.type !== 1){
-        enqueueSnackbar('permission denide' , {variant : 'error'})
-          return 
+      if (data?.data?.user?.type !== 1) {
+        enqueueSnackbar("permission denide", { variant: "error" });
+        return;
       }
-      successHandeler(data, () => {
-        localStorage.setItem('token_admin_arhibo' , data.data.access_token)
-        navigate('/dashboard/home')
+      localStorage.setItem("token_admin_arhibo", data.data.access_token);
+      enqueueSnackbar("sign in successfully , welcome back", {
+        variant: "success",
       });
+      navigate("/dashboard/home");
     },
     onError: (error) => {
-
+      console.log(error)
+      if (error.response) {
+        enqueueSnackbar(error.response.data.error, { variant: "error" });
+      }
     },
   });
   return {

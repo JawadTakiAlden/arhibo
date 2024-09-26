@@ -20,7 +20,9 @@ const useCreateCoupon = () => {
       enqueueSnackbar(data?.data?.message, { variant: "success" });
     },
     onError: (error) => {
+      console.log(error)
       if (error.response) {
+        console.log(error?.response)
         enqueueSnackbar(error?.response?.data?.message, { variant: "error" });
       }
     },

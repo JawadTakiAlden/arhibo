@@ -146,6 +146,7 @@ const CreateCoupon = () => {
                   <DatePicker
                     label="Expiry Date"
                     value={values.expiry_date}
+                    disablePast
                     onChange={(newValue) => setFieldValue('expiry_date' , newValue)}
                   />
                 </LocalizationProvider>
