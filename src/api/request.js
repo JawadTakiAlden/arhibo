@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import i18next from "i18next";
-const client = axios.create({ baseURL: "https://api.dev1.gomaplus.tech/api" });
+const client = axios.create({ baseURL: "https://api.ar7ebo.gomaplus.tech/api" });
 client.interceptors.response.use(
   function (response) {
     return response;
